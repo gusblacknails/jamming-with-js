@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Arpeggiator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="./scripts/Tone.min.js"></script>
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./scripts/draggabilly.js"></script>
+    <script src="./scripts/Keyboard.js"></script>
+    <script src="./scripts/StartAudioContext.js"></script>
+    <script src="./scripts/Interface.js"></script>
+    <script src="./scripts/nexusUI.js"></script>
+     <script src="./scripts/teoria.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="./style/examples.css"> -->
+    <style>
+    .sampleBox {
+        width: 20px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="Content">
+        <div class="">
+            <canvas nx="matrix"></canvas>
+            <canvas nx="button"></canvas>
+        </div>
+    </div>
+    <script>
+    //here we set the root note
+    var chosenNote = prompt("Root Note?") 
+    var octave = prompt ("Wich octave?")
+    var noteParsed = `'${chosenNote + octave}'`
+    var note = teoria.note('a');
+    console.log(`"${noteParsed}"`)
+    // here we decide wich mode use
+     var escala =note.scale('flamenco').simple();
+
+     console.log(`"${escala[0].toUpperCase()+4}"`,`"${escala[1].toUpperCase()+4}"`)
+     //our synth sound 
+    var synth = new Tone.Synth();
+    synth.toMaster();
+    //the loop with a teoriaToTone parser
+    var pattern = new Tone.Pattern(function(time, note){
+    synth.triggerAttackRelease(note, 0.25);
+},[`${escala[0].toUpperCase()+4}`,` ${escala[1].toUpperCase()+4}`,`${escala[2].toUpperCase()+5}`,` ${escala[3].toUpperCase()+5}`,` ${escala[4].toUpperCase()+5}`,`${escala[5].toUpperCase()+5}`,` ${escala[6].toUpperCase()+5}`]);
+    pattern.start(1)
+    // Tone.Transport.start();
+    </script>
+</body>
+
+</html>
