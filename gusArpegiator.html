@@ -12,7 +12,7 @@
     <script src="./scripts/StartAudioContext.js"></script>
     <script src="./scripts/Interface.js"></script>
     <script src="./scripts/nexusUI.js"></script>
-     <script src="./scripts/teoria.js"></script>
+    <script src="./scripts/teoria.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="./style/examples.css"> -->
     <style>
     .sampleBox {
@@ -24,30 +24,100 @@
 <body>
     <div id="Content">
         <div class="">
-            <canvas nx="matrix"></canvas>
-            <canvas nx="button"></canvas>
+            <select onchange="ChoseRootNote()" id="root_note">
+                <option selected>Root Note</option>
+                <option value="A">A</option>
+                <option value="A#">A#</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="C#">C#</option>
+                <option value="D">D</option>
+                <option value="D#">D#</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="F#">F#</option>
+                <option value="G">G</option>
+                <option value="G#">G#</option>
+            </select>
+            <select onchange="ChosenScale()" id="scale">
+                <option selected>Scale</option>
+                <option value="aeolian">aeolian</option>
+                <option value="blues">blues</option>
+                <option value="chromatic">chromatic</option>
+                <option value="dorian">dorian</option>
+                <option value="doubleharmonic">doubleharmonic</option>
+                <option value="harmonicminor">harmonicminor</option>
+                <option value="ionian">ionian</option>
+                <option value="locrian">locrian</option>
+                <option value="lydian">lydian</option>
+                <option value="majorpentatonic">majorpentatonic</option>
+                <option value="minorpentatonic">minorpentatonic</option>
+                <option value="mixolydian">mixolydian</option>
+                <option value="phrygian">phrygian</option>
+                <option value="wholetone">wholetone</option>
+                <option value="harmonicchromatic">harmonicchromatic</option>
+                <option value="minor">minor</option>
+                <option value="major">major</option>
+                <option value="flamenco">flamenco</option>
+            </select>
+            <button id="start" onclick="start()">Start</button>
         </div>
     </div>
     <script>
+    
     //here we set the root note
-    var chosenNote = prompt("Root Note?") 
-    var octave = prompt ("Wich octave?")
-    var noteParsed = `'${chosenNote + octave}'`
-    var note = teoria.note('a');
-    console.log(`"${noteParsed}"`)
-    // here we decide wich mode use
-     var escala =note.scale('flamenco').simple();
+    
+    // var note = "";
+    // function ChoseRootNote (){var chosenNote =$("#root_note").val();
+    // console.log(chosenNote)
+    // note = teoria.note(chosenNote)
+    // console.log(note)
+    // return note
+    // }
+    // var rootNote = note
+    // console.log(rootNote)
 
-     console.log(`"${escala[0].toUpperCase()+4}"`,`"${escala[1].toUpperCase()+4}"`)
-     //our synth sound 
-    var synth = new Tone.Synth();
-    synth.toMaster();
-    //the loop with a teoriaToTone parser
-    var pattern = new Tone.Pattern(function(time, note){
-    synth.triggerAttackRelease(note, 0.25);
-},[`${escala[0].toUpperCase()+4}`,` ${escala[1].toUpperCase()+4}`,`${escala[2].toUpperCase()+5}`,` ${escala[3].toUpperCase()+5}`,` ${escala[4].toUpperCase()+5}`,`${escala[5].toUpperCase()+5}`,` ${escala[6].toUpperCase()+5}`]);
-    pattern.start(1)
-    // Tone.Transport.start();
+    
+    // function ChosenScale () {var chosenEscale =$("#scale").val();
+    // console.log(chosenEscale)
+    // return chosenEscale
+    // } 
+    function escala(note,scale){
+    var output = note.scale(scale).simple();
+    return output
+     }  
+    $("#start").on("click", function (){
+    let note =$("#root_note").val();
+    console.log(note)
+    let scale = $("#scale").val();
+    console.log(scale)
+    escala(note,scale)
+    console.log(escala)
+    // Tone.Transport.start()
+    })
+
+    
+
+    
+
+
+    
+    
+    
+    // here we decide wich mode use
+    // function escala(note){
+    
+
+    // console.log(`"${escala[0].toUpperCase()+4}"`, `"${escala[1].toUpperCase()+4}"`)}
+        //our synth sound 
+    // var synth = new Tone.Synth()
+    // synth.toMaster()
+    //     //the loop with a teoriaToTone parser
+    // var pattern = new Tone.Pattern(function(time, note) {
+    //     synth.triggerAttackRelease(note, 0.25);
+    // }, [`${escala[0].toUpperCase()+4}`, ` ${escala[1].toUpperCase()+4}`, `${escala[2].toUpperCase()+5}`, ` ${escala[3].toUpperCase()+5}`, ` ${escala[4].toUpperCase()+5}`, `${escala[5].toUpperCase()+5}`, ` ${escala[6].toUpperCase()+5}`])
+    // pattern.start(1)
+    // Tone.Transport.start()
     </script>
 </body>
 
