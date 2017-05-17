@@ -13,7 +13,7 @@
     <script src="./scripts/Interface.js"></script>
     <script src="./scripts/nexusUI.js"></script>
     <script src="./scripts/teoria.js"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="./style/examples.css"> -->
+    <link rel="stylesheet" href="style.css">
     <style>
     .sampleBox {
         width: 20px;
@@ -24,7 +24,7 @@
 <body>
     <div id="Content">
         <div class="">
-            <select id="root_note">
+            <select id="root_note" >
                 <option selected>Root Note</option>
                 <option value="A">A</option>
                 <option value="A#">A#-Bb</option>
@@ -41,30 +41,64 @@
             </select>
             <select id="scale">
                 <option selected>Scale</option>
-                <option value="aeolian">aeolian</option>
-                <option value="blues">blues</option>
-                <option value="chromatic">chromatic</option>
-                <option value="dorian">dorian</option>
-                <option value="doubleharmonic">doubleharmonic</option>
-                <option value="harmonicminor">harmonicminor</option>
                 <option value="ionian">ionian</option>
-                <option value="locrian">locrian</option>
+                <option value="dorian">dorian</option>
+                <option value="phrygian">phrygian</option>
+                <option value="flamenco">flamenco</option>
                 <option value="lydian">lydian</option>
+                <option value="mixolydian">mixolydian</option>
+                <option value="aeolian">aeolian</option>
+                <option value="harmonicminor">harmonicminor</option>
+                <option value="locrian">locrian</option>
+                <option value="blues">blues</option>
                 <option value="majorpentatonic">majorpentatonic</option>
                 <option value="minorpentatonic">minorpentatonic</option>
-                <option value="mixolydian">mixolydian</option>
-                <option value="phrygian">phrygian</option>
+                <option value="chromatic">chromatic</option>
                 <option value="wholetone">wholetone</option>
                 <option value="harmonicchromatic">harmonicchromatic</option>
-                <option value="minor">minor</option>
-                <option value="major">major</option>
-                <option value="flamenco">flamenco</option>
+                <option value="doubleharmonic">doubleharmonic</option>
             </select>
-            <button id="start">Start</button>
+            <button id="start" class="key">Play Scale</button>
         </div>
+
+  <div class="keys">
+    <div data-key="65" class="key">
+      <p>A</p>
+      <span id="A" class="sound"></span>
     </div>
+    <div data-key="83" class="key">
+      <p >S</p>
+      <span id="S" class="sound"></span>
+    </div>
+    <div data-key="68" class="key">
+      <p >D</p>
+      <span id="D" class="sound"></span>
+    </div>
+    <div data-key="70" class="key">
+      <p >F</p>
+      <span id="F" class="sound"></span>
+    </div>
+    <div data-key="71" class="key">
+      <p>G</p>
+      <span id="G" class="sound"></span>
+    </div>
+    <div data-key="72" class="key">
+      <p>H</p>
+      <span id="H" class="sound"></span>
+    </div>
+    <div data-key="74" class="key">
+      <p >J</p>
+      <span id="J" class="sound"></span>
+    </div>
+    <div data-key="75" class="key">
+      <p>K</p>
+      <span id="K" class="sound"></span>
+    </div>
+    </div>
+
     <script>
-  
+    //patterns
+    // var threeNotePatterns = [ [`${escala[0].toUpperCase()+4}`, ` ${escala[2].toUpperCase()+4}`, `${escala[4].toUpperCase()+4}`],[`${escala[2].toUpperCase()+4}`, ` ${escala[4].toUpperCase()+4}`, `${escala[0].toUpperCase()+4}`],[`${escala[4].toUpperCase()+4}`, ` ${escala[0].toUpperCase()+4}`, `${escala[2].toUpperCase()+4}`]]
 
     var note = ""
     var scale = []
@@ -77,7 +111,7 @@
         console.log(note)
         var chosenScale = $("#scale").val();
         console.log(chosenScale)
-        // here we decide wich mode use
+        //here we decide wich mode use
         escala = note.scale(chosenScale).simple();
         //creating a simple synth
         var synth = new Tone.Synth()
@@ -85,8 +119,18 @@
         //the loop with a teoriaToTone parser
         var pattern = new Tone.Pattern(function(time, note) {
             synth.triggerAttackRelease(note, 0.25);
-        }, [`${escala[0].toUpperCase()+4}`, ` ${escala[1].toUpperCase()+4}`, `${escala[2].toUpperCase()+5}`, ` ${escala[3].toUpperCase()+5}`, ` ${escala[4].toUpperCase()+5}`, `${escala[5].toUpperCase()+5}`, ` ${escala[6].toUpperCase()+5}`])
+        }, [`${escala[0].toUpperCase()+4}`, ` ${escala[1].toUpperCase()+4}`, `${escala[2].toUpperCase()+4}`, ` ${escala[3].toUpperCase()+4}`, ` ${escala[4].toUpperCase()+4}`, `${escala[5].toUpperCase()+4}`, ` ${escala[6].toUpperCase()+4}`])
         pattern.start(1)
+         $("#A").text(`${escala[0].toUpperCase()}`)
+
+         $("#S").text(`${escala[1].toUpperCase()}`)
+         $("#D").text(`${escala[2].toUpperCase()}`)
+         $("#F").text(`${escala[3].toUpperCase()}`)
+         $("#G").text(`${escala[4].toUpperCase()}`)
+         $("#H").text(`${escala[5].toUpperCase()}`)
+         $("#J").text(`${escala[6].toUpperCase()}`)
+         $("#K").text(`${escala[0].toUpperCase()}`)
+
         Tone.Transport.start()
     })
 
