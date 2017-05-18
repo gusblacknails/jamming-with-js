@@ -23,8 +23,8 @@
 
 <body>
     <div id="Content">
-        <div class="">
-            <select id="root_note" >
+        <div class="parameters">
+            <select id="root_note" class="selection">
                 <option selected>Root Note</option>
                 <option value="A">A</option>
                 <option value="A#">A#-Bb</option>
@@ -39,7 +39,7 @@
                 <option value="G">G</option>
                 <option value="G#">G#-Ab</option>
             </select>
-            <select id="scale">
+            <select id="scale" class="selection">
                 <option selected>Scale</option>
                 <option value="ionian">ionian</option>
                 <option value="dorian">dorian</option>
@@ -60,82 +60,140 @@
             </select>
             <button id="start" class="key">Play Scale</button>
         </div>
+        <div class="keys">
+            <div data-key="65" class="key">
+                <p>A</p>
+                <span id="A" class="sound"></span>
+            </div>
+            <div data-key="83" class="key">
+                <p>S</p>
+                <span id="S" class="sound"></span>
+            </div>
+            <div data-key="68" class="key">
+                <p>D</p>
+                <span id="D" class="sound"></span>
+            </div>
+            <div data-key="70" class="key">
+                <p>F</p>
+                <span id="F" class="sound"></span>
+            </div>
+            <div data-key="71" class="key">
+                <p>G</p>
+                <span id="G" class="sound"></span>
+            </div>
+            <div data-key="72" class="key">
+                <p>H</p>
+                <span id="H" class="sound"></span>
+            </div>
+            <div data-key="74" class="key">
+                <p>J</p>
+                <span id="J" class="sound"></span>
+            </div>
+            <div data-key="75" class="key">
+                <p>K</p>
+                <span id="K" class="sound"></span>
+            </div>
+        </div>
+        <script>
+        //patterns
+        // var threeNotePatterns = [ [`${escala[0].toUpperCase()+4}`, ` ${escala[2].toUpperCase()+4}`, `${escala[4].toUpperCase()+4}`],[`${escala[2].toUpperCase()+4}`, ` ${escala[4].toUpperCase()+4}`, `${escala[0].toUpperCase()+4}`],[`${escala[4].toUpperCase()+4}`, ` ${escala[0].toUpperCase()+4}`, `${escala[2].toUpperCase()+4}`]]
 
-  <div class="keys">
-    <div data-key="65" class="key">
-      <p>A</p>
-      <span id="A" class="sound"></span>
-    </div>
-    <div data-key="83" class="key">
-      <p >S</p>
-      <span id="S" class="sound"></span>
-    </div>
-    <div data-key="68" class="key">
-      <p >D</p>
-      <span id="D" class="sound"></span>
-    </div>
-    <div data-key="70" class="key">
-      <p >F</p>
-      <span id="F" class="sound"></span>
-    </div>
-    <div data-key="71" class="key">
-      <p>G</p>
-      <span id="G" class="sound"></span>
-    </div>
-    <div data-key="72" class="key">
-      <p>H</p>
-      <span id="H" class="sound"></span>
-    </div>
-    <div data-key="74" class="key">
-      <p >J</p>
-      <span id="J" class="sound"></span>
-    </div>
-    <div data-key="75" class="key">
-      <p>K</p>
-      <span id="K" class="sound"></span>
-    </div>
-    </div>
-
-    <script>
-    //patterns
-    // var threeNotePatterns = [ [`${escala[0].toUpperCase()+4}`, ` ${escala[2].toUpperCase()+4}`, `${escala[4].toUpperCase()+4}`],[`${escala[2].toUpperCase()+4}`, ` ${escala[4].toUpperCase()+4}`, `${escala[0].toUpperCase()+4}`],[`${escala[4].toUpperCase()+4}`, ` ${escala[0].toUpperCase()+4}`, `${escala[2].toUpperCase()+4}`]]
-
-    var note = ""
-    var scale = []
-   
-    var escala = $("#start").on("click", function() {
-        var chosenNote = $("#root_note").val();
-        console.log(chosenNote)
-        //here we set the root note
-        note = teoria.note(chosenNote)
-        console.log(note)
-        var chosenScale = $("#scale").val();
-        console.log(chosenScale)
-        //here we decide wich mode use
-        escala = note.scale(chosenScale).simple();
-        //creating a simple synth
-        var synth = new Tone.Synth()
-        synth.toMaster()
-        //the loop with a teoriaToTone parser
-        var pattern = new Tone.Pattern(function(time, note) {
-            synth.triggerAttackRelease(note, 0.25);
-        }, [`${escala[0].toUpperCase()+4}`, ` ${escala[1].toUpperCase()+4}`, `${escala[2].toUpperCase()+4}`, ` ${escala[3].toUpperCase()+4}`, ` ${escala[4].toUpperCase()+4}`, `${escala[5].toUpperCase()+4}`, ` ${escala[6].toUpperCase()+4}`])
-        pattern.start(1)
-         $("#A").text(`${escala[0].toUpperCase()}`)
-
-         $("#S").text(`${escala[1].toUpperCase()}`)
-         $("#D").text(`${escala[2].toUpperCase()}`)
-         $("#F").text(`${escala[3].toUpperCase()}`)
-         $("#G").text(`${escala[4].toUpperCase()}`)
-         $("#H").text(`${escala[5].toUpperCase()}`)
-         $("#J").text(`${escala[6].toUpperCase()}`)
-         $("#K").text(`${escala[0].toUpperCase()}`)
-
-        Tone.Transport.start()
-    })
+        var note = ""
+        var key = 0
+        var actualScale = ""
+        var escala = []
 
 
-    </script>
+
+        // var escala = $("#start").on("click", function() {
+        //     var chosenNote = $("#root_note").val();
+        //     console.log(chosenNote)
+        //     //here we set the root note
+        //     note = teoria.note(chosenNote)
+        //     console.log(note)
+        //     var chosenScale = $("#scale").val();
+        //     console.log(chosenScale)
+        //     //here we decide wich mode use
+        //     escala = note.scale(chosenScale).simple();
+        //     //creating a simple synth
+        //     var synth = new Tone.Synth()
+        //     synth.toMaster()
+        //     //the loop with a teoriaToTone parser
+        //     var pattern = new Tone.Pattern(function(time, note) {
+        //         synth.triggerAttackRelease(note, 0.25);
+        //     }, [`${escala[0].toUpperCase()+4}`, ` ${escala[1].toUpperCase()+4}`, `${escala[2].toUpperCase()+4}`, ` ${escala[3].toUpperCase()+4}`, ` ${escala[4].toUpperCase()+4}`, `${escala[5].toUpperCase()+4}`, ` ${escala[6].toUpperCase()+4}`])
+        //     pattern.start(1)
+        //      $("#A").text(`${escala[0].toUpperCase()}`)
+        //      $("#S").text(`${escala[1].toUpperCase()}`)
+        //      $("#D").text(`${escala[2].toUpperCase()}`)
+        //      $("#F").text(`${escala[3].toUpperCase()}`)
+        //      $("#G").text(`${escala[4].toUpperCase()}`)
+        //      $("#H").text(`${escala[5].toUpperCase()}`)
+        //      $("#J").text(`${escala[6].toUpperCase()}`)
+        //      $("#K").text(`${escala[0].toUpperCase()}`)
+        //      // Tone.Transport.start()
+        //     })
+
+        $("#start").on("click", function() {
+
+
+            var chosenNote = $("#root_note").val();
+            console.log(chosenNote)
+                //here we set the root note
+            note = teoria.note(chosenNote)
+            console.log(note)
+            var chosenScale = $("#scale").val();
+            console.log(chosenScale)
+                //here we decide wich mode use
+            escala = note.scale(chosenScale).simple();
+            //setting the notes on the boxes
+            $("#A").text(`${escala[0].toUpperCase()}`)
+            $("#S").text(`${escala[1].toUpperCase()}`)
+            $("#D").text(`${escala[2].toUpperCase()}`)
+            $("#F").text(`${escala[3].toUpperCase()}`)
+            $("#G").text(`${escala[4].toUpperCase()}`)
+            $("#H").text(`${escala[5].toUpperCase()}`)
+            $("#J").text(`${escala[6].toUpperCase()}`)
+            $("#K").text(`${escala[0].toUpperCase()}`)
+                //creating a simple synth
+
+
+
+            console.log(escala)
+            return escala
+        })
+
+
+        window.addEventListener('keydown', function(event) {
+            key = `${event.keyCode}`
+            console.log(key)
+            console.log(`${escala[0].toUpperCase()+4}`)
+            var synth = new Tone.Synth().toMaster()
+            if (key == 65) {
+                synth.triggerAttackRelease(`${escala[0].toUpperCase()+4}`, '4n')
+            }
+            if (key == 83) {
+                synth.triggerAttackRelease(`${escala[1].toUpperCase()+4}`, '4n')
+            }
+            if (key == 68) {
+                synth.triggerAttackRelease(`${escala[2].toUpperCase()+4}`, '4n')
+            }
+            if (key == 70) {
+                synth.triggerAttackRelease(`${escala[3].toUpperCase()+4}`, '4n')
+            }
+            if (key == 71) {
+                synth.triggerAttackRelease(`${escala[4].toUpperCase()+4}`, '4n')
+            }
+            if (key == 72) {
+                synth.triggerAttackRelease(`${escala[5].toUpperCase()+4}`, '4n')
+            }
+            if (key == 74) {
+                synth.triggerAttackRelease(`${escala[6].toUpperCase()+4}`, '4n')
+            }
+
+
+        })
+        </script>
 </body>
 
 </html>
