@@ -14,11 +14,6 @@
     <script src="./scripts/nexusUI.js"></script>
     <script src="./scripts/teoria.js"></script>
     <link rel="stylesheet" href="style.css">
-    <style>
-    .sampleBox {
-        width: 20px;
-    }
-    </style>
 </head>
 
 <body>
@@ -58,7 +53,9 @@
                 <option value="harmonicchromatic">harmonicchromatic</option>
                 <option value="doubleharmonic">doubleharmonic</option>
             </select>
-            <button id="start" class="key">Play Scale</button>
+            <button id="set" class="key">Set Scale</button>
+            <button id="play" class="key">PLAY</button>
+            <button id="stop" class="key">STOP</button>
         </div>
         <div class="keys">
             <div data-key="65" class="key">
@@ -93,7 +90,12 @@
                 <p>K</p>
                 <span id="K" class="sound"></span>
             </div>
+            
         </div>
+        <p>SEQUENCER</p>
+            <canvas nx="matrix"></canvas>
+            <p>DRUM MACHINE</p>
+            <canvas nx="matrix"></canvas>
         <script>
         //patterns
         // var threeNotePatterns = [ [`${escala[0].toUpperCase()+4}`, ` ${escala[2].toUpperCase()+4}`, `${escala[4].toUpperCase()+4}`],[`${escala[2].toUpperCase()+4}`, ` ${escala[4].toUpperCase()+4}`, `${escala[0].toUpperCase()+4}`],[`${escala[4].toUpperCase()+4}`, ` ${escala[0].toUpperCase()+4}`, `${escala[2].toUpperCase()+4}`]]
@@ -104,39 +106,9 @@
         var escala = []
 
 
-
-        // var escala = $("#start").on("click", function() {
-        //     var chosenNote = $("#root_note").val();
-        //     console.log(chosenNote)
-        //     //here we set the root note
-        //     note = teoria.note(chosenNote)
-        //     console.log(note)
-        //     var chosenScale = $("#scale").val();
-        //     console.log(chosenScale)
-        //     //here we decide wich mode use
-        //     escala = note.scale(chosenScale).simple();
-        //     //creating a simple synth
-        //     var synth = new Tone.Synth()
-        //     synth.toMaster()
-        //     //the loop with a teoriaToTone parser
-        //     var pattern = new Tone.Pattern(function(time, note) {
-        //         synth.triggerAttackRelease(note, 0.25);
-        //     }, [`${escala[0].toUpperCase()+4}`, ` ${escala[1].toUpperCase()+4}`, `${escala[2].toUpperCase()+4}`, ` ${escala[3].toUpperCase()+4}`, ` ${escala[4].toUpperCase()+4}`, `${escala[5].toUpperCase()+4}`, ` ${escala[6].toUpperCase()+4}`])
-        //     pattern.start(1)
-        //      $("#A").text(`${escala[0].toUpperCase()}`)
-        //      $("#S").text(`${escala[1].toUpperCase()}`)
-        //      $("#D").text(`${escala[2].toUpperCase()}`)
-        //      $("#F").text(`${escala[3].toUpperCase()}`)
-        //      $("#G").text(`${escala[4].toUpperCase()}`)
-        //      $("#H").text(`${escala[5].toUpperCase()}`)
-        //      $("#J").text(`${escala[6].toUpperCase()}`)
-        //      $("#K").text(`${escala[0].toUpperCase()}`)
-        //      // Tone.Transport.start()
-        //     })
-
-        $("#start").on("click", function() {
-
-
+        $("#play").on("click", () => loop.start())
+        $("#stop").on("click", () => loop.stop())
+        $("#set").on("click", function() {
             var chosenNote = $("#root_note").val();
             console.log(chosenNote)
                 //here we set the root note
@@ -155,9 +127,6 @@
             $("#H").text(`${escala[5].toUpperCase()}`)
             $("#J").text(`${escala[6].toUpperCase()}`)
             $("#K").text(`${escala[0].toUpperCase()}`)
-                //creating a simple synth
-
-
 
             console.log(escala)
             return escala
@@ -169,6 +138,7 @@
             console.log(key)
             console.log(`${escala[0].toUpperCase()+4}`)
             var synth = new Tone.Synth().toMaster()
+
             if (key == 65) {
                 synth.triggerAttackRelease(`${escala[0].toUpperCase()+4}`, '4n')
             }
@@ -190,9 +160,77 @@
             if (key == 74) {
                 synth.triggerAttackRelease(`${escala[6].toUpperCase()+4}`, '4n')
             }
+            if (key == 75) {
+                synth.triggerAttackRelease(`${escala[0].toUpperCase()+5}`, '4n')
+            }
 
 
         })
+
+        //sequencer
+
+        // var piano = new Tone.Synth({
+        //     "oscillator" : {
+        //         "type" : "fmsine4",
+        //         "modulationType" : "square"
+        //     }
+        // }).toMaster();
+
+        // var loop = new Tone.Pattern(function(time, note){
+        //     piano.triggerAttackRelease(note, "16n", time);
+
+        //     // Draw.schedule takes a callback and a time to invoke the callback
+        //     Tone.Draw.schedule(function(){
+        //         //the callback synced to the animation frame at the given time
+        //         $("#"+note).css("opacity", 1).animate({"opacity" : 0}, 300)
+        //     }, time);
+        // }, ["C4", "E4", "G4", "B4", "D5"]).start(0);
+
+        // loop.interval = "16n";
+        var keys = new Tone.MultiPlayer({
+            urls: {
+                "sP": "./samples/snarePunch.mp3",
+                "kP": "./samples/kickPunch.mp3",
+                "hh": "./samples/hihat.mp3",
+                "s": "./samples/snare.mp3",
+            },
+            volume: -6,
+            fadeOut: 0.1,
+        }).toMaster();
+
+        //the notes
+        var noteNames = ["kP", "sP", "hh", "s"];
+
+        var loop = new Tone.Sequence(function(time, col) {
+            var column = matrix2.matrix[col];
+            for (var i = 0; i < 4; i++) {
+                if (column[i] === 1) {
+                    //slightly randomized velocities
+                    var vel = Math.random() * 0.5 + 0.5;
+                    keys.start(noteNames[i], time, 0, "16n", 0, vel);
+                }
+            }
+        }, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "32n");
+
+        Tone.Transport.start();
+
+        //GUI
+
+        nx.onload = function() {
+            //sequencer matrix
+            nx.colorize("#ffc600");
+            matrix1.row = 8;
+            matrix1.col = 16;
+            matrix1.resize($("#Content").width(), 300);
+            matrix1.init();
+            //drum machine matrix
+            nx.colorize("#ffc600");
+            matrix2.row = 4;
+            matrix2.col = 16;
+            matrix2.resize($("#Content").width(), 300);
+            matrix2.init();
+
+        }
         </script>
 </body>
 

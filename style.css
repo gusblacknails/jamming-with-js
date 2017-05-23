@@ -1,7 +1,7 @@
 html {
   font-size: 10px;
-  background: bottom center;
-  background-size: cover;
+  /*background: bottom center;
+  background-size: cover;*/
 }
 body,html {
   margin: 0;
@@ -18,8 +18,8 @@ body,html {
 }
 .keys {
   display: flex;
-  flex: 1;
-  min-height: 100vh;
+  /*flex: 1;*/
+  /*min-height: 100vh;*/
   align-items: center;
   justify-content: center;
 }
@@ -51,7 +51,7 @@ p {
 
 .sound {
   font-size: 1.2rem;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   letter-spacing: .1rem;
   color: #ffc600;
 }
