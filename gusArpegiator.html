@@ -15,6 +15,7 @@
 <body>
     <div id="Content">
         <div class="parameters">
+
             <select id="root_note" class="selection">
                 <option selected>Root Note</option>
                 <option value="A">A</option>
@@ -52,6 +53,8 @@
             <button id="set" class="key">Set Scale</button>
             <button id="play" class="key">PLAY</button>
             <button id="stop" class="key">STOP</button>
+            
+            <canvas nx="dial" id="tempo" label="BPM" min="60" max="220"></canvas>
         </div>
         <div class="keys">
             <div data-key="65" class="key">
@@ -102,29 +105,35 @@
         var key = 0
         var actualScale = ""
         var escala = []
-        var tempo = 240
+        var tempo = 120
         
         
-
+        
+        //starting the drumMatrix and the Transport
         $("#play").on("click", () => {
-        drumMatrix.place= 0  
-        drumMatrix.sequence(tempo)
-        Tone.Transport.bpm.value = tempo 
-        loop.start() 
-        Tone.Transport.start()})
+        drumMatrix.place= 0 
+        
+        Tone.Transport.bpm.value = 120
+        
+        //stoping the drumMatrix and the Transport
+        Tone.Transport.start()
+         loop.start()                        })
         $("#stop").on("click", () => {
         drumMatrix.stop()
         drumMatrix.place= 0 
         Tone.Transport.stop()})
+
+        //setting the notes of the chosen scale&root into the boxes
         $("#set").on("click", () => {
             var chosenNote = $("#root_note").val();
             console.log(chosenNote)
-                //here we set the root note
+            
+            //here we set the root note
             note = teoria.note(chosenNote)
             console.log(note)
             var chosenScale = $("#scale").val();
             console.log(chosenScale)
-                //here we decide wich mode use
+            //here we decide wich mode use
             escala = note.scale(chosenScale).simple();
             //setting the notes on the boxes
             $("#A").text(`${escala[0].toUpperCase()}`)
@@ -140,13 +149,14 @@
             return escala
         })
 
-
+        //here we set the Tone notes that will sound in real time in the boxes
         window.addEventListener('keydown', function(event) {
+            //witch key is pressed in the exact moment
             key = `${event.keyCode}`
             console.log(key)
             console.log(`${escala[0].toUpperCase()+4}`)
             var synth = new Tone.Synth().toMaster()
-
+            // parsing the notes into ToneJS format
             if (key == 65) {
                 synth.triggerAttackRelease(`${escala[0].toUpperCase()+4}`, '8n')
             }
@@ -213,7 +223,7 @@
             var column = drumMatrix.matrix[col];
             for (var i = 0; i < 4; i++) {
                 if (column[i] === 1) {
-                    //slightly randomized velocities
+                    //setting random velocities for each drum sample
                     var vel = Math.random() * 0.5 + 0.5;
                     drumSampler.start(drumSound[i], time, 0, "32n", 0,vel);
                 }
@@ -232,10 +242,14 @@
         //GUI
 
         nx.onload = function() {
+
+            
+            
+            drumMatrix.sequence(120)
             
             //drum machine matrix
             nx.colorize("#ffc600")
-            // nx.colorize("border", "#E36209")
+           
             
             drumMatrix.row = 4
             drumMatrix.col = 16
@@ -244,13 +258,14 @@
             drumMatrix.init()
             //sequencer matrix
             nx.colorize("#ffc600")
-            // nx.colorize("border", "#E36209")
+            
             matrix2.row = 8
             matrix2.col = 16
             matrix2.resize($("#Content").width(), 300);
             matrix2.init()
 
         }
+
         </script>
 </body>
 

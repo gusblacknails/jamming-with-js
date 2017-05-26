@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MultiDrum</title>
+    <script src="./scripts/Tone.min.js"></script>
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./scripts/Interface.js"></script>
+    <script src="./scripts/nexusUI.js"></script>
+    <script src="./scripts/teoria.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button id="play" class="key">PLAY</button>
+    <button id="stop" class="key">STOP</button><br>
+    <canvas nx="matrix" id="drumMatrix"></canvas><br>
+    <canvas nx="matrix" id="drumMatrix2"></canvas><br>
+    <canvas nx="matrix" id="drumMatrix3"></canvas><br>
+     <canvas nx="matrix" id="drumMatrix4"></canvas>
+</body>
+<script>
+var drumSampler = new Tone.MultiPlayer({
+    urls: {
+        "sP": "./samples/snarePunch.mp3",
+        "kP": "./samples/kickPunch.mp3",
+        "hh": "./samples/hihat.mp3",
+        "s": "./samples/snare.mp3",
+    },
+    volume: -6,
+    fadeOut: 0.1,
+}).toMaster();
+
+//the notes
+var drumSound = ["kP", "sP", "hh", "s"];
+
+var negras = new Tone.Sequence(function(time, col) {
+    var column = drumMatrix.matrix[col];
+    for (var i = 0; i < 4; i++) {
+        if (column[i] === 1) {
+            //setting random velocities for each drum sample
+            var vel = 1;
+            drumSampler.start(drumSound[0], time, 0, "32n", 0, vel);
+        }
+    }
+    
+}, [0, 1, 2, 3], "4n");
+  
+  var corcheas = new Tone.Sequence(function(time, col) {
+    var column = drumMatrix2.matrix[col];
+    for (var i = 0; i < 4; i++) {
+        if (column[i] === 1) {
+            //setting random velocities for each drum sample
+            var vel = 1;
+            drumSampler.start(drumSound[0], time, 0, "32n", 0, vel);
+        }
+    }
+    
+}, [[0,0], [1,1],[2,2],[3,3]], "4n");
+   var tresillos = new Tone.Sequence(function(time, col) {
+    var column = drumMatrix3.matrix[col];
+    for (var i = 0; i < 4; i++) {
+        if (column[i] === 1) {
+            //setting random velocities for each drum sample
+            var vel = 1;
+            drumSampler.start(drumSound[0], time, 0, "32n", 0, vel);
+        }
+    }
+    
+}, [[0,0,0], [1,1,1],[2,2,2],[3,3,3]], "4n");
+
+  negras.start()
+  corcheas.start()
+  tresillos.start()
+
+  var semicorcheas = new Tone.Sequence(function(time, col) {
+    var column = drumMatrix4.matrix[col];
+    for (var i = 0; i < 4; i++) {
+        if (column[i] === 1) {
+            //setting random velocities for each drum sample
+            var vel = 1;
+            drumSampler.start(drumSound[0], time, 0, "32n", 0, vel);
+        }
+    }
+    
+}, [[0,0,0,0], [1,1,1,1],[2,2,2,2],[3,3,3,3]], "4n");
+
+  negras.start()
+  corcheas.start()
+  tresillos.start()
+  semicorcheas.start()
+
+
+nx.onload = function() {
+
+    //kick matrix
+    nx.colorize("#ffc600")
+
+    drumMatrix.row = 1
+    drumMatrix.col = 4
+    drumMatrix2.row = 1
+    drumMatrix2.col = 4
+    drumMatrix3.row = 1
+    drumMatrix3.col = 4
+    drumMatrix4.row = 1
+    drumMatrix4.col = 4
+    drumMatrix.init()
+    drumMatrix2.init()
+    drumMatrix3.init()
+    drumMatrix4.init()
+}
+
+
+$("#play").on("click", () => {
+	Tone.Transport.start()
+    drumMatrix.sequence(Tone.Transport.bpm.value)
+    drumMatrix2.sequence(Tone.Transport.bpm.value)
+    drumMatrix3.sequence(Tone.Transport.bpm.value)
+    drumMatrix4.sequence(Tone.Transport.bpm.value)
+
+    drumMatrix.init()
+    drumMatrix2.init()
+    drumMatrix3.init()
+    drumMatrix4.init()
+    
+})
+    //stoping the drumMatrix and the Transport
+
+$("#stop").on("click", () => {
+    drumMatrix.stop()
+    drumMatrix2.stop()
+    drumMatrix3.stop()
+    drumMatrix4.stop()
+    
+    Tone.Transport.stop()
+})
+Tone.Transport.bpm.value = 60
+//sequencer matrix
+</script>
