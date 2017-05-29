@@ -104,8 +104,8 @@ var drumSampler = new Tone.MultiPlayer({
     urls: {
         "sP": "./samples/snarePunch.mp3",
         "k1": "./samples/kickPunch.mp3",
-        "k2": "./samples/kickIbiza.mp3",
-        "k3": "./samples/kickBoomBap.mp3",
+        "k2": "./samples/kickRadiant.mp3",
+        "k3": "./samples/kickFutura.mp3",
         "hh": "./samples/hihat.mp3",
         "s": "./samples/snare.mp3",
     },
@@ -115,13 +115,14 @@ var drumSampler = new Tone.MultiPlayer({
 
 //the notes
 var drumSound = ["k1","k2","k3","sP","hh","s"];
+var kickSound = drumSound[0]
 
 var negras = new Tone.Sequence(function(time, col) {
     var column = kickMatrix.matrix[col];
     for (var i = 0; i < 4; i++) {
         if (column[i] === 1) {
             var vel = 1;
-            drumSampler.start(drumSound[0], time, 0, "32n", 0, vel);
+            drumSampler.start(kickSound, time, 0, "32n", 0, vel);
         }
     }
     
@@ -199,15 +200,18 @@ nx.onload = function() {
 }
 $('#kick1').click(function(){
         $(this).toggleClass("SampleSelection SampleSelectionOff ")
-        $('#kick2, kick3').addClass('SampleSelectionOff').removeClass('SampleSelection');
+        $('#kick2, #kick3').addClass('SampleSelectionOff').removeClass('SampleSelection');
+        kickSound = drumSound[0]
 });
 $('#kick2').click(function(){
-        $(this).toggleClass("SampleSelectionOff SampleSelection")
-        $('#kick1, kick3').addClass('SampleSelectionOff').removeClass('SampleSelection');       
+        $(this).toggleClass("SampleSelection SampleSelectionOff")
+        $('#kick1, #kick3').addClass('SampleSelectionOff').removeClass('SampleSelection');
+        kickSound = drumSound[1]       
 });
  $('#kick3').click(function(){
         $(this).toggleClass("SampleSelection SampleSelectionOff ")
-        $('#kick2, kick1').addClass('SampleSelectionOff').removeClass('SampleSelection');
+        $('#kick2, #kick1').addClass('SampleSelectionOff').removeClass('SampleSelection');
+        kickSound = drumSound[2]
 });
 $('.MuteButton').click(function(){
         $(this).toggleClass("MuteButton MuteButtonOff ");
