@@ -7,24 +7,105 @@
     <script src="./scripts/Tone.min.js"></script>
     <script src="./scripts/jquery.min.js"></script>
     <script src="./scripts/Interface.js"></script>
-    <script src="./scripts/nexusUI.js"></script>
+    <script src="./scripts/nexusUI.min.js"></script>
     <script src="./scripts/teoria.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+<style type="text/css">
 
+.kickBox{display: flex;
+	border-style: solid;
+	border-radius: 6px;
+	color:  #999999;
+	flex-direction: column;
+	width: 100px;
+
+	justify-content: space-between;
+}	
+.drumMachineBox {
+ width: 99px;  /* Or whatever */
+  height: 70px; /* Or whatever */
+  /*margin: auto; */ /* Magic! */
+  }
+.muteDiv {
+    display: flex;
+    justify-content: center;
+
+}  
+
+.MuteButtonOff{
+    border: none !important;
+    width: 70px;
+    height: 70px;
+    background: url(images/kickLogoBlack.png) no-repeat;
+    background-color: transparent;
+}
+.muteSampleDiv{
+    display: flex;
+    justify-content: space-around;
+    padding: 2px;
+
+}
+.SampleSelection{
+  background: #ffc600;
+  border: none /*!important*/;
+  border-radius: 3px;
+  font-family: Helvetica;
+  color: #FFF;
+  font-size: 10px;
+  text-decoration: none;
+  width: 32%;
+  min-height: 20px;
+
+}
+.SampleSelectionOff{
+  background: #999999;
+  border: none /*!important*/;
+  border-radius: 3px;
+  font-family: Helvetica;
+  color: #fff;
+  font-size: 10px;
+  text-decoration: none;
+  width: 32%;
+  min-height: 20px;
+
+}
+.MuteButton{
+    border: none /*!important*/;
+    width: 70px;
+    height: 70px;
+    background: url(images/kickLogoYellow.png) no-repeat;
+}
+button:focus {outline:0;}
+</style>
 <body>
     <button id="play" class="key">PLAY</button>
     <button id="stop" class="key">STOP</button><br>
-    <canvas nx="matrix" id="drumMatrix"></canvas><br>
-    <canvas nx="matrix" id="drumMatrix2"></canvas><br>
-    <canvas nx="matrix" id="drumMatrix3"></canvas><br>
-     <canvas nx="matrix" id="drumMatrix4"></canvas>
+    <div class="kickBox">  
+    <canvas nx="matrix" class="drumMachineBox" id="kickMatrix"></canvas>
+    <canvas nx="matrix" class="drumMachineBox" id="kickMatrix2"></canvas>
+    <canvas nx="matrix" class="drumMachineBox" id="kickMatrix3"></canvas>
+    <canvas nx="matrix" class="drumMachineBox" id="kickMatrix4"></canvas>
+    <div class="muteSampleDiv">
+       <button class="SampleSelection" id="kick1">1</button>
+       <button class="SampleSelectionOff" id="kick2">2</button>
+       <button class="SampleSelectionOff" id="kick3">3</button>
+    </div>
+    
+    <div class="muteDiv">
+        <button class="MuteButton" id="play"></button>
+    </div>
+    
+</div>
+  
 </body>
 <script>
 var drumSampler = new Tone.MultiPlayer({
     urls: {
         "sP": "./samples/snarePunch.mp3",
-        "kP": "./samples/kickPunch.mp3",
+        "k1": "./samples/kickPunch.mp3",
+        "k2": "./samples/kickIbiza.mp3",
+        "k3": "./samples/kickBoomBap.mp3",
         "hh": "./samples/hihat.mp3",
         "s": "./samples/snare.mp3",
     },
@@ -33,13 +114,12 @@ var drumSampler = new Tone.MultiPlayer({
 }).toMaster();
 
 //the notes
-var drumSound = ["kP", "sP", "hh", "s"];
+var drumSound = ["k1","k2","k3","sP","hh","s"];
 
 var negras = new Tone.Sequence(function(time, col) {
-    var column = drumMatrix.matrix[col];
+    var column = kickMatrix.matrix[col];
     for (var i = 0; i < 4; i++) {
         if (column[i] === 1) {
-            //setting random velocities for each drum sample
             var vel = 1;
             drumSampler.start(drumSound[0], time, 0, "32n", 0, vel);
         }
@@ -48,7 +128,7 @@ var negras = new Tone.Sequence(function(time, col) {
 }, [0, 1, 2, 3], "4n");
   
   var corcheas = new Tone.Sequence(function(time, col) {
-    var column = drumMatrix2.matrix[col];
+    var column = kickMatrix2.matrix[col];
     for (var i = 0; i < 4; i++) {
         if (column[i] === 1) {
             //setting random velocities for each drum sample
@@ -59,7 +139,7 @@ var negras = new Tone.Sequence(function(time, col) {
     
 }, [[0,0], [1,1],[2,2],[3,3]], "4n");
    var tresillos = new Tone.Sequence(function(time, col) {
-    var column = drumMatrix3.matrix[col];
+    var column = kickMatrix3.matrix[col];
     for (var i = 0; i < 4; i++) {
         if (column[i] === 1) {
             //setting random velocities for each drum sample
@@ -75,7 +155,7 @@ var negras = new Tone.Sequence(function(time, col) {
   tresillos.start()
 
   var semicorcheas = new Tone.Sequence(function(time, col) {
-    var column = drumMatrix4.matrix[col];
+    var column = kickMatrix4.matrix[col];
     for (var i = 0; i < 4; i++) {
         if (column[i] === 1) {
             //setting random velocities for each drum sample
@@ -93,45 +173,66 @@ var negras = new Tone.Sequence(function(time, col) {
 
 
 nx.onload = function() {
+	
 
     //kick matrix
     nx.colorize("#ffc600")
-
-    drumMatrix.row = 1
-    drumMatrix.col = 4
-    drumMatrix2.row = 1
-    drumMatrix2.col = 4
-    drumMatrix3.row = 1
-    drumMatrix3.col = 4
-    drumMatrix4.row = 1
-    drumMatrix4.col = 4
-    drumMatrix.init()
-    drumMatrix2.init()
-    drumMatrix3.init()
-    drumMatrix4.init()
+    // nx.colorize( "fill","#F1D6BB")
+    kickMatrix.row = 1
+    kickMatrix.col = 4
+    kickMatrix2.row = 1
+    kickMatrix2.col = 4
+    kickMatrix3.row = 1
+    kickMatrix3.col = 4
+    kickMatrix4.row = 1
+    kickMatrix4.col = 4
+    kickMatrix.init()
+    kickMatrix2.init()
+    kickMatrix3.init()
+    kickMatrix4.init()
+    
+    
+    // button1.setImage("images/kickLogoYellow.png")
+    // button1.setTouchImage( "images/kickLogoBlack.png" )
+    // button1.mode ="toggle"
+    // button1.init()
 }
+$('#kick1').click(function(){
+        $(this).toggleClass("SampleSelection SampleSelectionOff ")
+        $('#kick2, kick3').addClass('SampleSelectionOff').removeClass('SampleSelection');
+});
+$('#kick2').click(function(){
+        $(this).toggleClass("SampleSelectionOff SampleSelection")
+        $('#kick1, kick3').addClass('SampleSelectionOff').removeClass('SampleSelection');       
+});
+ $('#kick3').click(function(){
+        $(this).toggleClass("SampleSelection SampleSelectionOff ")
+        $('#kick2, kick1').addClass('SampleSelectionOff').removeClass('SampleSelection');
+});
+$('.MuteButton').click(function(){
+        $(this).toggleClass("MuteButton MuteButtonOff ");
+    });
 
 
 $("#play").on("click", () => {
 	Tone.Transport.start()
-    drumMatrix.sequence(Tone.Transport.bpm.value)
-    drumMatrix2.sequence(Tone.Transport.bpm.value)
-    drumMatrix3.sequence(Tone.Transport.bpm.value)
-    drumMatrix4.sequence(Tone.Transport.bpm.value)
-
-    drumMatrix.init()
-    drumMatrix2.init()
-    drumMatrix3.init()
-    drumMatrix4.init()
+    kickMatrix.sequence(Tone.Transport.bpm.value)
+    kickMatrix2.sequence(Tone.Transport.bpm.value)
+    kickMatrix3.sequence(Tone.Transport.bpm.value)
+    kickMatrix4.sequence(Tone.Transport.bpm.value)
+    kickMatrix.init()
+    kickMatrix2.init()
+    kickMatrix3.init()
+    kickMatrix4.init()
     
 })
     //stoping the drumMatrix and the Transport
 
 $("#stop").on("click", () => {
-    drumMatrix.stop()
-    drumMatrix2.stop()
-    drumMatrix3.stop()
-    drumMatrix4.stop()
+    kickMatrix.stop()
+    kickMatrix2.stop()
+    kickMatrix3.stop()
+    kickMatrix4.stop()
     
     Tone.Transport.stop()
 })
