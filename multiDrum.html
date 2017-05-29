@@ -81,7 +81,8 @@ button:focus {outline:0;}
 <body>
     <button id="play" class="key">PLAY</button>
     <button id="stop" class="key">STOP</button><br>
-    <div class="kickBox">  
+    <div class="drumMachineDiv">
+         <div class="kickBox">  
     <canvas nx="matrix" class="drumMachineBox" id="kickMatrix"></canvas>
     <canvas nx="matrix" class="drumMachineBox" id="kickMatrix2"></canvas>
     <canvas nx="matrix" class="drumMachineBox" id="kickMatrix3"></canvas>
@@ -93,11 +94,11 @@ button:focus {outline:0;}
     </div>
     
     <div class="muteDiv">
-        <button class="MuteButton" id="play"></button>
+        <button class="MuteButton" id="muteKick"></button>
     </div>
     
 </div>
-  
+    </div>
 </body>
 <script>
 var drumSampler = new Tone.MultiPlayer({
@@ -151,9 +152,6 @@ var negras = new Tone.Sequence(function(time, col) {
     
 }, [[0,0,0], [1,1,1],[2,2,2],[3,3,3]], "4n");
 
-  negras.start()
-  corcheas.start()
-  tresillos.start()
 
   var semicorcheas = new Tone.Sequence(function(time, col) {
     var column = kickMatrix4.matrix[col];
@@ -167,11 +165,8 @@ var negras = new Tone.Sequence(function(time, col) {
     
 }, [[0,0,0,0], [1,1,1,1],[2,2,2,2],[3,3,3,3]], "4n");
 
-  negras.start()
-  corcheas.start()
-  tresillos.start()
-  semicorcheas.start()
-
+  
+// Tone.Transport.loop =0, 4;
 
 nx.onload = function() {
 	
@@ -192,11 +187,6 @@ nx.onload = function() {
     kickMatrix3.init()
     kickMatrix4.init()
     
-    
-    // button1.setImage("images/kickLogoYellow.png")
-    // button1.setTouchImage( "images/kickLogoBlack.png" )
-    // button1.mode ="toggle"
-    // button1.init()
 }
 $('#kick1').click(function(){
         $(this).toggleClass("SampleSelection SampleSelectionOff ")
@@ -213,13 +203,38 @@ $('#kick2').click(function(){
         $('#kick2, #kick1').addClass('SampleSelectionOff').removeClass('SampleSelection');
         kickSound = drumSound[2]
 });
-$('.MuteButton').click(function(){
-        $(this).toggleClass("MuteButton MuteButtonOff ");
-    });
+$('#muteKick').on("click",function(){
+
+    if ( $( this ).hasClass("MuteButton") ) {
+ 
+        $( this )
+        console.log("Mutebutton pressed")
+        negras.stop()
+        corcheas.stop()
+        tresillos.stop()
+        semicorcheas.stop()
+        $('#muteKick').toggleClass("MuteButton MuteButtonOff");
+ }
+     else {
+ 
+        $( this )
+        console.log("MutebuttonOff pressed")
+        negras.start()
+        corcheas.start()
+        tresillos.start()
+        semicorcheas.start()
+        $('#muteKick').toggleClass("MuteButtonOff MuteButton"); 
+ }
+ 
+});
 
 
 $("#play").on("click", () => {
 	Tone.Transport.start()
+    negras.start()
+    corcheas.start()
+    tresillos.start()
+    semicorcheas.start()
     kickMatrix.sequence(Tone.Transport.bpm.value)
     kickMatrix2.sequence(Tone.Transport.bpm.value)
     kickMatrix3.sequence(Tone.Transport.bpm.value)
@@ -241,5 +256,11 @@ $("#stop").on("click", () => {
     Tone.Transport.stop()
 })
 Tone.Transport.bpm.value = 60
-//sequencer matrix
+// Tone.Transport.set({
+//     "loop" : true,
+//     "loopStart" : 0,
+//     "loopEnd" : "1n",
+// });
+
+
 </script>
