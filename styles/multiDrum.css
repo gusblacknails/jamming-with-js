@@ -29,14 +29,14 @@
     ;
     width: 70px;
     height: 70px;
-    background: url(images/kickLogoYellow.png) no-repeat;
+    background: url(../images/kickLogoYellow.png) no-repeat;
 }
 
 .kickMuteButtonOff {
     border: none;
     width: 70px;
     height: 70px;
-    background: url(images/kickLogoBlack.png) no-repeat;
+    background: url(../images/kickLogoBlack.png) no-repeat;
     background-size: 10% 10% background-color: transparent;
 }
 .snareMuteButton {
@@ -44,14 +44,14 @@
     ;
     width: 70px;
     height: 70px;
-    background: url(images/snareLogoYellow.png) no-repeat;
+    background: url(../images/snareLogoYellow.png) no-repeat;
 }
 
 .snareMuteButtonOff {
     border: none;
     width: 70px;
     height: 70px;
-    background: url(images/snareLogoBlack.png) no-repeat;
+    background: url(../images/snareLogoBlack.png) no-repeat;
     background-size: 10% 10% background-color: transparent;
 }
 .hihatMuteButton {
@@ -59,14 +59,14 @@
     ;
     width: 70px;
     height: 70px;
-    background: url(images/hihatLogoYellow.png) no-repeat;
+    background: url(../images/hihatLogoYellow.png) no-repeat;
 }
 
 .hihatMuteButtonOff {
     border: none;
     width: 70px;
     height: 70px;
-    background: url(images/hihatLogoBlack.png) no-repeat;
+    background: url(../images/hihatLogoBlack.png) no-repeat;
     background-size: 10% 10% background-color: transparent;
 }
 .FXMuteButton {
@@ -74,14 +74,14 @@
     ;
     width: 70px;
     height: 70px;
-    background: url(images/fxLogoYellow.png) no-repeat;
+    background: url(../images/fxLogoYellow.png) no-repeat;
 }
 
 .FXMuteButtonOff {
     border: none;
     width: 70px;
     height: 70px;
-    background: url(images/fxLogoBlack.png) no-repeat;
+    background: url(../images/fxLogoBlack.png) no-repeat;
     background-size: 10% 10% background-color: transparent;
 }
 .muteSampleDiv {

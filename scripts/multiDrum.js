@@ -1,23 +1,4 @@
-// var drumSampler = new Tone.MultiPlayer({
-//     urls: {
-//         "sS": "./samples/snareSeismic.mp3",
-//         "sR": "./samples/snareRadiant.mp3",
-//         "sP": "./samples/snarePunch.mp3",
-//         "k1": "./samples/kickPunch.mp3",
-//         "k2": "./samples/kickRadiant.mp3",
-//         "k3": "./samples/kickFutura.mp3",
-//         "hh": "./samples/hihat.mp3",
-//         "hR": "./samples/hihatRadiant.mp3",
-//         "hS": "./samples/hihatSeismic.mp3",
-//         "fC": "./samples/fxClap.mp3",
-//         "f2": "./samples/fxSound2.mp3",
-//         "f3": "./samples/fxSound3.mp3",
-//     },
-        
 
-//     volume: -6,
-//     fadeOut: 0.1,
-// }).toMaster();
 var kickSampler = new Tone.MultiPlayer({
     urls: {
         

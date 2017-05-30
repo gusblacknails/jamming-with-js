@@ -1,0 +1,22 @@
+{
+  "name": "Arpeggiator",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Gus Escola <camagrock@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/gusblacknails/Arpeggiator",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1"
+  }
+}
