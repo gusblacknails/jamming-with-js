@@ -9,258 +9,73 @@
     <script src="./scripts/Interface.js"></script>
     <script src="./scripts/nexusUI.min.js"></script>
     <script src="./scripts/teoria.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="multiDrum.css">
 </head>
-<style type="text/css">
 
-.kickBox{display: flex;
-	border-style: solid;
-	border-radius: 6px;
-	color:  #999999;
-	flex-direction: column;
-	width: 100px;
 
-	justify-content: space-between;
-}	
-.drumMachineBox {
- width: 99px;  /* Or whatever */
-  height: 70px; /* Or whatever */
-  /*margin: auto; */ /* Magic! */
-  }
-.muteDiv {
-    display: flex;
-    justify-content: center;
-
-}  
-
-.MuteButtonOff{
-    border: none !important;
-    width: 70px;
-    height: 70px;
-    background: url(images/kickLogoBlack.png) no-repeat;
-    background-color: transparent;
-}
-.muteSampleDiv{
-    display: flex;
-    justify-content: space-around;
-    padding: 2px;
-
-}
-.SampleSelection{
-  background: #ffc600;
-  border: none /*!important*/;
-  border-radius: 3px;
-  font-family: Helvetica;
-  color: #FFF;
-  font-size: 10px;
-  text-decoration: none;
-  width: 32%;
-  min-height: 20px;
-
-}
-.SampleSelectionOff{
-  background: #999999;
-  border: none /*!important*/;
-  border-radius: 3px;
-  font-family: Helvetica;
-  color: #fff;
-  font-size: 10px;
-  text-decoration: none;
-  width: 32%;
-  min-height: 20px;
-
-}
-.MuteButton{
-    border: none /*!important*/;
-    width: 70px;
-    height: 70px;
-    background: url(images/kickLogoYellow.png) no-repeat;
-}
-button:focus {outline:0;}
-</style>
 <body>
     <button id="play" class="key">PLAY</button>
-    <button id="stop" class="key">STOP</button><br>
+    <button id="stop" class="key">STOP</button>
+    <br>
     <div class="drumMachineDiv">
-         <div class="kickBox">  
-    <canvas nx="matrix" class="drumMachineBox" id="kickMatrix"></canvas>
-    <canvas nx="matrix" class="drumMachineBox" id="kickMatrix2"></canvas>
-    <canvas nx="matrix" class="drumMachineBox" id="kickMatrix3"></canvas>
-    <canvas nx="matrix" class="drumMachineBox" id="kickMatrix4"></canvas>
-    <div class="muteSampleDiv">
-       <button class="SampleSelection" id="kick1">1</button>
-       <button class="SampleSelectionOff" id="kick2">2</button>
-       <button class="SampleSelectionOff" id="kick3">3</button>
+        <div class="InstrumentBox">
+            <canvas nx="matrix" class="drumMachineBox" id="kickMatrix"></canvas>
+            <canvas nx="matrix" class="drumMachineBox" id="kickMatrix2"></canvas>
+            <canvas nx="matrix" class="drumMachineBox" id="kickMatrix3"></canvas>
+            <canvas nx="matrix" class="drumMachineBox" id="kickMatrix4"></canvas>
+            <div class="muteSampleDiv">
+                <button class="SampleSelection" id="kick1">1</button>
+                <button class="SampleSelectionOff" id="kick2">2</button>
+                <button class="SampleSelectionOff" id="kick3">3</button>
+            </div>
+            <div class="muteDiv">
+                <button class="kickMuteButton" id="muteKick"></button>
+            </div>
+        </div>
+        <div class="InstrumentBox">
+            <canvas nx="matrix" class="drumMachineBox" id="snareMatrix"></canvas>
+            <canvas nx="matrix" class="drumMachineBox" id="snareMatrix2"></canvas>
+            <canvas nx="matrix" class="drumMachineBox" id="snareMatrix3"></canvas>
+            <canvas nx="matrix" class="drumMachineBox" id="snareMatrix4"></canvas>
+            <div class="muteSampleDiv">
+                <button class="SampleSelection" id="snare1">1</button>
+                <button class="SampleSelectionOff" id="snare2">2</button>
+                <button class="SampleSelectionOff" id="snare3">3</button>
+            </div>
+            <div class="muteDiv">
+                <button class="snareMuteButton" id="muteSnare"></button>
+            </div>
+        </div>
+        <div class="InstrumentBox">
+            <canvas nx="matrix" class="drumMachineBox" id="hihatMatrix"></canvas>
+            <canvas nx="matrix" class="drumMachineBox" id="hihatMatrix2"></canvas>
+            <canvas nx="matrix" class="drumMachineBox" id="hihatMatrix3"></canvas>
+            <canvas nx="matrix" class="drumMachineBox" id="hihatMatrix4"></canvas>
+            <div class="muteSampleDiv">
+                <button class="SampleSelection" id="hihat1">1</button>
+                <button class="SampleSelectionOff" id="hihat2">2</button>
+                <button class="SampleSelectionOff" id="hihat3">3</button>
+            </div>
+            <div class="muteDiv">
+                <button class="hihatMuteButton" id="muteHihat"></button>
+            </div>
+        </div>
+        <div class="InstrumentBox">
+            <canvas nx="matrix" class="drumMachineBox" id="fxMatrix"></canvas>
+            <canvas nx="matrix" class="drumMachineBox" id="fxMatrix2"></canvas>
+            <canvas nx="matrix" class="drumMachineBox" id="fxMatrix3"></canvas>
+            <canvas nx="matrix" class="drumMachineBox" id="fxMatrix4"></canvas>
+            <div class="muteSampleDiv">
+                <button class="SampleSelection" id="soundFX1">1</button>
+                <button class="SampleSelectionOff" id="soundFX2">2</button>
+                <button class="SampleSelectionOff" id="soundFX3">3</button>
+            </div>
+            <div class="muteDiv">
+                <button class="FXMuteButton" id="muteFX"></button>
+            </div>
+        </div>
+
     </div>
-    
-    <div class="muteDiv">
-        <button class="MuteButton" id="muteKick"></button>
-    </div>
-    
-</div>
-    </div>
+<script src="./scripts/multiDrum.js"></script>
 </body>
-<script>
-var drumSampler = new Tone.MultiPlayer({
-    urls: {
-        "sP": "./samples/snarePunch.mp3",
-        "k1": "./samples/kickPunch.mp3",
-        "k2": "./samples/kickRadiant.mp3",
-        "k3": "./samples/kickFutura.mp3",
-        "hh": "./samples/hihat.mp3",
-        "s": "./samples/snare.mp3",
-    },
-    volume: -6,
-    fadeOut: 0.1,
-}).toMaster();
 
-//the notes
-var drumSound = ["k1","k2","k3","sP","hh","s"];
-var kickSound = drumSound[0]
-
-var negras = new Tone.Sequence(function(time, col) {
-    var column = kickMatrix.matrix[col];
-    for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
-            var vel = 1;
-            drumSampler.start(kickSound, time, 0, "32n", 0, vel);
-        }
-    }
-    
-}, [0, 1, 2, 3], "4n");
-  
-  var corcheas = new Tone.Sequence(function(time, col) {
-    var column = kickMatrix2.matrix[col];
-    for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
-            //setting random velocities for each drum sample
-            var vel = 1;
-            drumSampler.start(drumSound[0], time, 0, "32n", 0, vel);
-        }
-    }
-    
-}, [[0,0], [1,1],[2,2],[3,3]], "4n");
-   var tresillos = new Tone.Sequence(function(time, col) {
-    var column = kickMatrix3.matrix[col];
-    for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
-            //setting random velocities for each drum sample
-            var vel = 1;
-            drumSampler.start(drumSound[0], time, 0, "32n", 0, vel);
-        }
-    }
-    
-}, [[0,0,0], [1,1,1],[2,2,2],[3,3,3]], "4n");
-
-
-  var semicorcheas = new Tone.Sequence(function(time, col) {
-    var column = kickMatrix4.matrix[col];
-    for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
-            //setting random velocities for each drum sample
-            var vel = 1;
-            drumSampler.start(drumSound[0], time, 0, "32n", 0, vel);
-        }
-    }
-    
-}, [[0,0,0,0], [1,1,1,1],[2,2,2,2],[3,3,3,3]], "4n");
-
-  
-// Tone.Transport.loop =0, 4;
-
-nx.onload = function() {
-	
-
-    //kick matrix
-    nx.colorize("#ffc600")
-    // nx.colorize( "fill","#F1D6BB")
-    kickMatrix.row = 1
-    kickMatrix.col = 4
-    kickMatrix2.row = 1
-    kickMatrix2.col = 4
-    kickMatrix3.row = 1
-    kickMatrix3.col = 4
-    kickMatrix4.row = 1
-    kickMatrix4.col = 4
-    kickMatrix.init()
-    kickMatrix2.init()
-    kickMatrix3.init()
-    kickMatrix4.init()
-    
-}
-$('#kick1').click(function(){
-        $(this).toggleClass("SampleSelection SampleSelectionOff ")
-        $('#kick2, #kick3').addClass('SampleSelectionOff').removeClass('SampleSelection');
-        kickSound = drumSound[0]
-});
-$('#kick2').click(function(){
-        $(this).toggleClass("SampleSelection SampleSelectionOff")
-        $('#kick1, #kick3').addClass('SampleSelectionOff').removeClass('SampleSelection');
-        kickSound = drumSound[1]       
-});
- $('#kick3').click(function(){
-        $(this).toggleClass("SampleSelection SampleSelectionOff ")
-        $('#kick2, #kick1').addClass('SampleSelectionOff').removeClass('SampleSelection');
-        kickSound = drumSound[2]
-});
-$('#muteKick').on("click",function(){
-
-    if ( $( this ).hasClass("MuteButton") ) {
- 
-        $( this )
-        console.log("Mutebutton pressed")
-        negras.stop()
-        corcheas.stop()
-        tresillos.stop()
-        semicorcheas.stop()
-        $('#muteKick').toggleClass("MuteButton MuteButtonOff");
- }
-     else {
- 
-        $( this )
-        console.log("MutebuttonOff pressed")
-        negras.start()
-        corcheas.start()
-        tresillos.start()
-        semicorcheas.start()
-        $('#muteKick').toggleClass("MuteButtonOff MuteButton"); 
- }
- 
-});
-
-
-$("#play").on("click", () => {
-	Tone.Transport.start()
-    negras.start()
-    corcheas.start()
-    tresillos.start()
-    semicorcheas.start()
-    kickMatrix.sequence(Tone.Transport.bpm.value)
-    kickMatrix2.sequence(Tone.Transport.bpm.value)
-    kickMatrix3.sequence(Tone.Transport.bpm.value)
-    kickMatrix4.sequence(Tone.Transport.bpm.value)
-    kickMatrix.init()
-    kickMatrix2.init()
-    kickMatrix3.init()
-    kickMatrix4.init()
-    
-})
-    //stoping the drumMatrix and the Transport
-
-$("#stop").on("click", () => {
-    kickMatrix.stop()
-    kickMatrix2.stop()
-    kickMatrix3.stop()
-    kickMatrix4.stop()
-    
-    Tone.Transport.stop()
-})
-Tone.Transport.bpm.value = 60
-// Tone.Transport.set({
-//     "loop" : true,
-//     "loopStart" : 0,
-//     "loopEnd" : "1n",
-// });
-
-
-</script>

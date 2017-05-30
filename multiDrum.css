@@ -1,0 +1,120 @@
+.drumMachineDiv{
+    display: flex;
+    flex-direction: row;
+
+}
+.InstrumentBox {
+    display: flex;
+    border-style: solid;
+    border-radius: 6px;
+    color: #999999;
+    flex-direction: column;
+    width: 100px;
+    justify-content: space-between;
+}
+
+.drumMachineBox {
+    width: 99px;
+    height: 70px;
+    
+}
+
+.muteDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.kickMuteButton {
+    border: none
+    ;
+    width: 70px;
+    height: 70px;
+    background: url(images/kickLogoYellow.png) no-repeat;
+}
+
+.kickMuteButtonOff {
+    border: none;
+    width: 70px;
+    height: 70px;
+    background: url(images/kickLogoBlack.png) no-repeat;
+    background-size: 10% 10% background-color: transparent;
+}
+.snareMuteButton {
+    border: none
+    ;
+    width: 70px;
+    height: 70px;
+    background: url(images/snareLogoYellow.png) no-repeat;
+}
+
+.snareMuteButtonOff {
+    border: none;
+    width: 70px;
+    height: 70px;
+    background: url(images/snareLogoBlack.png) no-repeat;
+    background-size: 10% 10% background-color: transparent;
+}
+.hihatMuteButton {
+    border: none
+    ;
+    width: 70px;
+    height: 70px;
+    background: url(images/hihatLogoYellow.png) no-repeat;
+}
+
+.hihatMuteButtonOff {
+    border: none;
+    width: 70px;
+    height: 70px;
+    background: url(images/hihatLogoBlack.png) no-repeat;
+    background-size: 10% 10% background-color: transparent;
+}
+.FXMuteButton {
+    border: none
+    ;
+    width: 70px;
+    height: 70px;
+    background: url(images/fxLogoYellow.png) no-repeat;
+}
+
+.FXMuteButtonOff {
+    border: none;
+    width: 70px;
+    height: 70px;
+    background: url(images/fxLogoBlack.png) no-repeat;
+    background-size: 10% 10% background-color: transparent;
+}
+.muteSampleDiv {
+    display: flex;
+    justify-content: space-around;
+    padding: 2px;
+}
+
+.SampleSelection {
+    background: #ffc600;
+    border: none
+    ;
+    border-radius: 3px;
+    font-family: Helvetica;
+    color: #FFF;
+    font-size: 10px;
+    text-decoration: none;
+    width: 32%;
+    min-height: 20px;
+}
+
+.SampleSelectionOff {
+    background: #999999;
+    border: none;
+    border-radius: 3px;
+    font-family: Helvetica;
+    color: #fff;
+    font-size: 10px;
+    text-decoration: none;
+    width: 32%;
+    min-height: 20px;
+}
+
+button:focus {
+    outline: 0;
+}
