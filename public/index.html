@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MultiDrum</title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./styles/multiDrum.css">
+    <link rel="stylesheet" href="/css/Appcontainer.css">
+</head>
+
+<body>
+ <div class="Appcontainer">
+    <nav class="navbar  navbar-inverse  navbar-fixed-top">
+        
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only"> Toggle navigation</span>
+                <span class="icon-bar"> </span>
+                <span class="icon-bar"> </span>
+                <span class="icon-bar"> </span>
+            </button>
+            <spa class="logo"> Beat It!</span>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class=""><a href="login.html">Sign In</a> </li>
+                    <li> <a href="login.html">Log In</a> </li>
+                    
+                </ul>
+            </div>
+        
+    </nav>
+   
+        <div class="transport">
+            <button id="play" class="">PLAY</button>
+            <button id="stop" class="">STOP</button>
+            <div class="bpm">
+            <span id="titleBPM">BPM</span>
+           
+                <div class="count-input space-bottom">
+                    <a class="incr-btn" data-action="decrease" href="#">–</a>
+                    <input class="quantity" type="text" name="quantity" value="120" />
+                    <a class="incr-btn" data-action="increase" href="#">&plus;</a>
+                </div>
+           
+            </div>
+             <select id="root_note" class="selection">
+                <option selected>Root Note</option>
+                <option value="A">A</option>
+                <option value="A#">A#-Bb</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="C#">C#-Db</option>
+                <option value="D">D</option>
+                <option value="D#">D#-Eb</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="F#">F#-Gb</option>
+                <option value="G">G</option>
+                <option value="G#">G#-Ab</option>
+            </select>
+            <select id="scale" class="selection">
+                <option selected>Scale</option>
+                <option value="ionian">ionian</option>
+                <option value="dorian">dorian</option>
+                <option value="phrygian">phrygian</option>
+                <option value="flamenco">flamenco</option>
+                <option value="lydian">lydian</option>
+                <option value="mixolydian">mixolydian</option>
+                <option value="aeolian">aeolian</option>
+                <option value="harmonicminor">harmonicminor</option>
+                <option value="locrian">locrian</option>
+                <option value="blues">blues</option>
+                <option value="majorpentatonic">majorpentatonic</option>
+                <option value="minorpentatonic">minorpentatonic</option>
+                <option value="chromatic">chromatic</option>
+                <option value="wholetone">wholetone</option>
+                <option value="harmonicchromatic">harmonicchromatic</option>
+                <option value="doubleharmonic">doubleharmonic</option>
+            </select>
+            <button id="set" class="key">Set Scale</button>
+
+
+        </div>
+        <div class="drumMachineDiv">
+            <div class="InstrumentBox">
+                <canvas nx="matrix" class="drumMachineBox" id="kickMatrix"></canvas>
+                <canvas nx="matrix" class="drumMachineBox" id="kickMatrix2"></canvas>
+                <canvas nx="matrix" class="drumMachineBox" id="kickMatrix3"></canvas>
+                <canvas nx="matrix" class="drumMachineBox" id="kickMatrix4"></canvas>
+                <div class="muteSampleDiv">
+                    <button class="SampleSelection" id="kick1">1</button>
+                    <button class="SampleSelectionOff" id="kick2">2</button>
+                    <button class="SampleSelectionOff" id="kick3">3</button>
+                </div>
+                <div class="muteDiv">
+                    <button class="kickMuteButton" id="muteKick"></button>
+                </div>
+            </div>
+            <div class="InstrumentBox">
+                <canvas nx="matrix" class="drumMachineBox" id="snareMatrix"></canvas>
+                <canvas nx="matrix" class="drumMachineBox" id="snareMatrix2"></canvas>
+                <canvas nx="matrix" class="drumMachineBox" id="snareMatrix3"></canvas>
+                <canvas nx="matrix" class="drumMachineBox" id="snareMatrix4"></canvas>
+                <div class="muteSampleDiv">
+                    <button class="SampleSelection" id="snare1">1</button>
+                    <button class="SampleSelectionOff" id="snare2">2</button>
+                    <button class="SampleSelectionOff" id="snare3">3</button>
+                </div>
+                <div class="muteDiv">
+                    <button class="snareMuteButton" id="muteSnare"></button>
+                </div>
+            </div>
+            <div class="InstrumentBox">
+                <canvas nx="matrix" class="drumMachineBox" id="hihatMatrix"></canvas>
+                <canvas nx="matrix" class="drumMachineBox" id="hihatMatrix2"></canvas>
+                <canvas nx="matrix" class="drumMachineBox" id="hihatMatrix3"></canvas>
+                <canvas nx="matrix" class="drumMachineBox" id="hihatMatrix4"></canvas>
+                <div class="muteSampleDiv">
+                    <button class="SampleSelection" id="hihat1">1</button>
+                    <button class="SampleSelectionOff" id="hihat2">2</button>
+                    <button class="SampleSelectionOff" id="hihat3">3</button>
+                </div>
+                <div class="muteDiv">
+                    <button class="hihatMuteButton" id="muteHihat"></button>
+                </div>
+            </div>
+            <div class="InstrumentBox">
+                <canvas nx="matrix" class="drumMachineBox" id="fxMatrix"></canvas>
+                <canvas nx="matrix" class="drumMachineBox" id="fxMatrix2"></canvas>
+                <canvas nx="matrix" class="drumMachineBox" id="fxMatrix3"></canvas>
+                <canvas nx="matrix" class="drumMachineBox" id="fxMatrix4"></canvas>
+                <div class="muteSampleDiv">
+                    <button class="SampleSelection" id="soundFX1">1</button>
+                    <button class="SampleSelectionOff" id="soundFX2">2</button>
+                    <button class="SampleSelectionOff" id="soundFX3">3</button>
+                </div>
+                <div class="muteDiv">
+                    <button class="FXMuteButton" id="muteFX"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <div class="navbar  navbar-inverse navbar-fixed-bottom">
+            <div class="container">
+                <div class="navbar-text pull=left">
+                    <p> © Beat It 2017</p>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <script src="./scripts/Tone.min.js"></script>
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./scripts/Interface.js"></script>
+    <script src="./scripts/nexusUI.min.js"></script>
+    <script src="./scripts/teoria.js"></script>
+    <script src="./scripts/multiDrum.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/js/transport.js"></script>
+</body>
+
+</html>
