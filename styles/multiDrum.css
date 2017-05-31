@@ -1,8 +1,51 @@
+/*button {
+  
+  max-width:70px;
+  max-height:70px;
+  width: auto;
+  height: auto;
+}*/
+img {
+  display: block;
+  max-width:85px;
+  max-height:45px;
+  width: auto;
+  height: auto;
+}
 .drumMachineDiv{
     display: flex;
     flex-direction: row;
-
-
+}
+.quarterNote{
+    background: url(../images/quarter_Note.png) no-repeat;
+}
+.drumInfo{display: flex;
+    border-style: solid;
+    border-radius: 6px;
+    color: #999999;
+    flex-direction: column;
+    width: 100px;}
+.noteInfo {
+    /*display: flex;
+    flex-direction: column;*/
+    border-style: solid;
+    border-radius: 6px;
+    height:50px;
+    /*background-color: red;*/
+}
+.sampleSelect {
+    
+    border-style: solid;
+    border-radius: 6px;
+    height:24px;
+    background-color: red;
+}
+.mute {
+    
+    border-style: solid;
+    border-radius: 6px;
+    height:70px;
+    background-color: red;
 }
 .InstrumentBox {
     display: flex;
@@ -15,9 +58,9 @@
 
 .drumMachineBox {
     width: 99%;
-    height: 70px;
-    
+    height: 50px;
 }
+
 
 .muteDiv {
     display: flex;
