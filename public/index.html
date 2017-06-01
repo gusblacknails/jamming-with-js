@@ -21,9 +21,10 @@
             </button>
           
           
-           
+            
             <div class="navbar-collapse collapse">
             <div class="logo"> <img src="../images/logo-beat-it.png"></div>
+
                 <ul class="nav navbar-nav navbar-right">
                     <li class=""><a href="login.html">Sign In</a> </li>
                     <li> <a href="login.html">Log In</a> </li>
@@ -38,14 +39,9 @@
             <button id="play" class="">PLAY</button>
             <button id="stop" class="">STOP</button>
             <div class="bpm">
-            <span id="titleBPM">BPM</span>
-           
-                <div class="count-input space-bottom">
-                    <a class="incr-btn" data-action="decrease" href="#">–</a>
-                    <input class="quantity" type="text" name="quantity" value="120" />
-                    <a class="incr-btn" data-action="increase" href="#">&plus;</a>
-                </div>
-           
+            <div class="bpmResult">
+            <span  id="titleBPM">BPM:</span><span id="bpm">120</span></div>
+           <input type="range" id="tempo__range" min="50" max="190" step="1" value="120">
             </div>
              <select id="root_note" class="selection">
                 <option selected>Root Note</option>

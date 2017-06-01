@@ -14,7 +14,7 @@
   height: auto;
 }*/
 .logo{
-    margin:10px;
+    margin-top:10px;
     display: inline-block;
     width: 150px;
     height:45px;
@@ -28,6 +28,10 @@
   width: auto;
   height: auto;
 }
+.bpmResult{
+    display: flex;
+    flex-direction: row;
+}
 
 .drumMachineDiv{
     display: flex;
@@ -37,16 +41,16 @@
     background: url(../images/quarter_Note.png) no-repeat;
 }
 .drumInfo{display: flex;
-    border-style: solid;
+   /* border-style: solid;
     border-radius: 6px;
-    color: #999999;
+    color: #999999;*/
     flex-direction: column;
     width: 100px;}
 .noteInfo {
     display: flex;
     justify-content: center;
-    border-style: solid;
-    border-radius: 6px;
+   /* border-style: solid;
+    border-radius: 6px;*/
     height:50px;
     /*background-color: red;*/
 }

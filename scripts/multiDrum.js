@@ -573,8 +573,18 @@ $("#stop").on("click", () => {
     Tone.Transport.stop()
 })
 Tone.Transport.bpm.value = 100
-    // Tone.Transport.set({
-    //     "loop" : true,
-    //     "loopStart" : 0,
-    //     "loopEnd" : "1n",
-    // });
+
+
+  var tempoRange = document.getElementById('tempo__range');
+var bpm = document.getElementById('bpm');
+tempoRange.addEventListener('input', function(event) {
+  var value = event.target.value; // 70 - 140
+
+  Tone.Transport.bpm.value = value;
+
+  bpm.textContent = value;
+});
+
+
+
+
