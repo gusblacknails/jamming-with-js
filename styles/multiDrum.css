@@ -1,18 +1,4 @@
-/*button {
-  
-  max-width:70px;
-  max-height:70px;
-  width: auto;
-  height: auto;
-}*/
 
-/*img {
-  display: block;
-  max-width:85px;
-  max-height:45px;
-  width: auto;
-  height: auto;
-}*/
 .logo{
     margin-top:10px;
     display: inline-block;
@@ -25,6 +11,14 @@
   display: block;
   max-width:150px;
   max-height:45px;
+  width: auto;
+  height: auto;
+}
+ .mute img{
+
+  display: block;
+  max-width:99px;
+  max-height:69px;
   width: auto;
   height: auto;
 }
@@ -49,6 +43,7 @@
 .noteInfo {
     display: flex;
     justify-content: center;
+    padding-top: 5px;
    /* border-style: solid;
     border-radius: 6px;*/
     height:50px;
@@ -62,19 +57,27 @@
   height: auto;
     /*background-color: red;*/
 }
+.sampleSelect img{
+  display: block;
+  max-width:100px;
+  max-height:24px;
+  width: auto;
+  height: auto;
+    /*background-color: red;*/
+}
 .sampleSelect {
     
-    border-style: solid;
-    border-radius: 6px;
+   /* border-style: solid;
+    border-radius: 6px;*/
+    padding-left: 10px;
     height:24px;
-    background-color: red;
+    /*background-color: red;*/
 }
 .mute {
     
-    border-style: solid;
-    border-radius: 6px;
+    padding-left: 20px;
     height:70px;
-    background-color: red;
+    
 }
 .InstrumentBox {
     display: flex;
