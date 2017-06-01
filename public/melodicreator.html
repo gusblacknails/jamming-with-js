@@ -214,10 +214,12 @@
                 synth.triggerAttackRelease(`${escala[5]}`, '8n')
             }
             if (key == 74) {
-                synth.triggerAttackRelease(`${escala[6]}`, '8n')
+                if (`${escala[6]}`!="undefined"){synth.triggerAttackRelease(`${escala[6]}`, '8n')}
+                
             }
             if (key == 75) {
-                synth.triggerAttackRelease(`${escala[0]}`, '8n')
+                if (`${escala[7]}`!="undefined"){synth.triggerAttackRelease(`${escala[7]}`, '8n')}
+                
             }
 
 

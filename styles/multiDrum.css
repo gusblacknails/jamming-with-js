@@ -5,13 +5,30 @@
   width: auto;
   height: auto;
 }*/
-img {
+
+/*img {
   display: block;
   max-width:85px;
   max-height:45px;
   width: auto;
   height: auto;
+}*/
+.logo{
+    margin:10px;
+    display: inline-block;
+    width: 150px;
+    height:45px;
+    margin-right: 0px;
 }
+ .logo img{
+   /* padding-top: 20px;*/
+  display: block;
+  max-width:150px;
+  max-height:45px;
+  width: auto;
+  height: auto;
+}
+
 .drumMachineDiv{
     display: flex;
     flex-direction: row;
@@ -26,11 +43,19 @@ img {
     flex-direction: column;
     width: 100px;}
 .noteInfo {
-    /*display: flex;
-    flex-direction: column;*/
+    display: flex;
+    justify-content: center;
     border-style: solid;
     border-radius: 6px;
     height:50px;
+    /*background-color: red;*/
+}
+.noteInfo img{
+  display: block;
+  max-width:85px;
+  max-height:45px;
+  width: auto;
+  height: auto;
     /*background-color: red;*/
 }
 .sampleSelect {

@@ -12,21 +12,25 @@
 <body>
  <div class="Appcontainer">
     <nav class="navbar  navbar-inverse  navbar-fixed-top">
-        
+            
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only"> Toggle navigation</span>
                 <span class="icon-bar"> </span>
                 <span class="icon-bar"> </span>
                 <span class="icon-bar"> </span>
             </button>
-            <spa class="logo"> Beat It!</span>
+          
+          
+           
             <div class="navbar-collapse collapse">
+            <div class="logo"> <img src="../images/logo-beat-it.png"></div>
                 <ul class="nav navbar-nav navbar-right">
                     <li class=""><a href="login.html">Sign In</a> </li>
                     <li> <a href="login.html">Log In</a> </li>
                     
                 </ul>
             </div>
+
         
     </nav>
    
@@ -77,6 +81,16 @@
                 <option value="harmonicchromatic">harmonicchromatic</option>
                 <option value="doubleharmonic">doubleharmonic</option>
             </select>
+             <select id="octave" class="selection">
+                <option selected>Octave</option>
+                <option value="0">C1 to C2</option>
+                <option value="1">C2 to C3</option>
+                <option value="2">C3 to C4</option>
+                <option value="3">C4 to C5</option>
+                <option value="4">C5 to C6</option>
+                <option value="5">C6 to C7</option>
+                <option value="6">C7 to C8</option>
+            </select>
             <button id="set" class="key">Set Scale</button>
 
 
@@ -86,7 +100,7 @@
               <div class="noteInfo"><img src="../images/quarter_note.png"> </div>
               <div class="noteInfo"><img src="../images/eigth_note.png"></div>
               <div class="noteInfo"><img src="../images/triplet_note.png"></div>
-              <div class="noteInfo"><img src="../images/sixteen_note.png"></div>
+              <div class="noteInfo drum drumMachineDiv"><img src="../images/sixteen_note.png"><img src="../images/sixteen_note.png"></div>
               <div class="sampleSelect"><span>Sound Select</span></div>
               <div class="mute"><span>On/Mute</span></div>
             </div>
