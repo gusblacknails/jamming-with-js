@@ -3,13 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Melodi Creator</title>
-    <script src="./scripts/Tonal.min.js"></script>
-    <script src="./scripts/Tone.min.js"></script>
-    <script src="./scripts/jquery.min.js"></script>
-    <script src="./scripts/Interface.js"></script>
-    <script src="./scripts/nexusUI.js"></script>
-    <script src="./scripts/teoria.js"></script>
+    <title>Melody Creator</title>
+  
 
    
     <link rel="stylesheet" href="css/melodicreator.css">
@@ -72,61 +67,65 @@
             </select>
               <select id="octave" class="selection">
                 <option selected>Octave</option>
-                <option value="0">C1 to C2</option>
-                <option value="1">C2 to C3</option>
-                <option value="2">C3 to C4</option>
-                <option value="3">C4 to C5</option>
-                <option value="4">C5 to C6</option>
-                <option value="5">C6 to C7</option>
-                <option value="6">C7 to C8</option>
+                <option value="0">C0 to C1</option>
+                <option value="1">C1 to C2</option>
+                <option value="2">C2 to C3</option>
+                <option value="3">C3 to C4</option>
+                <option value="4">C4 to C5</option>
+                <option value="5">C5 to C6</option>
+                <option value="6">C6 to C7</option>
             </select>
-            <button id="set" class="key">Set Scale</button>
+            <button id="set" class="">Set Scale</button>
             
-            <canvas nx="dial" id="tempo" label="BPM" min="60" max="220"></canvas>
         </div>
-        <div class="keys">
+   
+    </div>
+    <div class="melodyDiv">
+         <div class="notesInfo">
             <div data-key="65" class="key">
-                <p>A</p>
-                <span id="A" class="sound"></span>
+                
+                <span id="1note" class="sound"></span>
             </div>
             <div data-key="83" class="key">
-                <p>S</p>
-                <span id="S" class="sound"></span>
+                
+                <span id="2note" class="sound"></span>
             </div>
             <div data-key="68" class="key">
-                <p>D</p>
-                <span id="D" class="sound"></span>
+                
+                <span id="3note" class="sound"></span>
             </div>
             <div data-key="70" class="key">
-                <p>F</p>
-                <span id="F" class="sound"></span>
+                
+                <span id="4note" class="sound"></span>
             </div>
             <div data-key="71" class="key">
-                <p>G</p>
-                <span id="G" class="sound"></span>
+                
+                <span id="5note" class="sound"></span>
             </div>
             <div data-key="72" class="key">
-                <p>H</p>
-                <span id="H" class="sound"></span>
+                
+                <span id="6note" class="sound"></span>
             </div>
             <div data-key="74" class="key">
-                <p>J</p>
-                <span id="J" class="sound"></span>
-            </div>
-            <div data-key="75" class="key">
-                <p>K</p>
-                <span id="K" class="sound"></span>
+                
+                <span id="7note" class="sound"></span>
             </div>
             
         </div>
-    </div>
+    <canvas nx="matrix" id="notesMatrix" class="melodyBox"></canvas></div>
     
+
+    <script src="./scripts/Tonal.min.js"></script>
+    <script src="./scripts/Tone.min.js"></script>
+    <script src="./scripts/jquery.min.js"></script>
+   <script src="./scripts/nexusUI.min.js"></script>
+    <script src="./scripts/teoria.js"></script>
     </body>
 </html>
 
 <script>
      
-        // const tonal = require ('tonal')
+       
         //patterns
         // var threeNotePatterns = [ [`${escala[0].toUpperCase()+4}`, ` ${escala[2].toUpperCase()+4}`, `${escala[4].toUpperCase()+4}`],[`${escala[2].toUpperCase()+4}`, ` ${escala[4].toUpperCase()+4}`, `${escala[0].toUpperCase()+4}`],[`${escala[4].toUpperCase()+4}`, ` ${escala[0].toUpperCase()+4}`, `${escala[2].toUpperCase()+4}`]]
 
@@ -174,15 +173,14 @@
             //here we decide wich mode use
             escala = Tonal.scale.get(chosenScale, chosenNote + octave);
             //setting the notes on the boxes
-            $("#A").text(`${escala[0]}`)
-            $("#S").text(`${escala[1]}`)
-            $("#D").text(`${escala[2]}`)
-            $("#F").text(`${escala[3]}`)
-            $("#G").text(`${escala[4]}`)
-            $("#H").text(`${escala[5]}`)
-            $("#J").text(`${escala[6]}`)
-            $("#K").text(`${escala[7]}`)
-
+            $("#1note").text(`${escala[0]}`)
+            $("#2note").text(`${escala[1]}`)
+            $("#3note").text(`${escala[2]}`)
+            $("#4note").text(`${escala[3]}`)
+            $("#5note").text(`${escala[4]}`)
+            $("#6note").text(`${escala[5]}`)
+            $("#7note").text(`${escala[6]}`)
+            
             console.log(escala)
             return escala
         })
@@ -224,4 +222,24 @@
 
 
         })
+        nx.onload = function(){
+              nx.colorize("#ffc600")
+              notesMatrix.row = 7
+              notesMatrix.col = 8
+              notesMatrix.init()
+
+              arpegioMatrix.row = 1
+              arpegioMatrix.col = 8
+              arpegioMatrix2.row = 1
+              arpegioMatrix2.col = 8
+              arpegioMatrix3.row = 1
+              arpegioMatrix3.col = 8
+              arpegioMatrix4.row = 1
+              arpegioMatrix4.col = 8
+              arpegioMatrix.init()
+              arpegioMatrix2.init()
+              arpegioMatrix3.init()
+              arpegioMatrix4.init()
+
+        }
 </script>
