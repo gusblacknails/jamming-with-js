@@ -8,9 +8,21 @@ body,html {
   padding: 0;
   font-family: sans-serif;
 }
+.arpegioSelector{
+   display: flex;
+   flex-direction: column;
+   width: 90%;
+}
 .melodyBox {
     width: 88.5%;
     height: 200px;
+}
+.arpegioInfo{
+  width: 20%;
+}
+.arpegioBox {
+    width: 88.5%;
+    height: 20%;
 }
 .melodyDiv{
     display: flex;
@@ -22,6 +34,10 @@ body,html {
 }
 }
 .selection{text-align: center;}
+.selectionArpegio{
+  width: 20px;
+
+}
  .parameters {
   display: flex;
   flex: 1;

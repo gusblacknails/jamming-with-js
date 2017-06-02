@@ -4,16 +4,12 @@
 <head>
     <meta charset="utf-8">
     <title>Melody Creator</title>
-  
-
-   
     <link rel="stylesheet" href="css/melodicreator.css">
 </head>
 
 <body>
     <div id="Content">
         <div class="parameters">
-
             <select id="root_note" class="selection">
                 <option selected>Root Note</option>
                 <option value="A">A</option>
@@ -36,7 +32,7 @@
                 <option value="phrygian">phrygian</option>
                 <option value="flamenco">flamenco</option>
                 <option value="lydian">lydian</option>
-                 <option value="lydian augmented">lydian augmented</option>
+                <option value="lydian augmented">lydian augmented</option>
                 <option value="lydian dominant">lydian dominant</option>
                 <option value="mixolydian">mixolydian</option>
                 <option value="aeolian">aeolian</option>
@@ -45,7 +41,6 @@
                 <option value="minor blues">blues</option>
                 <option value="melodic minor">melodic minor</option>
                 <option value="locrian major">locrian major</option>
-               
                 <option value="altered">altered</option>
                 <option value="in-sen">in-sen</option>
                 <option value="iwato">iwato</option>
@@ -63,9 +58,8 @@
                 <option value="diminished">diminished</option>
                 <option value="egyptian">egyptian</option>
                 <option value="hungarian minor">hungarian minor</option>
-               
             </select>
-              <select id="octave" class="selection">
+            <select id="octave" class="selection">
                 <option selected>Octave</option>
                 <option value="0">C0 to C1</option>
                 <option value="1">C1 to C2</option>
@@ -76,170 +70,193 @@
                 <option value="6">C6 to C7</option>
             </select>
             <button id="set" class="">Set Scale</button>
-            
         </div>
-   
     </div>
     <div class="melodyDiv">
-         <div class="notesInfo">
+        <div class="notesInfo">
             <div data-key="65" class="key">
-                
                 <span id="1note" class="sound"></span>
             </div>
             <div data-key="83" class="key">
-                
                 <span id="2note" class="sound"></span>
             </div>
             <div data-key="68" class="key">
-                
                 <span id="3note" class="sound"></span>
             </div>
             <div data-key="70" class="key">
-                
                 <span id="4note" class="sound"></span>
             </div>
             <div data-key="71" class="key">
-                
                 <span id="5note" class="sound"></span>
             </div>
             <div data-key="72" class="key">
-                
                 <span id="6note" class="sound"></span>
             </div>
             <div data-key="74" class="key">
-                
                 <span id="7note" class="sound"></span>
             </div>
-            
         </div>
-    <canvas nx="matrix" id="notesMatrix" class="melodyBox"></canvas></div>
-    
-
+        <canvas nx="matrix" id="notesMatrix" class="melodyBox"></canvas>
+    </div>
+    <div class="melodyDiv">
+        <div class="arpegioInfo">
+            <select id="oneNote" class="selectionArpegio">
+                <option selected>One Note</option>
+            </select>
+            <select id="twoNote" class="selectionArpegio">
+                <option selected>Two Notes</option>
+                <option value="0">Up</option>
+                <option value="1">Down</option>
+                <option value="2">Random</option>
+            </select>
+            <select id="threeNote" class="selectionArpegio">
+                <option selected>Three Notes</option>
+                <option value="0">Up</option>
+                <option value="1">Down</option>
+                <option value="2">Random</option>
+                
+            </select>
+            <select id="fourNote" class="selectionArpegio">
+                <option selected>Four Notes</option>
+                <option value="0">Up</option>
+                <option value="1">Down</option>
+                <option value="2">Random</option>
+            </select>
+        </div>
+        <div class="arpegioSelector">
+            <canvas nx="matrix" id="arpegioMatrix" width="80%" height="25%"></canvas>
+            <canvas nx="matrix" id="arpegioMatrix2" width="80%" height="25%"></canvas>
+            <canvas nx="matrix" id="arpegioMatrix3" width="80%" height="25%"></canvas>
+            <canvas nx="matrix" id="arpegioMatrix4" width="80%" height="25%"></canvas>
+        </div>
+    </div>
     <script src="./scripts/Tonal.min.js"></script>
     <script src="./scripts/Tone.min.js"></script>
     <script src="./scripts/jquery.min.js"></script>
-   <script src="./scripts/nexusUI.min.js"></script>
+    <script src="./scripts/nexusUI.min.js"></script>
     <script src="./scripts/teoria.js"></script>
-    </body>
+</body>
+
 </html>
-
 <script>
-     
-       
-        //patterns
-        // var threeNotePatterns = [ [`${escala[0].toUpperCase()+4}`, ` ${escala[2].toUpperCase()+4}`, `${escala[4].toUpperCase()+4}`],[`${escala[2].toUpperCase()+4}`, ` ${escala[4].toUpperCase()+4}`, `${escala[0].toUpperCase()+4}`],[`${escala[4].toUpperCase()+4}`, ` ${escala[0].toUpperCase()+4}`, `${escala[2].toUpperCase()+4}`]]
+//patterns
+// var threeNotePatterns = [ [`${escala[0].toUpperCase()+4}`, ` ${escala[2].toUpperCase()+4}`, `${escala[4].toUpperCase()+4}`],[`${escala[2].toUpperCase()+4}`, ` ${escala[4].toUpperCase()+4}`, `${escala[0].toUpperCase()+4}`],[`${escala[4].toUpperCase()+4}`, ` ${escala[0].toUpperCase()+4}`, `${escala[2].toUpperCase()+4}`]]
 
-        var note = ""
-        var key = 0
-        var actualScale = ""
-        var escala = []
-        var tempo = 120
-        var octave = ""
-        
-        //setting the notes of the chosen scale&root into the boxes
-        // $("#set").on("click", () => {
-        //     var chosenNote = $("#root_note").val();
-        //     console.log(chosenNote)
-            
-        //     //here we set the root note
-        //     note = teoria.note(chosenNote)
-        //     console.log(note)
-        //     var chosenScale = $("#scale").val();
-        //     console.log(chosenScale)
-        //     //here we decide wich mode use
-        //     escala = note.scale(chosenScale).simple();
-        //     //setting the notes on the boxes
-        //     $("#A").text(`${escala[0].toUpperCase()}`)
-        //     $("#S").text(`${escala[1].toUpperCase()}`)
-        //     $("#D").text(`${escala[2].toUpperCase()}`)
-        //     $("#F").text(`${escala[3].toUpperCase()}`)
-        //     $("#G").text(`${escala[4].toUpperCase()}`)
-        //     $("#H").text(`${escala[5].toUpperCase()}`)
-        //     $("#J").text(`${escala[6].toUpperCase()}`)
-        //     $("#K").text(`${escala[0].toUpperCase()}`)
+var note = ""
+var key = 0
+var actualScale = ""
+var escala = []
+var tempo = 120
+var octave = ""
 
-        //     console.log(escala)
-        //     return escala
-        // })
+//setting the notes of the chosen scale&root into the boxes
+// $("#set").on("click", () => {
+//     var chosenNote = $("#root_note").val();
+//     console.log(chosenNote)
 
-        //the same but with tonal.js
+//     //here we set the root note
+//     note = teoria.note(chosenNote)
+//     console.log(note)
+//     var chosenScale = $("#scale").val();
+//     console.log(chosenScale)
+//     //here we decide wich mode use
+//     escala = note.scale(chosenScale).simple();
+//     //setting the notes on the boxes
+//     $("#A").text(`${escala[0].toUpperCase()}`)
+//     $("#S").text(`${escala[1].toUpperCase()}`)
+//     $("#D").text(`${escala[2].toUpperCase()}`)
+//     $("#F").text(`${escala[3].toUpperCase()}`)
+//     $("#G").text(`${escala[4].toUpperCase()}`)
+//     $("#H").text(`${escala[5].toUpperCase()}`)
+//     $("#J").text(`${escala[6].toUpperCase()}`)
+//     $("#K").text(`${escala[0].toUpperCase()}`)
 
-        $("#set").on("click", () => {
-            var chosenNote = $("#root_note").val();
-            console.log(chosenNote)
-            var chosenScale = $("#scale").val();
-            console.log(chosenScale)
-            octave = $("#octave").val();
-            //here we decide wich mode use
-            escala = Tonal.scale.get(chosenScale, chosenNote + octave);
-            //setting the notes on the boxes
-            $("#1note").text(`${escala[0]}`)
-            $("#2note").text(`${escala[1]}`)
-            $("#3note").text(`${escala[2]}`)
-            $("#4note").text(`${escala[3]}`)
-            $("#5note").text(`${escala[4]}`)
-            $("#6note").text(`${escala[5]}`)
-            $("#7note").text(`${escala[6]}`)
-            
-            console.log(escala)
-            return escala
-        })
+//     console.log(escala)
+//     return escala
+// })
 
-        //here we set the Tone notes that will sound in real time in the boxes
-        window.addEventListener('keydown', function(event) {
-            //witch key is pressed in the exact moment
-            key = `${event.keyCode}`
-            console.log(key)
-            console.log(`${escala[0]}`)
-            var synth = new Tone.Synth().toMaster()
-            // parsing the notes into ToneJS format
-            if (key == 65) {
-                synth.triggerAttackRelease(`${escala[0]}`, '8n')
-            }
-            if (key == 83) {
-                synth.triggerAttackRelease(`${escala[1]}`, '8n')
-            }
-            if (key == 68) {
-                synth.triggerAttackRelease(`${escala[2]}`, '8n')
-            }
-            if (key == 70) {
-                synth.triggerAttackRelease(`${escala[3]}`, '8n')
-            }
-            if (key == 71) {
-                synth.triggerAttackRelease(`${escala[4]}`, '8n')
-            }
-            if (key == 72) {
-                synth.triggerAttackRelease(`${escala[5]}`, '8n')
-            }
-            if (key == 74) {
-                if (`${escala[6]}`!="undefined"){synth.triggerAttackRelease(`${escala[6]}`, '8n')}
-                
-            }
-            if (key == 75) {
-                if (`${escala[7]}`!="undefined"){synth.triggerAttackRelease(`${escala[7]}`, '8n')}
-                
-            }
+//the same but with tonal.js
 
+$("#set").on("click", () => {
+    var chosenNote = $("#root_note").val();
+    console.log(chosenNote)
+    var chosenScale = $("#scale").val();
+    console.log(chosenScale)
+    octave = $("#octave").val();
+    //here we decide wich mode use
+    escala = Tonal.scale.get(chosenScale, chosenNote + octave);
+    //setting the notes on the boxes
+    $("#1note").text(`${escala[0]}`)
+    $("#2note").text(`${escala[1]}`)
+    $("#3note").text(`${escala[2]}`)
+    $("#4note").text(`${escala[3]}`)
+    $("#5note").text(`${escala[4]}`)
+    $("#6note").text(`${escala[5]}`)
+    $("#7note").text(`${escala[6]}`)
 
-        })
-        nx.onload = function(){
-              nx.colorize("#ffc600")
-              notesMatrix.row = 7
-              notesMatrix.col = 8
-              notesMatrix.init()
+    console.log(escala)
+    return escala
+})
 
-              arpegioMatrix.row = 1
-              arpegioMatrix.col = 8
-              arpegioMatrix2.row = 1
-              arpegioMatrix2.col = 8
-              arpegioMatrix3.row = 1
-              arpegioMatrix3.col = 8
-              arpegioMatrix4.row = 1
-              arpegioMatrix4.col = 8
-              arpegioMatrix.init()
-              arpegioMatrix2.init()
-              arpegioMatrix3.init()
-              arpegioMatrix4.init()
-
+//here we set the Tone notes that will sound in real time in the boxes
+window.addEventListener('keydown', function(event) {
+    //witch key is pressed in the exact moment
+    key = `${event.keyCode}`
+    console.log(key)
+    console.log(`${escala[0]}`)
+    var synth = new Tone.Synth().toMaster()
+        // parsing the notes into ToneJS format
+    if (key == 65) {
+        synth.triggerAttackRelease(`${escala[0]}`, '8n')
+    }
+    if (key == 83) {
+        synth.triggerAttackRelease(`${escala[1]}`, '8n')
+    }
+    if (key == 68) {
+        synth.triggerAttackRelease(`${escala[2]}`, '8n')
+    }
+    if (key == 70) {
+        synth.triggerAttackRelease(`${escala[3]}`, '8n')
+    }
+    if (key == 71) {
+        synth.triggerAttackRelease(`${escala[4]}`, '8n')
+    }
+    if (key == 72) {
+        synth.triggerAttackRelease(`${escala[5]}`, '8n')
+    }
+    if (key == 74) {
+        if (`${escala[6]}` != "undefined") {
+            synth.triggerAttackRelease(`${escala[6]}`, '8n')
         }
+
+    }
+    if (key == 75) {
+        if (`${escala[7]}` != "undefined") {
+            synth.triggerAttackRelease(`${escala[7]}`, '8n')
+        }
+
+    }
+
+
+})
+nx.onload = function() {
+    nx.colorize("#ffc600")
+    notesMatrix.row = 7
+    notesMatrix.col = 8
+    notesMatrix.init()
+
+    arpegioMatrix.row = 1
+    arpegioMatrix.col = 8
+    arpegioMatrix2.row = 1
+    arpegioMatrix2.col = 8
+    arpegioMatrix3.row = 1
+    arpegioMatrix3.col = 8
+    arpegioMatrix4.row = 1
+    arpegioMatrix4.col = 8
+    arpegioMatrix.init()
+    arpegioMatrix2.init()
+    arpegioMatrix3.init()
+    arpegioMatrix4.init()
+
+}
 </script>
