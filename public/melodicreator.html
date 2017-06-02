@@ -100,23 +100,23 @@
     </div>
     <div class="melodyDiv">
         <div class="arpegioInfo">
-            <select id="oneNote" class="selectionArpegio">
+            <select id="oneNote" class="selectionArpegio" data-toggle="tooltip" title="One note per beat">
                 <option selected>One Note</option>
             </select>
-            <select id="twoNote" class="selectionArpegio">
+            <select id="twoNote" class="selectionArpegio" data-toggle="tooltip" title="Two notes arpeggio per beat">
                 <option selected>Two Notes</option>
                 <option value="0">Up</option>
                 <option value="1">Down</option>
                 <option value="2">Random</option>
             </select>
-            <select id="threeNote" class="selectionArpegio">
+            <select id="threeNote" class="selectionArpegio" data-toggle="tooltip" title="Three notes arpeggio per beat">
                 <option selected>Three Notes</option>
                 <option value="0">Up</option>
                 <option value="1">Down</option>
                 <option value="2">Random</option>
                 
             </select>
-            <select id="fourNote" class="selectionArpegio">
+            <select id="fourNote" class="selectionArpegio" data-toggle="tooltip" title="Four notes arpeggio per beat">
                 <option selected>Four Notes</option>
                 <option value="0">Up</option>
                 <option value="1">Down</option>
@@ -124,10 +124,10 @@
             </select>
         </div>
         <div class="arpegioSelector">
-            <canvas nx="matrix" id="arpegioMatrix" width="80%" height="25%"></canvas>
-            <canvas nx="matrix" id="arpegioMatrix2" width="80%" height="25%"></canvas>
-            <canvas nx="matrix" id="arpegioMatrix3" width="80%" height="25%"></canvas>
-            <canvas nx="matrix" id="arpegioMatrix4" width="80%" height="25%"></canvas>
+            <canvas nx="matrix" id="arpegioMatrix" width="79%" height="25%"></canvas>
+            <canvas nx="matrix" id="arpegioMatrix2" width="79%" height="25%"></canvas>
+            <canvas nx="matrix" id="arpegioMatrix3" width="79%" height="25%"></canvas>
+            <canvas nx="matrix" id="arpegioMatrix4" width="79%" height="25%"></canvas>
         </div>
     </div>
     <script src="./scripts/Tonal.min.js"></script>
@@ -141,6 +141,10 @@
 <script>
 //patterns
 // var threeNotePatterns = [ [`${escala[0].toUpperCase()+4}`, ` ${escala[2].toUpperCase()+4}`, `${escala[4].toUpperCase()+4}`],[`${escala[2].toUpperCase()+4}`, ` ${escala[4].toUpperCase()+4}`, `${escala[0].toUpperCase()+4}`],[`${escala[4].toUpperCase()+4}`, ` ${escala[0].toUpperCase()+4}`, `${escala[2].toUpperCase()+4}`]]
+
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
 
 var note = ""
 var key = 0

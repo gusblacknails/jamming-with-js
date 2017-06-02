@@ -18,7 +18,9 @@ body,html {
     height: 200px;
 }
 .arpegioInfo{
-  width: 20%;
+  display: flex;
+  flex-direction: column;
+  width: 10%;
 }
 .arpegioBox {
     width: 88.5%;
@@ -35,7 +37,7 @@ body,html {
 }
 .selection{text-align: center;}
 .selectionArpegio{
-  width: 20px;
+  width: 20%;
 
 }
  .parameters {
