@@ -4,6 +4,11 @@
 <head>
     <meta charset="utf-8">
     <title>Melody Creator</title>
+    <script src="./scripts/tonal.min.js"></script>
+    <script src="./scripts/Tone.min.js"></script>
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./scripts/nexusUI.min.js"></script>
+    <script src="./scripts/teoria.js"></script>
     <link rel="stylesheet" href="css/melodicreator.css">
 </head>
 
@@ -130,63 +135,46 @@
             <canvas nx="matrix" id="arpegioMatrix4" width="79%" height="25%"></canvas>
         </div>
     </div>
-    <script src="./scripts/tonal.min.js"></script>
-    <script src="./scripts/Tone.min.js"></script>
-    <script src="./scripts/jquery.min.js"></script>
-    <script src="./scripts/nexusUI.min.js"></script>
-    <script src="./scripts/teoria.js"></script>
+    <button id="play" class="">PLAY</button>
+    <button id="stop" class="">STOP</button>
+  
 </body>
 
 </html>
 <script>
-//patterns
-// var threeNotePatterns = [ [`${escala[0].toUpperCase()+4}`, ` ${escala[2].toUpperCase()+4}`, `${escala[4].toUpperCase()+4}`],[`${escala[2].toUpperCase()+4}`, ` ${escala[4].toUpperCase()+4}`, `${escala[0].toUpperCase()+4}`],[`${escala[4].toUpperCase()+4}`, ` ${escala[0].toUpperCase()+4}`, `${escala[2].toUpperCase()+4}`]]
 
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
-});
+// $(document).ready(function(){
+//     $('[data-toggle="tooltip"]').tooltip(); 
+// });
 
-var note = ""
-var key = 0
-var actualScale = ""
-var escala = []
-var tempo = 120
-var octave = ""
+// var note = ""
+// var key = 0
+// var actualScale = ""
+var escala;
+var pattern;
+// var tempo = 120
+// var octave = ""
+var sinte = new Tone.Synth({
+            "oscillator" : {
+                "type" : "square"
+            },
+            "envelope" : {
+                "attack" : 0.01,
+                "decay" : 0.2,
+                "sustain" : 0.2,
+                "release" : 0.2,
+            }
+        }).toMaster();
+// var e = escala[0]
+//  console.log(e)
 
-//setting the notes of the chosen scale&root into the boxes
-// $("#set").on("click", () => {
-//     var chosenNote = $("#root_note").val();
-//     console.log(chosenNote)
-
-//     //here we set the root note
-//     note = teoria.note(chosenNote)
-//     console.log(note)
-//     var chosenScale = $("#scale").val();
-//     console.log(chosenScale)
-//     //here we decide wich mode use
-//     escala = note.scale(chosenScale).simple();
-//     //setting the notes on the boxes
-//     $("#A").text(`${escala[0].toUpperCase()}`)
-//     $("#S").text(`${escala[1].toUpperCase()}`)
-//     $("#D").text(`${escala[2].toUpperCase()}`)
-//     $("#F").text(`${escala[3].toUpperCase()}`)
-//     $("#G").text(`${escala[4].toUpperCase()}`)
-//     $("#H").text(`${escala[5].toUpperCase()}`)
-//     $("#J").text(`${escala[6].toUpperCase()}`)
-//     $("#K").text(`${escala[0].toUpperCase()}`)
-
-//     console.log(escala)
-//     return escala
-// })
-
-//the same but with tonal.js
 
 $("#set").on("click", () => {
     var chosenNote = $("#root_note").val();
     console.log(chosenNote)
     var chosenScale = $("#scale").val();
     console.log(chosenScale)
-    octave = $("#octave").val();
+    var octave = $("#octave").val();
     //here we decide wich mode use
     escala = Tonal.scale.get(chosenScale, chosenNote + octave);
     //setting the notes on the boxes
@@ -198,9 +186,20 @@ $("#set").on("click", () => {
     $("#6note").text(`${escala[5]}`)
     $("#7note").text(`${escala[6]}`)
 
+    pattern = new Tone.Pattern(function(time, note){
+    sinte.triggerAttackRelease(note, '32n')//the order of the notes passed in depends on the pattern
+}, [ `${escala[0]}`, `${escala[2]}`, `${escala[4]}`], "random");
+
+
     console.log(escala)
     return escala
 })
+
+
+
+Tone.Transport.bpm.value = 100
+
+
 
 //here we set the Tone notes that will sound in real time in the boxes
 window.addEventListener('keydown', function(event) {
@@ -249,6 +248,7 @@ nx.onload = function() {
     notesMatrix.col = 8
     notesMatrix.init()
 
+    
     arpegioMatrix.row = 1
     arpegioMatrix.col = 8
     arpegioMatrix2.row = 1
@@ -261,6 +261,28 @@ nx.onload = function() {
     arpegioMatrix2.init()
     arpegioMatrix3.init()
     arpegioMatrix4.init()
-
+   
 }
+$("#play").on("click", () => {
+        Tone.Transport.start()
+        pattern.start()
+      
+        arpegioMatrix.sequence(Tone.Transport.bpm.value)
+        arpegioMatrix2.sequence(Tone.Transport.bpm.value)
+        arpegioMatrix3.sequence(Tone.Transport.bpm.value)
+        arpegioMatrix4.sequence(Tone.Transport.bpm.value)
+        // arpegioMatrix.init()
+        // arpegioMatrix2.init()
+        // arpegioMatrix3.init()
+        // arpegioMatrix4.init()
+    })
+$("#stop").on("click", () => {
+    arpegioMatrix.stop()
+    arpegioMatrix2.stop()
+    arpegioMatrix3.stop()
+    arpegioMatrix4.stop()
+    Tone.Transport.stop()
+})
+
+
 </script>
