@@ -16,7 +16,7 @@
     <div id="Content">
         <div class="parameters">
             <select id="root_note" class="selection">
-                <option selected>Root Note</option>
+                <option selected value="A">Root Note</option>
                 <option value="A">A</option>
                 <option value="A#">A#-Bb</option>
                 <option value="B">B</option>
@@ -31,7 +31,7 @@
                 <option value="G#">G#-Ab</option>
             </select>
             <select id="scale" class="selection">
-                <option selected>Scale</option>
+                <option selected value="major">Scale</option>
                 <option value="major">major</option>
                 <option value="dorian">dorian</option>
                 <option value="phrygian">phrygian</option>
@@ -65,7 +65,7 @@
                 <option value="hungarian minor">hungarian minor</option>
             </select>
             <select id="octave" class="selection">
-                <option selected>Octave</option>
+                <option selected value="4">Octave</option>
                 <option value="0">C0 to C1</option>
                 <option value="1">C1 to C2</option>
                 <option value="2">C2 to C3</option>
@@ -119,7 +119,6 @@
                 <option value="0">Up</option>
                 <option value="1">Down</option>
                 <option value="2">Random</option>
-                
             </select>
             <select id="fourNote" class="selectionArpegio" data-toggle="tooltip" title="Four notes arpeggio per beat">
                 <option selected>Four Notes</option>
@@ -137,44 +136,76 @@
     </div>
     <button id="play" class="">PLAY</button>
     <button id="stop" class="">STOP</button>
-  
 </body>
 
 </html>
 <script>
+nx.onload = function() {
+    nx.colorize("#ffc600")
+    notesMatrix.row = 7
+    notesMatrix.col = 8
+    notesMatrix.init()
 
+
+    arpegioMatrix.row = 1
+    arpegioMatrix.col = 8
+    arpegioMatrix2.row = 1
+    arpegioMatrix2.col = 8
+    arpegioMatrix3.row = 1
+    arpegioMatrix3.col = 8
+    arpegioMatrix4.row = 1
+    arpegioMatrix4.col = 8
+    arpegioMatrix.init()
+    arpegioMatrix2.init()
+    arpegioMatrix3.init()
+    arpegioMatrix4.init()
+
+}
 // $(document).ready(function(){
 //     $('[data-toggle="tooltip"]').tooltip(); 
 // });
 
-// var note = ""
-// var key = 0
-// var actualScale = ""
-var escala;
-var pattern;
-// var tempo = 120
-// var octave = ""
+var chosenNote = $("#root_note").val();
+var chosenScale = $("#scale").val();
+var octave = $("#octave").val();
+console.log(chosenNote)
+console.log(chosenScale)
+console.log(octave)
+    //here we decide wich mode use
+
+// var twoNotePattern = new Tone.Pattern(function(time, note){
+//         sinte.triggerAttackRelease(note, '8n')
+//     }, [`${escala[0]}`,`${escala[2]}`], "upDown");
+
+// var threeNotePattern = new Tone.Pattern(function(time, note){
+//         sinte.triggerAttackRelease(note, '8n')
+//     }, [ `${escala[0]}`,`${escala[2]}`,`${escala[4]}`], "upDown");
+
+// var fourNotePattern = new Tone.Pattern(function(time, note){
+//         sinte.triggerAttackRelease(note, '16n')//the order of the notes passed in depends on the pattern
+//     }, [ `${escala[0]}`,`${escala[2]}`,`${escala[4]}`,`${escala[6]}`], "upDown");
+
+
 var sinte = new Tone.Synth({
-            "oscillator" : {
-                "type" : "square"
-            },
-            "envelope" : {
-                "attack" : 0.01,
-                "decay" : 0.2,
-                "sustain" : 0.2,
-                "release" : 0.2,
-            }
-        }).toMaster();
-// var e = escala[0]
-//  console.log(e)
+    "oscillator": {
+        "type": "square"
+    },
+    "envelope": {
+        "attack": 0.01,
+        "decay": 0.2,
+        "sustain": 0.2,
+        "release": 0.2,
+    }
+}).toMaster();
+
 
 
 $("#set").on("click", () => {
-    var chosenNote = $("#root_note").val();
+    chosenNote = $("#root_note").val();
     console.log(chosenNote)
-    var chosenScale = $("#scale").val();
+    chosenScale = $("#scale").val();
     console.log(chosenScale)
-    var octave = $("#octave").val();
+    octave = $("#octave").val();
     //here we decide wich mode use
     escala = Tonal.scale.get(chosenScale, chosenNote + octave);
     //setting the notes on the boxes
@@ -186,14 +217,11 @@ $("#set").on("click", () => {
     $("#6note").text(`${escala[5]}`)
     $("#7note").text(`${escala[6]}`)
 
-    pattern = new Tone.Pattern(function(time, note){
-    sinte.triggerAttackRelease(note, '32n')//the order of the notes passed in depends on the pattern
-}, [ `${escala[0]}`, `${escala[2]}`, `${escala[4]}`], "random");
-
-
+    
     console.log(escala)
     return escala
 })
+
 
 
 
@@ -206,7 +234,6 @@ window.addEventListener('keydown', function(event) {
     //witch key is pressed in the exact moment
     key = `${event.keyCode}`
     console.log(key)
-    console.log(`${escala[0]}`)
     var synth = new Tone.Synth().toMaster()
         // parsing the notes into ToneJS format
     if (key == 65) {
@@ -242,40 +269,69 @@ window.addEventListener('keydown', function(event) {
 
 
 })
-nx.onload = function() {
-    nx.colorize("#ffc600")
-    notesMatrix.row = 7
-    notesMatrix.col = 8
-    notesMatrix.init()
+
+
+    // console.log(arpegioMatrix)
+    chosenNote = $("#root_note").val();
+    console.log(chosenNote)
+    chosenScale = $("#scale").val();
+    // console.log(chosenScale)
+    octave = $("#octave").val();
+    //here we decide wich mode use
+    var escala = Tonal.scale.get(chosenScale, chosenNote + octave);
+    // console.log(`${escala[0]}`)
+    // console.log(arpegioMatrix.matrix[0])
+    var oneNotePattern = new Tone.Pattern(function(time, note) {
+        
+        sinte.triggerAttackRelease(note, '8n')
+    }, [`${escala[0]}`], "upDown")
+    oneNotePattern.iterations = 1
+    oneNotePattern.interval = "8n"
+  
+
+function quarterLoop (arpegioMatrix,time,col){
+   
+    
+}
+var loop = new Tone.Sequence(function(time,col){
+ var column =arpegioMatrix.matrix[col]
+    
+    for (var i= 0; i<column.length; i++){
+        if(column==1){
+          console.log("yes")  
+            oneNotePattern.start()
+        }
+        
+    }
+},[0,1,2,3,4,5,6,7], "4n")
 
     
-    arpegioMatrix.row = 1
-    arpegioMatrix.col = 8
-    arpegioMatrix2.row = 1
-    arpegioMatrix2.col = 8
-    arpegioMatrix3.row = 1
-    arpegioMatrix3.col = 8
-    arpegioMatrix4.row = 1
-    arpegioMatrix4.col = 8
+$("#play").on("click", () => {
+  
+
+    Tone.Transport.start()
+    
+    arpegioMatrix.sequence(Tone.Transport.bpm.value)
+    arpegioMatrix2.sequence(Tone.Transport.bpm.value)
+    arpegioMatrix3.sequence(Tone.Transport.bpm.value)
+    arpegioMatrix4.sequence(Tone.Transport.bpm.value)
     arpegioMatrix.init()
     arpegioMatrix2.init()
     arpegioMatrix3.init()
     arpegioMatrix4.init()
-   
-}
-$("#play").on("click", () => {
-        Tone.Transport.start()
-        pattern.start()
-      
-        arpegioMatrix.sequence(Tone.Transport.bpm.value)
-        arpegioMatrix2.sequence(Tone.Transport.bpm.value)
-        arpegioMatrix3.sequence(Tone.Transport.bpm.value)
-        arpegioMatrix4.sequence(Tone.Transport.bpm.value)
-        // arpegioMatrix.init()
-        // arpegioMatrix2.init()
-        // arpegioMatrix3.init()
-        // arpegioMatrix4.init()
-    })
+    loop.start()
+        // twoNotePattern.iterations=2
+    // twoNotePattern.interval = "8n";
+    // twoNotePattern.start()
+
+    // threeNotePattern.iterations=2
+    // threeNotePattern.interval = "12n";
+    // threeNotePattern.start()
+
+    // fourNotePattern.iterations=2
+    // fourNotePattern.interval = "16n";
+    // fourNotePattern.start()
+})
 $("#stop").on("click", () => {
     arpegioMatrix.stop()
     arpegioMatrix2.stop()
@@ -283,6 +339,4 @@ $("#stop").on("click", () => {
     arpegioMatrix4.stop()
     Tone.Transport.stop()
 })
-
-
 </script>
