@@ -243,6 +243,7 @@ var loop = new Tone.Sequence(function(time, col) {
     // cacth(arpegioMatrix, escala, time, col);
     twoNoteTrigger(arpegioMatrix, escala, time, col)
     threeNoteTrigger(arpegioMatrix, escala, time, col)
+    fourNoteTrigger(arpegioMatrix, escala, time, col)
 }, [0, 1, 2, 3, 4, 5, 6, 7], "4n");
 
 Tone.Transport.bpm.value = 150
@@ -291,34 +292,50 @@ var time = Tone.Transport.bpm
 
 function twoNoteTrigger(arpegioMatrix,escala, time, col) {
     var twoNotePattern = new Tone.Pattern(function(time, note){
-        sinte.triggerAttackRelease(note, '8n')
+        sinte.triggerAttackRelease(note, '4n')
     }, [`${escala[0]}`,`${escala[4]}`], "upDown");
     twoNotePattern.iterations = 3
     twoNotePattern.interval = "8n"
-    var column = arpegioMatrix.matrix[col];
+    var column = arpegioMatrix2.matrix[col];
     for (var i = 0; i < column.length; i++) {
       if (column[i] === 1){
        twoNotePattern.start()
       }
     }
-    arpegioMatrix.place = col;
+    arpegioMatrix2.place = col;
     
 
 }
 function threeNoteTrigger(arpegioMatrix,escala, time, col) {
     var threeNotePattern = new Tone.Pattern(function(time, note){
-        sinte.triggerAttackRelease(note, '8n')
+        sinte.triggerAttackRelease(note, '4n')
     }, [`${escala[0]}`,`${escala[2]}`,`${escala[4]}`], "upDown");
     threeNotePattern.iterations = 4
     threeNotePattern.interval = "12n"
-    var column = arpegioMatrix2.matrix[col];
+    var column = arpegioMatrix3.matrix[col];
     for (var i = 0; i < column.length; i++) {
       if (column[i] === 1){
        threeNotePattern.start()
       }
     }
     
-    arpegioMatrix2.place = col;
+    arpegioMatrix3.place = col;
+   
+}
+function fourNoteTrigger(arpegioMatrix,escala, time, col) {
+    var fourNotePattern = new Tone.Pattern(function(time, note){
+        sinte.triggerAttackRelease(note, '4n')
+    }, [`${escala[0]}`,`${escala[2]}`,`${escala[4]}`,`${escala[6]}`], "upDown");
+    fourNotePattern.iterations = 5
+    fourNotePattern.interval = "16n"
+    var column = arpegioMatrix4.matrix[col];
+    for (var i = 0; i < column.length; i++) {
+      if (column[i] === 1){
+       fourNotePattern.start()
+      }
+    }
+    
+    arpegioMatrix4.place = col;
    
 }
 
@@ -326,7 +343,7 @@ $("#play").on("click", () => {
 
 
     Tone.Transport.start('+0.1')
-    loop.start()
+    loop.start(0)
 
    
     arpegioMatrix.init()
@@ -353,12 +370,12 @@ $("#play").on("click", () => {
     // fourNotePattern.start()
 })
 $("#stop").on("click", () => {
-    
+    loop.cancel()
     arpegioMatrix.stop()
     arpegioMatrix2.stop()
     arpegioMatrix3.stop()
     arpegioMatrix4.stop()
-     arpegioMatrix.place = 0;
+    arpegioMatrix.place = 0;
     arpegioMatrix2.place = 0;
     arpegioMatrix3.place = 0;
     arpegioMatrix4.place = 0;
