@@ -241,9 +241,10 @@ $("#set").on("click", () => {
 var loop = new Tone.Sequence(function(time, col) {
     // twoNotesTrigger(arpegioMatrix,escala)
     // cacth(arpegioMatrix, escala, time, col);
-    twoNoteTrigger(arpegioMatrix, escala, time, col)
-    threeNoteTrigger(arpegioMatrix, escala, time, col)
-    fourNoteTrigger(arpegioMatrix, escala, time, col)
+    oneNoteTrigger(arpegioMatrix, escala, time, col)
+    twoNoteTrigger(arpegioMatrix2, escala, time, col)
+    threeNoteTrigger(arpegioMatrix3, escala, time, col)
+    fourNoteTrigger(arpegioMatrix4, escala, time, col)
 }, [0, 1, 2, 3, 4, 5, 6, 7], "4n");
 
 Tone.Transport.bpm.value = 150
@@ -289,8 +290,23 @@ var time = Tone.Transport.bpm
 
 //     }
 // })
+function oneNoteTrigger(arpegioMatrix,escala, time, col) {
+    var oneNotePattern = new Tone.Pattern(function(time, note){
+        sinte.triggerAttackRelease(note, '4n')
+    }, [`${escala[0]}`], "up");
+    oneNotePattern.iterations = 2
+    oneNotePattern.interval = "4n"
+    var column = arpegioMatrix.matrix[col];
+    for (var i = 0; i < column.length; i++) {
+      if (column[i] === 1){
+       oneNotePattern.start()
+      }
+    }
+    arpegioMatrix.place = col;
+    
 
-function twoNoteTrigger(arpegioMatrix,escala, time, col) {
+}
+function twoNoteTrigger(arpegioMatrix2,escala, time, col) {
     var twoNotePattern = new Tone.Pattern(function(time, note){
         sinte.triggerAttackRelease(note, '4n')
     }, [`${escala[0]}`,`${escala[4]}`], "upDown");
@@ -306,7 +322,7 @@ function twoNoteTrigger(arpegioMatrix,escala, time, col) {
     
 
 }
-function threeNoteTrigger(arpegioMatrix,escala, time, col) {
+function threeNoteTrigger(arpegioMatrix3,escala, time, col) {
     var threeNotePattern = new Tone.Pattern(function(time, note){
         sinte.triggerAttackRelease(note, '4n')
     }, [`${escala[0]}`,`${escala[2]}`,`${escala[4]}`], "upDown");
@@ -322,7 +338,7 @@ function threeNoteTrigger(arpegioMatrix,escala, time, col) {
     arpegioMatrix3.place = col;
    
 }
-function fourNoteTrigger(arpegioMatrix,escala, time, col) {
+function fourNoteTrigger(arpegioMatrix4,escala, time, col) {
     var fourNotePattern = new Tone.Pattern(function(time, note){
         sinte.triggerAttackRelease(note, '4n')
     }, [`${escala[0]}`,`${escala[2]}`,`${escala[4]}`,`${escala[6]}`], "upDown");
