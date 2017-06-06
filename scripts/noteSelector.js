@@ -1,5 +1,6 @@
 var NoteSelector =(notesMatrix, twoScales, time, i) => {
     var noteSelected;
+
     var selected = notesMatrix.matrix;
 
         if (selected[i][0]){
@@ -51,6 +52,8 @@ var NoteSelector =(notesMatrix, twoScales, time, i) => {
             threeNote:[twoScales[6],twoScales[8],twoScales[10]],
             fourNote:[twoScales[6],twoScales[8],twoScales[10],twoScales[12]]}
         } 
-
+        notesMatrix.place = i;
         return noteSelected
+
+         
 }

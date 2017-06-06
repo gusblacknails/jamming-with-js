@@ -31,7 +31,7 @@ $("#set").on("click", () => {
 
 $("#play").on("click", () => {
 
-    Tone.Transport.start()
+    Tone.Transport.start("+0.1")
     loop.start()
 
     notesMatrix.sequence(Tone.Transport.bpm.value)
@@ -48,7 +48,7 @@ $("#play").on("click", () => {
 
 })
 $("#stop").on("click", () => {
-
+    Tone.Transport.stop()
     // loop.stop()
     notesMatrix.stop()
     arpegioMatrix.stop()
@@ -57,5 +57,5 @@ $("#stop").on("click", () => {
     arpegioMatrix4.stop()
 
 
-    Tone.Transport.stop()
+    
 })
