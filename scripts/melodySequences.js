@@ -1,15 +1,5 @@
 
-var sinte = new Tone.Synth({
-    "oscillator": {
-        "type": "square"
-    },
-    "envelope": {
-     "attack": 0.01,
-     "decay": 0.2,
-     "sustain": 0.2,
-     "release": 0.2,
-    }
-}).toMaster();
+
 
 function oneNoteSequence(arpegioMatrix, twoScales, time, col) {
     
@@ -18,7 +8,7 @@ function oneNoteSequence(arpegioMatrix, twoScales, time, col) {
     for (var i = 0; i < column.length; i++) {
         if (column[i] === 1) {
         console.log("inside if")
-         sinte.triggerAttackRelease(twoScales, '4n',time)   
+         sinte3.triggerAttackRelease(twoScales, '4n',time)   
         }
     }
    }
@@ -30,7 +20,7 @@ function twoNoteSequence(arpegioMatrix2, twoScales, time, col) {
     var column = arpegioMatrix2.matrix[col];
     for (var i = 0; i < column.length; i++) {
         if (column[i] === 1) {
-         sinte.triggerAttackRelease(note, '4n',time) 
+         sinte3.triggerAttackRelease(note, '4n',time) 
         }
     }     
 
@@ -39,6 +29,7 @@ function twoNoteSequence(arpegioMatrix2, twoScales, time, col) {
     twoNoteSeq.loop = 2;
     twoNoteSeq.loopEnd = "2m";
     twoNoteSeq.start()
+   
    }
 
 function threeNoteSequence(arpegioMatrix3, twoScales, time, col) {
@@ -48,15 +39,16 @@ function threeNoteSequence(arpegioMatrix3, twoScales, time, col) {
     var column = arpegioMatrix3.matrix[col];
     for (var i = 0; i < column.length; i++) {
         if (column[i] === 1) {
-         sinte.triggerAttackRelease(note, '4n',time) 
+         sinte3.triggerAttackRelease(note, '4n',time) 
         }
     } 
    
-}, [[`${escala[0]}`, `${escala[2]}`,`${escala[4]}`],[null],[null],[null]],"8n")
+}, [[twoScales],[null],[null],[null]],"8n")
     
     threeNoteSeq.loop = 2;
     threeNoteSeq.loopEnd = "2m";
     threeNoteSeq.start()
+    
    }
 
 
@@ -67,13 +59,14 @@ function fourNoteSequence(arpegioMatrix4, twoScales, time, col) {
     var column = arpegioMatrix4.matrix[col];
     for (var i = 0; i < column.length; i++) {
         if (column[i] === 1) {
-         sinte.triggerAttackRelease(note, '4n',time) 
+         sinte3.triggerAttackRelease(note, '4n',time) 
         }
     } 
    
-}, [[`${escala[0]}`, `${escala[2]}`,`${escala[4]}`,`${escala[6]}`],[null],[null],[null]],"8n")
+}, [[twoScales],[null],[null],[null]],"8n")
     
     fourNoteSeq.loop = 2;
     fourNoteSeq.loopEnd = "2m";
     fourNoteSeq.start()
+    
    }
