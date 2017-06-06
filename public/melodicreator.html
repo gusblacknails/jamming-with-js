@@ -9,6 +9,8 @@
     <script src="./scripts/jquery.min.js"></script>
     <script src="./scripts/nexusUI.min.js"></script>
     <script src="./scripts/teoria.js"></script>
+
+
     <link rel="stylesheet" href="css/melodicreator.css">
 </head>
 
@@ -136,183 +138,12 @@
     </div>
     <button id="play" class="">PLAY</button>
     <button id="stop" class="">STOP</button>
+    <script src="./scripts/melodySequences.js"></script>
+    <script src="./scripts/melodyLooper.js"></script>
+    <script src="./scripts/noteSelector.js"></script>
+    <script src="./scripts/loader.js"></script>
+    <script src="./scripts/buttonsMelody.js"></script>
 </body>
 
 </html>
-<script>
-nx.onload = function() {
-        nx.colorize("#ffc600")
-        notesMatrix.row = 7
-        notesMatrix.col = 8
-        notesMatrix.init()
 
-
-        arpegioMatrix.row = 1
-        arpegioMatrix.col = 8
-        arpegioMatrix2.row = 1
-        arpegioMatrix2.col = 8
-        arpegioMatrix3.row = 1
-        arpegioMatrix3.col = 8
-        arpegioMatrix4.row = 1
-        arpegioMatrix4.col = 8
-        arpegioMatrix.init()
-        arpegioMatrix2.init()
-        arpegioMatrix3.init()
-        arpegioMatrix4.init()
-
-    }
-    // $(document).ready(function(){
-    //     $('[data-toggle="tooltip"]').tooltip(); 
-    // });
-var chosenNote = $("#root_note").val();
-var chosenScale = $("#scale").val();
-var octave = $("#octave").val();
-var escala = [];
-// console.log(chosenNote)
-// console.log(chosenScale)
-// console.log(octave)
-
-var sinte = new Tone.Synth({
-    "oscillator": {
-        "type": "square"
-    },
-    "envelope": {
-        "attack": 0.01,
-        "decay": 0.2,
-        "sustain": 0.2,
-        "release": 0.2,
-    }
-}).toMaster();
-
-
-
-$("#set").on("click", () => {
-    chosenNote = $("#root_note").val();
-    // console.log(chosenNote)
-    chosenScale = $("#scale").val();
-    // console.log(chosenScale)
-    octave = $("#octave").val();
-    //here we decide wich mode use
-    escala = Tonal.scale.get(chosenScale, chosenNote + octave);
-    //setting the notes on the boxes
-    $("#1note").text(`${escala[0]}`)
-    $("#2note").text(`${escala[1]}`)
-    $("#3note").text(`${escala[2]}`)
-    $("#4note").text(`${escala[3]}`)
-    $("#5note").text(`${escala[4]}`)
-    $("#6note").text(`${escala[5]}`)
-    $("#7note").text(`${escala[6]}`)
-
-    return escala
-})
-
-var loop = new Tone.Sequence(function(time, col) {
-
-    oneNoteTrigger(arpegioMatrix, escala, time, col)
-    twoNoteTrigger(arpegioMatrix2, escala, time, col)
-    threeNoteTrigger(arpegioMatrix3, escala, time, col)
-    fourNoteTrigger(arpegioMatrix4, escala, time, col)
-
-}, [0, 1, 2, 3, 4, 5, 6, 7], "4n");
-
-Tone.Transport.bpm.value = 120
-
-// function Root (escala){
-//     console.log(`${escala[0]}`)
-// }
-function oneNoteTrigger(arpegioMatrix, escala, time, col) {
-    
-    arpegioMatrix.place = col;
-    var column = arpegioMatrix.matrix[col];
-    for (var i = 0; i < column.length; i++) {
-        if (column[i] === 1) {
-         sinte.triggerAttackRelease(`${escala[0]}`, '4n',time)   
-        }
-    }
-   }
-
-function twoNoteTrigger(arpegioMatrix2, escala, time, col) {
-    arpegioMatrix2.place = col;
-
-    var twoNoteSeq = new Tone.Sequence(function(time, note){
-    var column = arpegioMatrix2.matrix[col];
-    for (var i = 0; i < column.length; i++) {
-        if (column[i] === 1) {
-         sinte.triggerAttackRelease(note, '4n',time) 
-        }
-    }     
-
-}, [[`${escala[0]}`, `${escala[2]}`],[null],[null],[null]],"8n")
-    
-    twoNoteSeq.loop = 2;
-    twoNoteSeq.loopEnd = "2m";
-    twoNoteSeq.start()
-   }
-
-function threeNoteTrigger(arpegioMatrix3, escala, time, col) {
- arpegioMatrix3.place = col;
-
-    var threeNoteSeq = new Tone.Sequence(function(time, note){
-    var column = arpegioMatrix3.matrix[col];
-    for (var i = 0; i < column.length; i++) {
-        if (column[i] === 1) {
-         sinte.triggerAttackRelease(note, '4n',time) 
-        }
-    } 
-   
-}, [[`${escala[0]}`, `${escala[2]}`,`${escala[4]}`],[null],[null],[null]],"8n")
-    
-    threeNoteSeq.loop = 2;
-    threeNoteSeq.loopEnd = "2m";
-    threeNoteSeq.start()
-   }
-
-
-function fourNoteTrigger(arpegioMatrix4, escala, time, col) {
- arpegioMatrix4.place = col;
-
-    var fourNoteSeq = new Tone.Sequence(function(time, note){
-    var column = arpegioMatrix4.matrix[col];
-    for (var i = 0; i < column.length; i++) {
-        if (column[i] === 1) {
-         sinte.triggerAttackRelease(note, '4n',time) 
-        }
-    } 
-   
-}, [[`${escala[0]}`, `${escala[2]}`,`${escala[4]}`,`${escala[6]}`],[null],[null],[null]],"8n")
-    
-    fourNoteSeq.loop = 2;
-    fourNoteSeq.loopEnd = "2m";
-    fourNoteSeq.start()
-   }
-
-$("#play").on("click", () => {
-
-
-    Tone.Transport.start()
-    loop.start()
-
-
-    arpegioMatrix.sequence(Tone.Transport.bpm.value)
-    arpegioMatrix2.sequence(Tone.Transport.bpm.value)
-    arpegioMatrix3.sequence(Tone.Transport.bpm.value)
-    arpegioMatrix4.sequence(Tone.Transport.bpm.value)
-    arpegioMatrix.init()
-    arpegioMatrix2.init()
-    arpegioMatrix3.init()
-    arpegioMatrix4.init()
-
-
-})
-$("#stop").on("click", () => {
-
-    // loop.stop()
-    arpegioMatrix.stop()
-    arpegioMatrix2.stop()
-    arpegioMatrix3.stop()
-    arpegioMatrix4.stop()
-
-
-    Tone.Transport.stop()
-})
-</script>
