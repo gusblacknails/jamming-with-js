@@ -2,8 +2,9 @@ var loop = new Tone.Sequence(function(time, col) {
     console.log(col)
    
     var currentNote = NoteSelector(notesMatrix, twoScales, time, col)
-    oneNoteSequence(arpegioMatrix, `${currentNote}`, time, col)
-    twoNoteSequence(arpegioMatrix2, escala, time, col)
+    console.log(currentNote["twoNote"])
+    oneNoteSequence(arpegioMatrix,currentNote["oneNote"], time, col)
+    twoNoteSequence(arpegioMatrix2, currentNote["twoNote"], time, col)
     threeNoteSequence(arpegioMatrix3, escala, time, col)
     fourNoteSequence(arpegioMatrix4, escala, time, col)
 

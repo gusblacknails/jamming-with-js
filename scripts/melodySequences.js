@@ -34,7 +34,7 @@ function twoNoteSequence(arpegioMatrix2, twoScales, time, col) {
         }
     }     
 
-}, [[`${escala[0]}`, `${escala[2]}`],[null],[null],[null]],"8n")
+}, [twoScales,[null],[null],[null]],"8n")
     
     twoNoteSeq.loop = 2;
     twoNoteSeq.loopEnd = "2m";
