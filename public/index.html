@@ -4,11 +4,15 @@
 <head>
     <meta charset="utf-8">
     <title>Beat It</title>
-     <link rel="stylesheet" href="css/melodicreator.css">
+    <script src="./scripts/tonal.min.js"></script>
+    <script src="./scripts/Tone.min.js"></script>
+    <script src="./scripts/jquery.min.js"></script>
+    <script src="./scripts/nexusUI.min.js"></script>
+    
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="./styles/multiDrum.css">
     <link rel="stylesheet" href="/css/Appcontainer.css">
-   
+    <link rel="stylesheet" href="css/melodicreator.css">
 </head>
 
 <body>
@@ -29,13 +33,8 @@
             </div>
         </nav>
         <div class="transport">
-            <button id="play" class="">PLAY</button>
-            <button id="stop" class="">STOP</button>
-            <div class="bpm">
-                <div class="bpmResult">
-                    <span id="titleBPM">BPM:</span><span id="bpm">120</span></div>
-                <input type="range" id="tempo__range" min="50" max="190" step="1" value="120">
-            </div>
+        <div class="melodySettings">
+            
             <select id="root_note" class="selection">
                 <option selected>Root Note</option>
                 <option value="A">A</option>
@@ -97,16 +96,29 @@
             </select>
             <button id="set" class="">Set Scale</button>
         </div>
+           
+            
+        </div>
+        <div class="controls">
+             <button id="play" class="">PLAY</button>
+            <button id="stop" class="">STOP</button>
+            <div class="bpm">
+                <div class="bpmResult">
+                    <span id="titleBPM">BPM:</span><span id="bpm">120</span></div>
+                <input type="range" id="tempo__range" min="50" max="190" step="1" value="120">
+            </div>
+        </div>
         <div class="musicSection">
             <div class="drumMachineDiv">
-                <div class="drumInfo">
+            <div class="titleRythm"><p>Rythm</p></div>
+                <!-- <div class="drumInfo">
                     <div class="noteInfo"><img src="../images/quarter_note.png"> </div>
                     <div class="noteInfo"><img src="../images/eigth_note.png"></div>
                     <div class="noteInfo"><img src="../images/triplet_note.png"></div>
                     <div class="noteInfo drumMachineDiv"><img src="../images/sixteen_note.png"><img src="../images/sixteen_note.png"></div>
                     <div class="sampleSelect"><img src="../images/soundSample.png"></div>
                     <div class="mute"><img src="../images/soundMuted.png"></div>
-                </div>
+                </div> -->
                 <div class="InstrumentBox">
                     <canvas nx="matrix" class="drumMachineBox" id="kickMatrix"></canvas>
                     <canvas nx="matrix" class="drumMachineBox" id="kickMatrix2"></canvas>
@@ -164,19 +176,64 @@
                     </div>
                 </div>
             </div>
+            <div class="melodyCreator">
+            <div class="titleRythm"><p class="melodyP">Melody</p></div>
+            <div class="melodyDivCont">
+            <div class="melodyDiv">
+                <div class="notesInfo">
+                    <div data-key="65" class="key">
+                        <span id="1note" class="sound"></span>
+                    </div>
+                    <div data-key="83" class="key">
+                        <span id="2note" class="sound"></span>
+                    </div>
+                    <div data-key="68" class="key">
+                        <span id="3note" class="sound"></span>
+                    </div>
+                    <div data-key="70" class="key">
+                        <span id="4note" class="sound"></span>
+                    </div>
+                    <div data-key="71" class="key">
+                        <span id="5note" class="sound"></span>
+                    </div>
+                    <div data-key="72" class="key">
+                        <span id="6note" class="sound"></span>
+                    </div>
+                    <div data-key="74" class="key">
+                        <span id="7note" class="sound"></span>
+                    </div>
+                </div>
+                <canvas nx="matrix" id="notesMatrix" class="melodyBox"></canvas>
+            </div>
+            <div class="melodyDiv">
+                <div class="arpegioInfo">
+                </div>
+                <div class="arpegioSelector">
+                    <canvas nx="matrix" id="arpegioMatrix" width="79%" height="25%"></canvas>
+                    <canvas nx="matrix" id="arpegioMatrix2" width="79%" height="25%"></canvas>
+                    <canvas nx="matrix" id="arpegioMatrix3" width="79%" height="25%"></canvas>
+                    <canvas nx="matrix" id="arpegioMatrix4" width="79%" height="25%"></canvas>
+                </div>
+            </div>
+            </div>
         </div>
-        <div class="melodyCreator">
-        </div>
+        <div class="controlPanel">
+            <div class="titleRythm"><p class="controlP">Control</p></div>
     </div>
-  
-    <script src="./scripts/Tone.min.js"></script>
-    <script src="./scripts/jquery.min.js"></script>
-    <script src="./scripts/Interface.js"></script>
-    <script src="./scripts/nexusUI.min.js"></script>
-    <script src="./scripts/teoria.js"></script>
+         </div>
+    
+        
+    <script src="./scripts/melodySequences.js"></script>
     <script src="./scripts/multiDrum.js"></script>
+    <script src="./scripts/melodyLooper.js"></script>
+    <script src="./scripts/noteSelector.js"></script>
+    <script src="./scripts/loader.js"></script>
+   <!--  <script src="./scripts/buttonsMelody.js"></script> -->
+   
+
+    
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/js/transport.js"></script>
+   <!--  <script src="/js/transport.js"></script> -->
 </body>
 
 </html>

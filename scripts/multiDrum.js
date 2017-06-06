@@ -301,63 +301,63 @@ var semicorcheasFX = new Tone.Sequence(function(time, col) {
 
 
 //loading nexusUI
-nx.onload = function() {
+// nx.onload = function() {
 
-    nx.colorize("#ffc600")
+//     nx.colorize("#ffc600")
   
-    kickMatrix.row = 1
-    kickMatrix.col = 4
-    kickMatrix2.row = 1
-    kickMatrix2.col = 4
-    kickMatrix3.row = 1
-    kickMatrix3.col = 4
-    kickMatrix4.row = 1
-    kickMatrix4.col = 4
-    kickMatrix.init()
-    kickMatrix2.init()
-    kickMatrix3.init()
-    kickMatrix4.init()
+//     kickMatrix.row = 1
+//     kickMatrix.col = 4
+//     kickMatrix2.row = 1
+//     kickMatrix2.col = 4
+//     kickMatrix3.row = 1
+//     kickMatrix3.col = 4
+//     kickMatrix4.row = 1
+//     kickMatrix4.col = 4
+//     kickMatrix.init()
+//     kickMatrix2.init()
+//     kickMatrix3.init()
+//     kickMatrix4.init()
 
-    snareMatrix.row = 1
-    snareMatrix.col = 4
-    snareMatrix2.row = 1
-    snareMatrix2.col = 4
-    snareMatrix3.row = 1
-    snareMatrix3.col = 4
-    snareMatrix4.row = 1
-    snareMatrix4.col = 4
-    snareMatrix.init()
-    snareMatrix2.init()
-    snareMatrix3.init()
-    snareMatrix4.init()
+//     snareMatrix.row = 1
+//     snareMatrix.col = 4
+//     snareMatrix2.row = 1
+//     snareMatrix2.col = 4
+//     snareMatrix3.row = 1
+//     snareMatrix3.col = 4
+//     snareMatrix4.row = 1
+//     snareMatrix4.col = 4
+//     snareMatrix.init()
+//     snareMatrix2.init()
+//     snareMatrix3.init()
+//     snareMatrix4.init()
 
-    hihatMatrix.row = 1
-    hihatMatrix.col = 4
-    hihatMatrix2.row = 1
-    hihatMatrix2.col = 4
-    hihatMatrix3.row = 1
-    hihatMatrix3.col = 4
-    hihatMatrix4.row = 1
-    hihatMatrix4.col = 4
-    hihatMatrix.init()
-    hihatMatrix2.init()
-    hihatMatrix3.init()
-    hihatMatrix4.init()
+//     hihatMatrix.row = 1
+//     hihatMatrix.col = 4
+//     hihatMatrix2.row = 1
+//     hihatMatrix2.col = 4
+//     hihatMatrix3.row = 1
+//     hihatMatrix3.col = 4
+//     hihatMatrix4.row = 1
+//     hihatMatrix4.col = 4
+//     hihatMatrix.init()
+//     hihatMatrix2.init()
+//     hihatMatrix3.init()
+//     hihatMatrix4.init()
 
-    fxMatrix.row = 1
-    fxMatrix.col = 4
-    fxMatrix2.row = 1
-    fxMatrix2.col = 4
-    fxMatrix3.row = 1
-    fxMatrix3.col = 4
-    fxMatrix4.row = 1
-    fxMatrix4.col = 4
-    fxMatrix.init()
-    fxMatrix2.init()
-    fxMatrix3.init()
-    fxMatrix4.init()
+//     fxMatrix.row = 1
+//     fxMatrix.col = 4
+//     fxMatrix2.row = 1
+//     fxMatrix2.col = 4
+//     fxMatrix3.row = 1
+//     fxMatrix3.col = 4
+//     fxMatrix4.row = 1
+//     fxMatrix4.col = 4
+//     fxMatrix.init()
+//     fxMatrix2.init()
+//     fxMatrix3.init()
+//     fxMatrix4.init()
 
-}
+// }
 //-----------------Sample selection for each drum matrix--------------------//
 $('#kick1').click(function() {
     $(this).toggleClass("SampleSelection SampleSelectionOff ")
@@ -494,7 +494,7 @@ $('#muteFX').on("click", function() {
 //-----------------------------------------------------------------------//
 
 $("#play").on("click", () => {
-        Tone.Transport.start('+0.1')
+        Tone.Transport.start("+0.1")
         negras.start()
         corcheas.start()
         tresillos.start()
@@ -547,6 +547,18 @@ $("#play").on("click", () => {
         fxMatrix3.init()
         fxMatrix4.init()
 
+        loop.start()
+
+    notesMatrix.sequence(Tone.Transport.bpm.value)
+    arpegioMatrix.sequence(Tone.Transport.bpm.value)
+    arpegioMatrix2.sequence(Tone.Transport.bpm.value)
+    arpegioMatrix3.sequence(Tone.Transport.bpm.value)
+    arpegioMatrix4.sequence(Tone.Transport.bpm.value)
+    notesMatrix.init()
+    arpegioMatrix.init()
+    arpegioMatrix2.init()
+    arpegioMatrix3.init()
+    arpegioMatrix4.init()
 
     })
     //stoping the drumMatrix and the Transport
@@ -572,10 +584,16 @@ $("#stop").on("click", () => {
     fxMatrix3.stop()
     fxMatrix4.stop()
 
+    notesMatrix.stop()
+    arpegioMatrix.stop()
+    arpegioMatrix2.stop()
+    arpegioMatrix3.stop()
+    arpegioMatrix4.stop()
+
     Tone.Transport.stop()
 })
 Tone.Transport.bpm.value = 100
-
+//---------BPM---------------------//
 
 var tempoRange = document.getElementById('tempo__range');
 var bpm = document.getElementById('bpm');
@@ -586,6 +604,39 @@ tempoRange.addEventListener('input', function(event) {
 
   bpm.textContent = value;
 });
+
+//------------set scale------------------//
+
+var chosenNote = $("#root_note").val()
+var chosenScale = $("#scale").val()
+var octave = $("#octave").val()
+var escala = []
+var twoScales = []
+
+$("#set").on("click", () => {
+    chosenNote = $("#root_note").val();
+    // console.log(chosenNote)
+    chosenScale = $("#scale").val();
+    // console.log(chosenScale)
+    octave = $("#octave").val();
+    //here we decide wich mode use
+    escala = Tonal.scale.get(chosenScale, chosenNote + octave);
+    escala2= Tonal.scale.get(chosenScale, chosenNote + (parseInt(octave) +1))
+    twoScales = escala.concat(escala2)
+    console.log(twoScales)
+
+    //setting the notes on the boxes
+    $("#1note").text(`${escala[0]}`)
+    $("#2note").text(`${escala[1]}`)
+    $("#3note").text(`${escala[2]}`)
+    $("#4note").text(`${escala[3]}`)
+    $("#5note").text(`${escala[4]}`)
+    $("#6note").text(`${escala[5]}`)
+    $("#7note").text(`${escala[6]}`)
+
+    return twoScales
+
+})
 
 
 
