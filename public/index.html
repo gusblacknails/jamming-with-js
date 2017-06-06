@@ -3,47 +3,40 @@
 
 <head>
     <meta charset="utf-8">
-    <title>MultiDrum</title>
+    <title>Beat It</title>
+     <link rel="stylesheet" href="css/melodicreator.css">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="./styles/multiDrum.css">
     <link rel="stylesheet" href="/css/Appcontainer.css">
+   
 </head>
 
 <body>
- <div class="Appcontainer">
-    <nav class="navbar  navbar-inverse  navbar-fixed-top">
-            
+    <div class="Appcontainer">
+        <nav class="navbar  navbar-inverse ">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only"> Toggle navigation</span>
                 <span class="icon-bar"> </span>
                 <span class="icon-bar"> </span>
                 <span class="icon-bar"> </span>
             </button>
-          
-          
-            
             <div class="navbar-collapse collapse">
-            <div class="logo"> <img src="../images/logo-beat-it.png"></div>
-
+                <div class="logo"> <img src="../images/logo-beat-it.png"></div>
                 <ul class="nav navbar-nav navbar-right">
                     <li class=""><a href="login.html">Sign In</a> </li>
                     <li> <a href="login.html">Log In</a> </li>
-                    
                 </ul>
             </div>
-
-        
-    </nav>
-   
+        </nav>
         <div class="transport">
             <button id="play" class="">PLAY</button>
             <button id="stop" class="">STOP</button>
             <div class="bpm">
-            <div class="bpmResult">
-            <span  id="titleBPM">BPM:</span><span id="bpm">120</span></div>
-           <input type="range" id="tempo__range" min="50" max="190" step="1" value="120">
+                <div class="bpmResult">
+                    <span id="titleBPM">BPM:</span><span id="bpm">120</span></div>
+                <input type="range" id="tempo__range" min="50" max="190" step="1" value="120">
             </div>
-             <select id="root_note" class="selection">
+            <select id="root_note" class="selection">
                 <option selected>Root Note</option>
                 <option value="A">A</option>
                 <option value="A#">A#-Bb</option>
@@ -59,25 +52,40 @@
                 <option value="G#">G#-Ab</option>
             </select>
             <select id="scale" class="selection">
-                <option selected>Scale</option>
-                <option value="ionian">ionian</option>
+                <option selected value="major">Scale</option>
+                <option value="major">major</option>
                 <option value="dorian">dorian</option>
                 <option value="phrygian">phrygian</option>
                 <option value="flamenco">flamenco</option>
                 <option value="lydian">lydian</option>
+                <option value="lydian augmented">lydian augmented</option>
+                <option value="lydian dominant">lydian dominant</option>
                 <option value="mixolydian">mixolydian</option>
                 <option value="aeolian">aeolian</option>
-                <option value="harmonicminor">harmonicminor</option>
+                <option value="harmonic minor">harmonic minor</option>
                 <option value="locrian">locrian</option>
-                <option value="blues">blues</option>
-                <option value="majorpentatonic">majorpentatonic</option>
-                <option value="minorpentatonic">minorpentatonic</option>
-                <option value="chromatic">chromatic</option>
-                <option value="wholetone">wholetone</option>
-                <option value="harmonicchromatic">harmonicchromatic</option>
-                <option value="doubleharmonic">doubleharmonic</option>
+                <option value="minor blues">blues</option>
+                <option value="melodic minor">melodic minor</option>
+                <option value="locrian major">locrian major</option>
+                <option value="altered">altered</option>
+                <option value="in-sen">in-sen</option>
+                <option value="iwato">iwato</option>
+                <option value="hirajoshi">hirajoshi</option>
+                <option value="kumoijoshi">kumoijoshi</option>
+                <option value="pelog">pelog</option>
+                <option value="vietnamese 1">vietnamese</option>
+                <option value="prometheus">prometheus</option>
+                <option value="ritusen">ritusen</option>
+                <option value="scriabin">scriabin</option>
+                <option value="piongio">piongio</option>
+                <option value="augmented">augmented</option>
+                <option value="neopolitan">neopolitan</option>
+                <option value="romanian minor">romanian minor</option>
+                <option value="diminished">diminished</option>
+                <option value="egyptian">egyptian</option>
+                <option value="hungarian minor">hungarian minor</option>
             </select>
-             <select id="octave" class="selection">
+            <select id="octave" class="selection">
                 <option selected>Octave</option>
                 <option value="0">C0 to C1</option>
                 <option value="1">C1 to C2</option>
@@ -87,87 +95,80 @@
                 <option value="5">C5 to C6</option>
                 <option value="6">C6 to C7</option>
             </select>
-            <button id="set" class="key">Set Scale</button>
-
-
+            <button id="set" class="">Set Scale</button>
         </div>
-        <div class="drumMachineDiv">
-            <div class="drumInfo">
-              <div class="noteInfo"><img src="../images/quarter_note.png"> </div>
-              <div class="noteInfo"><img src="../images/eigth_note.png"></div>
-              <div class="noteInfo"><img src="../images/triplet_note.png"></div>
-              <div class="noteInfo drumMachineDiv"><img src="../images/sixteen_note.png"><img src="../images/sixteen_note.png"></div>
-              <div class="sampleSelect"><img src="../images/soundSample.png"></div>
-              <div class="mute"><img src="../images/soundMuted.png"></div>
+        <div class="musicSection">
+            <div class="drumMachineDiv">
+                <div class="drumInfo">
+                    <div class="noteInfo"><img src="../images/quarter_note.png"> </div>
+                    <div class="noteInfo"><img src="../images/eigth_note.png"></div>
+                    <div class="noteInfo"><img src="../images/triplet_note.png"></div>
+                    <div class="noteInfo drumMachineDiv"><img src="../images/sixteen_note.png"><img src="../images/sixteen_note.png"></div>
+                    <div class="sampleSelect"><img src="../images/soundSample.png"></div>
+                    <div class="mute"><img src="../images/soundMuted.png"></div>
+                </div>
+                <div class="InstrumentBox">
+                    <canvas nx="matrix" class="drumMachineBox" id="kickMatrix"></canvas>
+                    <canvas nx="matrix" class="drumMachineBox" id="kickMatrix2"></canvas>
+                    <canvas nx="matrix" class="drumMachineBox" id="kickMatrix3"></canvas>
+                    <canvas nx="matrix" class="drumMachineBox" id="kickMatrix4"></canvas>
+                    <div class="muteSampleDiv">
+                        <button class="SampleSelection" id="kick1">1</button>
+                        <button class="SampleSelectionOff" id="kick2">2</button>
+                        <button class="SampleSelectionOff" id="kick3">3</button>
+                    </div>
+                    <div class="muteDiv">
+                        <button class="kickMuteButton" id="muteKick"></button>
+                    </div>
+                </div>
+                <div class="InstrumentBox">
+                    <canvas nx="matrix" class="drumMachineBox" id="snareMatrix"></canvas>
+                    <canvas nx="matrix" class="drumMachineBox" id="snareMatrix2"></canvas>
+                    <canvas nx="matrix" class="drumMachineBox" id="snareMatrix3"></canvas>
+                    <canvas nx="matrix" class="drumMachineBox" id="snareMatrix4"></canvas>
+                    <div class="muteSampleDiv">
+                        <button class="SampleSelection" id="snare1">1</button>
+                        <button class="SampleSelectionOff" id="snare2">2</button>
+                        <button class="SampleSelectionOff" id="snare3">3</button>
+                    </div>
+                    <div class="muteDiv">
+                        <button class="snareMuteButton" id="muteSnare"></button>
+                    </div>
+                </div>
+                <div class="InstrumentBox">
+                    <canvas nx="matrix" class="drumMachineBox" id="hihatMatrix"></canvas>
+                    <canvas nx="matrix" class="drumMachineBox" id="hihatMatrix2"></canvas>
+                    <canvas nx="matrix" class="drumMachineBox" id="hihatMatrix3"></canvas>
+                    <canvas nx="matrix" class="drumMachineBox" id="hihatMatrix4"></canvas>
+                    <div class="muteSampleDiv">
+                        <button class="SampleSelection" id="hihat1">1</button>
+                        <button class="SampleSelectionOff" id="hihat2">2</button>
+                        <button class="SampleSelectionOff" id="hihat3">3</button>
+                    </div>
+                    <div class="muteDiv">
+                        <button class="hihatMuteButton" id="muteHihat"></button>
+                    </div>
+                </div>
+                <div class="InstrumentBox">
+                    <canvas nx="matrix" class="drumMachineBox" id="fxMatrix"></canvas>
+                    <canvas nx="matrix" class="drumMachineBox" id="fxMatrix2"></canvas>
+                    <canvas nx="matrix" class="drumMachineBox" id="fxMatrix3"></canvas>
+                    <canvas nx="matrix" class="drumMachineBox" id="fxMatrix4"></canvas>
+                    <div class="muteSampleDiv">
+                        <button class="SampleSelection" id="soundFX1">1</button>
+                        <button class="SampleSelectionOff" id="soundFX2">2</button>
+                        <button class="SampleSelectionOff" id="soundFX3">3</button>
+                    </div>
+                    <div class="muteDiv">
+                        <button class="FXMuteButton" id="muteFX"></button>
+                    </div>
+                </div>
             </div>
-            <div class="InstrumentBox">
-                <canvas nx="matrix" class="drumMachineBox" id="kickMatrix"></canvas>
-                <canvas nx="matrix" class="drumMachineBox" id="kickMatrix2"></canvas>
-                <canvas nx="matrix" class="drumMachineBox" id="kickMatrix3"></canvas>
-                <canvas nx="matrix" class="drumMachineBox" id="kickMatrix4"></canvas>
-                <div class="muteSampleDiv">
-                    <button class="SampleSelection" id="kick1">1</button>
-                    <button class="SampleSelectionOff" id="kick2">2</button>
-                    <button class="SampleSelectionOff" id="kick3">3</button>
-                </div>
-                <div class="muteDiv">
-                    <button class="kickMuteButton" id="muteKick"></button>
-                </div>
-            </div>
-            <div class="InstrumentBox">
-                <canvas nx="matrix" class="drumMachineBox" id="snareMatrix"></canvas>
-                <canvas nx="matrix" class="drumMachineBox" id="snareMatrix2"></canvas>
-                <canvas nx="matrix" class="drumMachineBox" id="snareMatrix3"></canvas>
-                <canvas nx="matrix" class="drumMachineBox" id="snareMatrix4"></canvas>
-                <div class="muteSampleDiv">
-                    <button class="SampleSelection" id="snare1">1</button>
-                    <button class="SampleSelectionOff" id="snare2">2</button>
-                    <button class="SampleSelectionOff" id="snare3">3</button>
-                </div>
-                <div class="muteDiv">
-                    <button class="snareMuteButton" id="muteSnare"></button>
-                </div>
-            </div>
-            <div class="InstrumentBox">
-                <canvas nx="matrix" class="drumMachineBox" id="hihatMatrix"></canvas>
-                <canvas nx="matrix" class="drumMachineBox" id="hihatMatrix2"></canvas>
-                <canvas nx="matrix" class="drumMachineBox" id="hihatMatrix3"></canvas>
-                <canvas nx="matrix" class="drumMachineBox" id="hihatMatrix4"></canvas>
-                <div class="muteSampleDiv">
-                    <button class="SampleSelection" id="hihat1">1</button>
-                    <button class="SampleSelectionOff" id="hihat2">2</button>
-                    <button class="SampleSelectionOff" id="hihat3">3</button>
-                </div>
-                <div class="muteDiv">
-                    <button class="hihatMuteButton" id="muteHihat"></button>
-                </div>
-            </div>
-            <div class="InstrumentBox">
-                <canvas nx="matrix" class="drumMachineBox" id="fxMatrix"></canvas>
-                <canvas nx="matrix" class="drumMachineBox" id="fxMatrix2"></canvas>
-                <canvas nx="matrix" class="drumMachineBox" id="fxMatrix3"></canvas>
-                <canvas nx="matrix" class="drumMachineBox" id="fxMatrix4"></canvas>
-                <div class="muteSampleDiv">
-                    <button class="SampleSelection" id="soundFX1">1</button>
-                    <button class="SampleSelectionOff" id="soundFX2">2</button>
-                    <button class="SampleSelectionOff" id="soundFX3">3</button>
-                </div>
-                <div class="muteDiv">
-                    <button class="FXMuteButton" id="muteFX"></button>
-                </div>
-            </div>
+        </div>
+        <div class="melodyCreator">
         </div>
     </div>
-    <nav>
-        <div class="navbar  navbar-inverse navbar-fixed-bottom">
-            <div class="container">
-                <div class="navbar-text pull=left">
-                    <p> © Beat It 2017</p>
-                </div>
-            </div>
-        </div>
-    </nav>
-    
+  
     <script src="./scripts/Tone.min.js"></script>
     <script src="./scripts/jquery.min.js"></script>
     <script src="./scripts/Interface.js"></script>

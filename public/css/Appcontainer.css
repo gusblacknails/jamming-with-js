@@ -5,7 +5,7 @@ padding-left: 50px;}
     border-radius: 6px;
     border-color: blue;
 	display:flex;
-	padding-top: 70px;
+	/*padding-top: 70px;*/
 	flex-direction:column;
 	background-color: white;
 }
