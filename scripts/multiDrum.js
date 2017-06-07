@@ -6,7 +6,7 @@ var kickSampler = new Tone.MultiPlayer({
         "k2": "./samples/kickRadiant.mp3",
         "k3": "./samples/kickFutura.mp3",
     },
-    volume: -6,
+    volume: -3,
     fadeOut: 0.1,
 }).toMaster();
 var snareSampler = new Tone.MultiPlayer({
@@ -15,7 +15,7 @@ var snareSampler = new Tone.MultiPlayer({
         "sR": "./samples/snareRadiant.mp3",
         "sP": "./samples/snarePunch.mp3",
     },
-    volume: -6,
+    volume: -3,
     fadeOut: 0.1,
 }).toMaster();
 var hihatSampler = new Tone.MultiPlayer({
@@ -25,7 +25,7 @@ var hihatSampler = new Tone.MultiPlayer({
         "hR": "./samples/hihatRadiant.mp3",
         "hS": "./samples/hihatSeismic.mp3",
     },
-    volume: -6,
+    volume: -3,
     fadeOut: 0.1,
 }).toMaster();
 var fxSampler = new Tone.MultiPlayer({
@@ -34,7 +34,7 @@ var fxSampler = new Tone.MultiPlayer({
         "f2": "./samples/fxSound2.mp3",
         "f3": "./samples/fxSound3.mp3",
     },
-    volume: -6,
+    volume: -3,
     fadeOut: 0.1,
 }).toMaster();
 

@@ -3,7 +3,20 @@ padding-left: 50px;}
 .navbar{border-radius: 0;
 margin-bottom: 0;
     padding: 7px 0 7px 0;}
-.controls{}
+.controlPanel {
+    display: flex;
+    border-style: solid;
+    border-radius: 6px;
+    color: #999999;
+    flex-direction: row;
+    width: 300px;
+    border-width: 2px;
+    background: #fff;
+}
+.divControl{
+  display: flex;
+  justify-content: row;
+}
 .melodySettings{}
 .Appcontainer{
     /*border-style: solid;
@@ -13,7 +26,7 @@ margin-bottom: 0;
     /*padding-top: 70px;*/
     flex-direction:column;
     background-color: white;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 .transport , .controls{
@@ -29,8 +42,7 @@ margin-bottom: 0;
     padding: 7px 0 7px 20px;
     border-bottom: 1px solid #7f7f7f;
      }
-     .controls{width: }
-
+  
 .bpm{
     display:flex;
     flex-direction: column;
@@ -89,7 +101,7 @@ margin-bottom: 0;
   height: 70px;
   border-radius: 3px;
 }
-
+/*-------------------------*/
 .logo{
     margin-top:5px;
     display: inline-block;
@@ -120,10 +132,10 @@ margin-bottom: 0;
 .musicSection{
     display: flex;
     flex-direction: row;
-    padding: 20px 0 20px 0;
+    padding: 20px 10px 20px 15px;
     background: #f7f7f7;
     border-bottom: 1px solid #7f7f7f;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .drumMachineDiv{
@@ -148,6 +160,20 @@ margin-bottom: 0;
     color: #a6a6a6;
     font-size: 0px;
 }
+.titleMelody {
+    color: black;
+    width: 12%;
+    position: relative;
+    color: #a6a6a6;
+    font-size: 0px;
+}
+.titleControl {
+    color: black;
+    width: 12%;
+    position: relative;
+    color: #a6a6a6;
+    font-size: 0px;
+}
 .melodyP {
     transform: rotate(270deg);
     transform-origin: right bottom;
@@ -155,22 +181,16 @@ margin-bottom: 0;
     bottom: 110px;
     right: 0;
     font-size: 40px;
+    margin-bottom: 25px;
 }
 .controlP {
     transform: rotate(270deg);
     transform-origin: right bottom;
     position: absolute;
     bottom: 110px;
-    right: 0;
+    right: -61px;;
     font-size: 40px;
-}
-.titleRythm p {
-    transform: rotate(270deg);
-    transform-origin: right bottom;
-    position: absolute;
-    
-    right: 0;
-    font-size: 40px;
+    margin-bottom: 88px;
 }
 .titleRythm p {
     transform: rotate(270deg);
@@ -179,6 +199,22 @@ margin-bottom: 0;
     bottom: 110px;
     right: 0;
     font-size: 40px;
+}
+/*.titleControl p {
+    transform: rotate(270deg);
+    transform-origin: right bottom;
+    position: absolute;
+    bottom: 110px;
+    right: 0;
+    font-size: 40px;
+}*/
+/*.titleRythm p {
+    transform: rotate(270deg);
+    transform-origin: right bottom;
+    position: absolute;
+    bottom: 110px;
+    right: 0;
+    font-size: 40px;*/
 }
 .drumInfo{display: flex;
    /* border-style: solid;
