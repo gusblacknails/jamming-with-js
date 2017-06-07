@@ -5,9 +5,6 @@ var escala = []
 var twoScales = []
 
 
-
-
-
 $("#set").on("click", () => {
     chosenNote = $("#root_note").val();
     // console.log(chosenNote)
@@ -68,5 +65,5 @@ $("#setSynth").on("click", () => {
     chosen_4x_Synth = $("#FourNoteSynth").val();
 
     console.log(chosen_1x_Synth)
-   
+
 })

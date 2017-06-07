@@ -7,14 +7,12 @@ const app = express()
 const PORT=process.env.PORT || 3000;
 //rutas estáticas
 
-app.use('/styles', express.static(path.join(__dirname, '../styles')))
-app.use('/scripts', express.static(path.join(__dirname, '../scripts')))
-app.use('/samples', express.static(path.join(__dirname, '../samples')))
-app.use('/images', express.static(path.join(__dirname, '../images')))
+// app.use('/styles', express.static(path.join(__dirname, '../styles')))
+// app.use('/scripts', express.static(path.join(__dirname, '../scripts')))
+//app.use('/samples', express.static(path.join(__dirname, '../samples')))
+// app.use('/images', express.static(path.join(__dirname, '../images')))
 
-
-
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(function (err, req, res, next) {
     console.error(err, err.stack);
