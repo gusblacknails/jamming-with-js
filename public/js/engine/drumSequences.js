@@ -2,7 +2,7 @@
 var negras = new Tone.Sequence(function(time, col) {
     var column = kickMatrix.matrix[col];
     for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
+        if (column[i]) {
             var vel = 1;
             kickSampler.start(kickSelect, time, 0, "32n", 0, vel);
         }
@@ -13,7 +13,7 @@ var negras = new Tone.Sequence(function(time, col) {
 var corcheas = new Tone.Sequence(function(time, col) {
     var column = kickMatrix2.matrix[col];
     for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
+        if (column[i]) {
            
             var vel = 1;
             kickSampler.start(kickSelect, time, 0, "32n", 0, vel);
@@ -29,8 +29,8 @@ var corcheas = new Tone.Sequence(function(time, col) {
 var tresillos = new Tone.Sequence(function(time, col) {
     var column = kickMatrix3.matrix[col];
     for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
-            //setting random velocities for each drum sample
+        if (column[i]) {
+            
             var vel = 1;
             kickSampler.start(kickSelect, time, 0, "32n", 0, vel);
         }
@@ -47,8 +47,7 @@ var tresillos = new Tone.Sequence(function(time, col) {
 var semicorcheas = new Tone.Sequence(function(time, col) {
     var column = kickMatrix4.matrix[col];
     for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
-            //setting random velocities for each drum sample
+        if (column[i]) {
             var vel = 1;
             kickSampler.start(kickSelect, time, 0, "32n", 0, vel);
         }
@@ -64,7 +63,7 @@ var semicorcheas = new Tone.Sequence(function(time, col) {
 var negrasSnare = new Tone.Sequence(function(time, col) {
     var column = snareMatrix.matrix[col];
     for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
+        if (column[i]) {
             var vel = 1;
             snareSampler.start(snareSelect, time, 0, "32n", 0, vel);
         }
@@ -75,8 +74,7 @@ var negrasSnare = new Tone.Sequence(function(time, col) {
 var corcheasSnare = new Tone.Sequence(function(time, col) {
     var column = snareMatrix2.matrix[col];
     for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
-          
+        if (column[i]) {
             var vel = 1;
             snareSampler.start(snareSelect, time, 0, "32n", 0, vel);
         }
@@ -91,8 +89,7 @@ var corcheasSnare = new Tone.Sequence(function(time, col) {
 var tresillosSnare = new Tone.Sequence(function(time, col) {
     var column = snareMatrix3.matrix[col];
     for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
-          
+        if (column[i]) {
             var vel = 1;
             snareSampler.start(snareSelect, time, 0, "32n", 0, vel);
         }
@@ -109,8 +106,7 @@ var tresillosSnare = new Tone.Sequence(function(time, col) {
 var semicorcheasSnare = new Tone.Sequence(function(time, col) {
     var column = snareMatrix4.matrix[col];
     for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
-          
+        if (column[i]) {
             var vel = 1;
             snareSampler.start(snareSelect, time, 0, "32n", 0, vel);
         }
@@ -126,7 +122,7 @@ var semicorcheasSnare = new Tone.Sequence(function(time, col) {
 var negrasHihat = new Tone.Sequence(function(time, col) {
     var column = hihatMatrix.matrix[col];
     for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
+        if (column[i]) {
             var vel = 1;
             hihatSampler.start(hihatSelect, time, 0, "32n", 0, vel);
         }
@@ -137,8 +133,7 @@ var negrasHihat = new Tone.Sequence(function(time, col) {
 var corcheasHihat = new Tone.Sequence(function(time, col) {
     var column = hihatMatrix2.matrix[col];
     for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
-            
+        if (column[i]) {
             var vel = 1;
             hihatSampler.start(hihatSelect, time, 0, "32n", 0, vel);
         }
@@ -153,8 +148,7 @@ var corcheasHihat = new Tone.Sequence(function(time, col) {
 var tresillosHihat = new Tone.Sequence(function(time, col) {
     var column = hihatMatrix3.matrix[col];
     for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
-            
+        if (column[i]) {
             var vel = 1;
             hihatSampler.start(hihatSelect, time, 0, "32n", 0, vel);
         }
@@ -171,8 +165,7 @@ var tresillosHihat = new Tone.Sequence(function(time, col) {
 var semicorcheasHihat = new Tone.Sequence(function(time, col) {
     var column = hihatMatrix4.matrix[col];
     for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
-            
+        if (column[i]) {
             var vel = 1;
             hihatSampler.start(hihatSelect, time, 0, "32n", 0, vel);
         }
@@ -188,7 +181,7 @@ var semicorcheasHihat = new Tone.Sequence(function(time, col) {
 var negrasFX = new Tone.Sequence(function(time, col) {
     var column = fxMatrix.matrix[col];
     for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
+        if (column[i]) {
             var vel = 1;
             fxSampler.start(fxSelect, time, 0, "32n", 0, vel);
         }
@@ -199,8 +192,7 @@ var negrasFX = new Tone.Sequence(function(time, col) {
 var corcheasFX = new Tone.Sequence(function(time, col) {
     var column = fxMatrix2.matrix[col];
     for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
-           
+        if (column[i]) {
             var vel = 1;
             fxSampler.start(fxSelect, time, 0, "32n", 0, vel);
         }
@@ -215,8 +207,7 @@ var corcheasFX = new Tone.Sequence(function(time, col) {
 var tresillosFX = new Tone.Sequence(function(time, col) {
     var column = fxMatrix3.matrix[col];
     for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
-        
+        if (column[i]) {
             var vel = 1;
             fxSampler.start(fxSelect, time, 0, "32n", 0, vel);
         }
@@ -233,8 +224,7 @@ var tresillosFX = new Tone.Sequence(function(time, col) {
 var semicorcheasFX = new Tone.Sequence(function(time, col) {
     var column = fxMatrix4.matrix[col];
     for (var i = 0; i < 4; i++) {
-        if (column[i] === 1) {
-           
+        if (column[i]) {
             var vel = 1;
             fxSampler.start(fxSelect, time, 0, "32n", 0, vel);
         }

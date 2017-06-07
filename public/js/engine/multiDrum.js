@@ -237,7 +237,7 @@ $("#stop").on("click", () => {
 
     
 })
-Tone.Transport.bpm.value = 100
+
 //---------BPM---------------------//
 
 var tempoRange = document.getElementById('tempo__range');
