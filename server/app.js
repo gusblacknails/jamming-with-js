@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const path = require ('path')
 const app = express()
 
-app.set('port', (process.env.PORT || 3000));
+const PORT=process.env.PORT || 3000;
 //rutas estáticas
 
 app.use('/styles', express.static(path.join(__dirname, '../styles')))
@@ -26,3 +26,4 @@ app.get('/', function(req, res){
 });
 
 app.listen(process.env.PORT || 3000)
+console.log(`Port ${PORT} on fire!!`)

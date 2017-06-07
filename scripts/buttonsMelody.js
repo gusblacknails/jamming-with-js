@@ -4,6 +4,10 @@ var octave = $("#octave").val()
 var escala = []
 var twoScales = []
 
+
+
+
+
 $("#set").on("click", () => {
     chosenNote = $("#root_note").val();
     // console.log(chosenNote)
@@ -55,7 +59,14 @@ $("#stop").on("click", () => {
     arpegioMatrix2.stop()
     arpegioMatrix3.stop()
     arpegioMatrix4.stop()
+})
 
+$("#setSynth").on("click", () => {
+    chosen_1x_Synth = $("#OneNoteSynth").val();
+    chosen_2x_Synth = $("#TwoNoteSynth").val();
+    chosen_3x_Synth = $("#ThreeNoteSynth").val();
+    chosen_4x_Synth = $("#FourNoteSynth").val();
 
-    
+    console.log(chosen_1x_Synth)
+   
 })

@@ -1,11 +1,11 @@
-function oneNoteSequence(arpegioMatrix, twoScales, time, col) {
-    
+function oneNoteSequence(SelectSynth,arpegioMatrix, twoScales, time, col) {
+    console.log(typeof SelectSynth)
     arpegioMatrix.place = col;
     var column = arpegioMatrix.matrix[col];
     for (var i = 0; i < column.length; i++) {
         if (column[i] === 1) {
         console.log("inside if")
-         sinte3.triggerAttackRelease(twoScales, '8n',time)   
+         SelectSynth.triggerAttackRelease(twoScales, '8n',time)   
         }
     }
    }
@@ -70,7 +70,5 @@ function fourNoteSequence(arpegioMatrix4, twoScales, time, col) {
     fourNoteSeq.loopEnd = "2m";
     fourNoteSeq.humanize = true;
     fourNoteSeq.start()
-  
+}
 
-    
-   }
