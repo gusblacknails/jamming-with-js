@@ -64,6 +64,6 @@ $("#setSynth").on("click", () => {
     chosen_3x_Synth = $("#ThreeNoteSynth").val();
     chosen_4x_Synth = $("#FourNoteSynth").val();
 
-    console.log(chosen_1x_Synth)
+    console.log(typeof chosen_1x_Synth)
 
 })

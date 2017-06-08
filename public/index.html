@@ -11,7 +11,6 @@
 
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/css/multiDrum.css">
-    <link rel="stylesheet" href="/css/Appcontainer.css">
     <link rel="stylesheet" href="/css/melodicreator.css">
 </head>
 
@@ -36,7 +35,7 @@
         <div class="melodySettings">
 
             <select id="root_note" class="selection">
-                <option selected>Root Note</option>
+                <option value="A" selected>Root Note</option>
                 <option value="A">A</option>
                 <option value="A#">A#-Bb</option>
                 <option value="B">B</option>
@@ -85,7 +84,7 @@
                 <option value="hungarian minor">hungarian minor</option>
             </select>
             <select id="octave" class="selection">
-                <option selected>Octave</option>
+                <option value="4" selected>Octave</option>
                 <option value="0">C0 to C1</option>
                 <option value="1">C1 to C2</option>
                 <option value="2">C2 to C3</option>
@@ -111,14 +110,7 @@
         <div class="musicSection">
             <div class="drumMachineDiv">
             <div class="titleRythm"><p>Rythm</p></div>
-                <!-- <div class="drumInfo">
-                    <div class="noteInfo"><img src="../images/quarter_note.png"> </div>
-                    <div class="noteInfo"><img src="../images/eigth_note.png"></div>
-                    <div class="noteInfo"><img src="../images/triplet_note.png"></div>
-                    <div class="noteInfo drumMachineDiv"><img src="../images/sixteen_note.png"><img src="../images/sixteen_note.png"></div>
-                    <div class="sampleSelect"><img src="../images/soundSample.png"></div>
-                    <div class="mute"><img src="../images/soundMuted.png"></div>
-                </div> -->
+              
                 <div class="InstrumentBox">
                     <canvas nx="matrix" class="drumMachineBox" id="kickMatrix"></canvas>
                     <canvas nx="matrix" class="drumMachineBox" id="kickMatrix2"></canvas>
@@ -223,52 +215,53 @@
             <div class="controlPanel">
             <div class="synthselect">
             <select id="OneNoteSynth" class="">
-                <option value="sinte2" selected>1x Synth</option>
-              <option value="sinte2">AMSynth</option>
-                <option value="new Tone.DuoSynth().toMaster()">DuoSynth</option>
-                <option value="Tone.FMSynth().toMaster()">FMSynth</option>
-                <option value="sinte5">MembraneSynth</option>
-                <option value="sinte6">MetalSynth</option>
-                <option value="sinte7">Monophonic</option>
-                <option value="sinte8">NoiseSynth</option>
-                <option value="sinte9">PluckSynth</option>
-                <option value="sinte10">MonoSynth</option>
+                <option value="0" selected>1x Synth</option>
+                <option value="0">AMSynth</option>
+                <option value="1">DuoSynth</option>
+                <option value="2">FMSynth</option>
+                <option value="3">MembraneSynth</option>
+                <option value="4">MetalSynth</option>
+                <option value="5">Monophonic</option>
+                <option value="6">NoiseSynth</option>
+                <option value="7">PluckSynth</option>
+                <option value="8">MonoSynth</option>
             </select>
             <select id="TwoNoteSynth" class="">
                 <option value="sinte2" selected>2x Synth</option>
-               <option value="sinte2">AMSynth</option>
-                <option value="sinte3">DuoSynth</option>
-                <option value="sinte4">FMSynth</option>
-                <option value="sinte5">MembraneSynth</option>
-                <option value="sinte6">MetalSynth</option>
-                <option value="sinte7">Monophonic</option>
-                <option value="sinte8">NoiseSynth</option>
-                <option value="sinte9">PluckSynth</option>
-                <option value="sinte10">MonoSynth</option>
+              <option value="0" selected>2x Synth</option>
+                <option value="0">AMSynth</option>
+                <option value="1">DuoSynth</option>
+                <option value="2">FMSynth</option>
+                <option value="3">MembraneSynth</option>
+                <option value="4">MetalSynth</option>
+                <option value="5">Monophonic</option>
+                <option value="6">NoiseSynth</option>
+                <option value="7">PluckSynth</option>
+                <option value="8">MonoSynth</option>
             </select>
                 <select id="ThreeNoteSynth" class="">
-                <option value="sinte2" selected>3x Synth</option>
-                 <option value="sinte2">AMSynth</option>
-                <option value="sinte3">DuoSynth</option>
-                <option value="sinte4">FMSynth</option>
-                <option value="sinte5">MembraneSynth</option>
-                <option value="sinte6">MetalSynth</option>
-                <option value="sinte7">Monophonic</option>
-                <option value="sinte8">NoiseSynth</option>
-                <option value="sinte9">PluckSynth</option>
-                <option value="sinte10">MonoSynth</option>
+                <option value="0" selected>3x Synth</option>
+                <option value="0">AMSynth</option>
+                <option value="1">DuoSynth</option>
+                <option value="2">FMSynth</option>
+                <option value="3">MembraneSynth</option>
+                <option value="4">MetalSynth</option>
+                <option value="5">Monophonic</option>
+                <option value="6">NoiseSynth</option>
+                <option value="7">PluckSynth</option>
+                <option value="8">MonoSynth</option>
             </select>
             <select id="FourNoteSynth" class="">
-                <option value="sinte2" selected>4x Synth</option>
-                <option value="sinte2">AMSynth</option>
-                <option value="sinte3">DuoSynth</option>
-                <option value="sinte4">FMSynth</option>
-                <option value="sinte5">MembraneSynth</option>
-                <option value="sinte6">MetalSynth</option>
-                <option value="sinte7">Monophonic</option>
-                <option value="sinte8">NoiseSynth</option>
-                <option value="sinte9">PluckSynth</option>
-                <option value="sinte10">MonoSynth</option>
+               <option value="0" selected>4x Synth</option>
+                <option value="0">AMSynth</option>
+                <option value="1">DuoSynth</option>
+                <option value="2">FMSynth</option>
+                <option value="3">MembraneSynth</option>
+                <option value="4">MetalSynth</option>
+                <option value="5">Monophonic</option>
+                <option value="6">NoiseSynth</option>
+                <option value="7">PluckSynth</option>
+                <option value="8">MonoSynth</option>
             </select>
             <button id="setSynth" class="">Set Synth</button>
             </div>

@@ -200,22 +200,6 @@ margin-bottom: 0;
     right: 0;
     font-size: 40px;
 }
-/*.titleControl p {
-    transform: rotate(270deg);
-    transform-origin: right bottom;
-    position: absolute;
-    bottom: 110px;
-    right: 0;
-    font-size: 40px;
-}*/
-/*.titleRythm p {
-    transform: rotate(270deg);
-    transform-origin: right bottom;
-    position: absolute;
-    bottom: 110px;
-    right: 0;
-    font-size: 40px;*/
-}
 .drumInfo{display: flex;
    /* border-style: solid;
     border-radius: 6px;

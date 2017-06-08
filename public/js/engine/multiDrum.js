@@ -282,10 +282,7 @@ $("#set").on("click", () => {
     return twoScales
 
 })
-$("#OneNoteSynth").change(function() {
-    chosen_1x_Synth = $(this).find("option:selected").text()
-    console.log(typeof chosen_1x_Synth)  
-})
+
 
 
 

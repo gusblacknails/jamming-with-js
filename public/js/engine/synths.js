@@ -9,17 +9,50 @@ var sinte = new Tone.Synth({
      "release": 0.2,
     }
 }).toMaster();
-var sinte2 = new Tone.AMSynth().toMaster();
-var sinte3 = new Tone.DuoSynth().toMaster();
-var sinte4 = new Tone.FMSynth().toMaster();
-var sinte5 = new Tone.MembraneSynth().toMaster();
-var sinte6 = new Tone.MetalSynth().toMaster();
-var sinte7 = new Tone.Monophonic().toMaster();
-var sinte8 = new Tone.NoiseSynth().toMaster();
-var sinte9 = new Tone.PluckSynth().toMaster();
-var sinte10 = new Tone.MonoSynth().toMaster();
+	
+	var selectSynth =[]
+	selectSynth[0]= new Tone.AMSynth().toMaster();
+	selectSynth[1]= new Tone.DuoSynth().toMaster();
+	selectSynth[2]= new Tone.FMSynth().toMaster();
+	selectSynth[3]= new Tone.MembraneSynth().toMaster();
+	selectSynth[4]= new Tone.MetalSynth().toMaster();
+	selectSynth[5]= new Tone.Monophonic().toMaster();
+	selectSynth[6]= new Tone.NoiseSynth().toMaster();
+	selectSynth[7]= new Tone.PluckSynth().toMaster();
+	selectSynth[8]= new Tone.MonoSynth().toMaster();
+	
 
-var chosen_1x_Synth = sinte2
-var chosen_2x_Synth = sinte2
-var chosen_3x_Synth = sinte2
-var chosen_4x_Synth = sinte2
+	var selected_1x_Synth = selectSynth[0]
+    var selected_2x_Synth = selectSynth[0]
+	var selected_3x_Synth = selectSynth[0]
+	var selected_4x_Synth = selectSynth[0]
+
+
+$("#OneNoteSynth").change(function() {
+	console.log(selected_1x_Synth) 
+    var selected =($(this).find("option:selected").val())
+    selected_1x_Synth = selectSynth[selected]
+    console.log(selected_1x_Synth) 
+    
+})
+$("#TwoNoteSynth").change(function() {
+	console.log(selected_2x_Synth) 
+    var selected =($(this).find("option:selected").val())
+    selected_2x_Synth = selectSynth[selected]
+    console.log(selected_2x_Synth) 
+    
+})
+$("#ThreeNoteSynth").change(function() {
+	console.log(selected_3x_Synth) 
+    var selected =($(this).find("option:selected").val())
+    selected_3x_Synth = selectSynth[selected]
+    console.log(selected_3x_Synth) 
+    
+})
+$("#FourNoteSynth").change(function() {
+	console.log(selected_4x_Synth) 
+    var selected =($(this).find("option:selected").val())
+    selected_4x_Synth = selectSynth[selected]
+    console.log(selected_4x_Synth) 
+    
+})
