@@ -4,7 +4,6 @@ function oneNoteSequence(SelectSynth,arpegioMatrix, twoScales, time, col) {
     var column = arpegioMatrix.matrix[col];
     for (var i = 0; i < column.length; i++) {
         if (column[i]) {
-        console.log("inside if")
          SelectSynth.triggerAttackRelease(twoScales, '8n',time)   
         }
     }
@@ -42,7 +41,7 @@ function threeNoteSequence(SelectSynth,arpegioMatrix3, twoScales, time, col) {
         }
     } 
    
-}, [twoScales],"12n")
+}, [twoScales],"8t")
     
     threeNoteSeq.loop = 2;
     threeNoteSeq.loopEnd = "2m";

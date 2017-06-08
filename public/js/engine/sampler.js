@@ -6,7 +6,7 @@ var kickSampler = new Tone.MultiPlayer({
         "k2": "./samples/kickRadiant.mp3",
         "k3": "./samples/kickFutura.mp3",
     },
-    volume: -3,
+    // volume: -3,
     fadeOut: 0.1,
 }).toMaster();
 var snareSampler = new Tone.MultiPlayer({
@@ -15,7 +15,7 @@ var snareSampler = new Tone.MultiPlayer({
         "sR": "./samples/snareRadiant.mp3",
         "sP": "./samples/snarePunch.mp3",
     },
-    volume: -3,
+    // volume: -3,
     fadeOut: 0.1,
 }).toMaster();
 var hihatSampler = new Tone.MultiPlayer({
@@ -34,12 +34,12 @@ var fxSampler = new Tone.MultiPlayer({
         "f2": "./samples/fxSound2.mp3",
         "f3": "./samples/fxSound3.mp3",
     },
-    volume: -3,
+    // volume: -3,
     fadeOut: 0.1,
 }).toMaster();
 
 //the notes will play each sampler
-var drumSound = ["k1", "k2", "k3", "sP", "sR", "sS", "hh", "hR", "hS", "fC", "f2", "f3"];
+
 var kickSound = ["k1", "k2", "k3"];
 var snareSound = ["sP", "sR", "sS"];
 var hihatSound = ["hh", "hR", "hS"];
