@@ -1,56 +1,56 @@
-var NoteSelector =(notesMatrix, twoScales, time, i) => {
+var NoteSelector =(notesMatrix, threeScales, time, i) => {
     var noteSelected= twoScales[0];
 
     var selected = notesMatrix.matrix;
 
         if (selected[i][0]){
           noteSelected =  {
-            oneNote:twoScales[0],
-            twoNote:[twoScales[0],twoScales[2]],
-            threeNote:[twoScales[0],twoScales[2],twoScales[4]],
-            fourNote:[twoScales[0],twoScales[2],twoScales[4],twoScales[6]]
+            oneNote:threeScales[0],
+            twoNote:[threeScales[0],threeScales[2]],
+            threeNote:[threeScales[0],threeScales[2],threeScales[4]],
+            fourNote:[threeScales[0],threeScales[2],threeScales[4],threeScales[6]]
         }}
         else if (selected[i][1]){ 
           noteSelected = {
-            oneNote:twoScales[1],
-            twoNote:[twoScales[1],twoScales[3]],
-            threeNote:[twoScales[1],twoScales[3],twoScales[5]],
-            fourNote:[twoScales[1],twoScales[3],twoScales[5],twoScales[7]]} 
+            oneNote:threeScales[1],
+            twoNote:[threeScales[1],threeScales[3]],
+            threeNote:[threeScales[1],threeScales[3],threeScales[5]],
+            fourNote:[threeScales[1],threeScales[3],threeScales[5],threeScales[7]]} 
         }
         else if (selected[i][2]){
           noteSelected = {
-            oneNote:twoScales[2],
-            twoNote:[twoScales[2],twoScales[4]],
-            threeNote:[twoScales[2],twoScales[4],twoScales[6]],
-            fourNote:[twoScales[2],twoScales[4],twoScales[6],twoScales[8]]}
+            oneNote:threeScales[2],
+            twoNote:[threeScales[2],threeScales[4]],
+            threeNote:[threeScales[2],threeScales[4],threeScales[6]],
+            fourNote:[threeScales[2],threeScales[4],threeScales[6],threeScales[8]]}
         } 
         else if (selected[i][3]){
           noteSelected = {
-            oneNote:twoScales[3],
-            twoNote:[twoScales[3],twoScales[5]],
-            threeNote:[twoScales[3],twoScales[5],twoScales[7]],
-            fourNote:[twoScales[3],twoScales[5],twoScales[7],twoScales[9]]}
+            oneNote:threeScales[3],
+            twoNote:[threeScales[3],threeScales[5]],
+            threeNote:[threeScales[3],threeScales[5],threeScales[7]],
+            fourNote:[threeScales[3],threeScales[5],threeScales[7],threeScales[9]]}
         } 
         else if (selected[i][4]){
           noteSelected = {
-            oneNote:twoScales[4],
-            twoNote:[twoScales[4],twoScales[6]],
-            threeNote:[twoScales[4],twoScales[6],twoScales[8]],
-            fourNote:[twoScales[4],twoScales[6],twoScales[8],twoScales[10]]}
+            oneNote:threeScales[4],
+            twoNote:[threeScales[4],threeScales[6]],
+            threeNote:[threeScales[4],threeScales[6],threeScales[8]],
+            fourNote:[threeScales[4],threeScales[6],threeScales[8],threeScales[10]]}
         } 
         else if (selected[i][5]){
           noteSelected = {
-            oneNote:twoScales[5],
-            twoNote:[twoScales[5],twoScales[7]],
-            threeNote:[twoScales[5],twoScales[7],twoScales[9]],
-            fourNote:[twoScales[5],twoScales[7],twoScales[9],twoScales[11]]}
+            oneNote:threeScales[5],
+            twoNote:[threeScales[5],threeScales[7]],
+            threeNote:[threeScales[5],threeScales[7],threeScales[9]],
+            fourNote:[threeScales[5],threeScales[7],threeScales[9],threeScales[11]]}
         } 
         else if (selected[i][6]){
           noteSelected = {
-            oneNote:twoScales[6],
-            twoNote:[twoScales[6],twoScales[8]],
-            threeNote:[twoScales[6],twoScales[8],twoScales[10]],
-            fourNote:[twoScales[6],twoScales[8],twoScales[10],twoScales[12]]}
+            oneNote:threeScales[6],
+            twoNote:[threeScales[6],threeScales[8]],
+            threeNote:[threeScales[6],threeScales[8],threeScales[10]],
+            fourNote:[threeScales[6],threeScales[8],threeScales[10],threeScales[12]]}
         } 
         notesMatrix.place = i;
         return noteSelected

@@ -18,15 +18,15 @@ $("#set").on("click", () => {
     console.log(twoScales)
 
     //setting the notes on the boxes
-    $("#1note").text(`${escala[0]}`)
-    $("#2note").text(`${escala[1]}`)
-    $("#3note").text(`${escala[2]}`)
-    $("#4note").text(`${escala[3]}`)
-    $("#5note").text(`${escala[4]}`)
-    $("#6note").text(`${escala[5]}`)
-    $("#7note").text(`${escala[6]}`)
+    $("#1note").text(`${twoScales[0]}`)
+    $("#2note").text(`${twoScales[1]}`)
+    $("#3note").text(`${twoScales[2]}`)
+    $("#4note").text(`${twoScales[3]}`)
+    $("#5note").text(`${twoScales[4]}`)
+    $("#6note").text(`${twoScales[5]}`)
+    $("#7note").text(`${twoScales[6]}`)
 
-    return twoScales
+    // return twoScales
 
 })
 
@@ -46,7 +46,6 @@ $("#play").on("click", () => {
     arpegioMatrix3.init()
     arpegioMatrix4.init()
 
-
 })
 $("#stop").on("click", () => {
     Tone.Transport.stop()
@@ -63,7 +62,5 @@ $("#setSynth").on("click", () => {
     chosen_2x_Synth = $("#TwoNoteSynth").val();
     chosen_3x_Synth = $("#ThreeNoteSynth").val();
     chosen_4x_Synth = $("#FourNoteSynth").val();
-
-    console.log(typeof chosen_1x_Synth)
 
 })
