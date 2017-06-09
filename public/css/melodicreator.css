@@ -20,7 +20,8 @@ body,html {
 .arpegioInfo{
   display: flex;
   flex-direction: column;
-  width: 10%;
+  width: 11%;
+  height: 0px;
 }
 .arpegioBox {
     width: 88.5%;
@@ -42,13 +43,13 @@ body,html {
   width: 20%;
 
 }
- .parameters {
+/* .parameters {
   display: flex;
   flex: 1;
-  /*min-height: 100vh;*/
+  min-height: 100vh;
   align-items: center;
   justify-content: center;
-}
+}*/
 .notesInfo{display: flex;
 flex-direction: column; 
 width: 11%;}
@@ -72,14 +73,27 @@ width: 11%;}
   color: white;
   background: rgba(0,0,0,0.4);
   text-shadow: 0 0 .5rem black;
-  padding-top: 1px;
+  padding-top: 2px;
+}
+.arpegioRepeatsBox {
+  border-radius: 3px;
+  margin: 2.5px;
+  font-size: 1.5rem;
+  padding: 1.18rem .5rem;
+  width: 33px;
+  height: 23px;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  text-shadow: 0 0 .5rem black;
+  padding-top: 2px;
 }
 
-.playing {
+/*.playing {
   transform: scale(1.1);
   border-color: #ffc600;
   box-shadow: 0 0 1rem #ffc600;
-}
+}*/
 
 p {
   display: block;
@@ -87,7 +101,7 @@ p {
 }
 
 .sound {
-  font-size: 1.2rem;
+ font-size: 12.2px;
   /*text-transform: uppercase;*/
   letter-spacing: .1rem;
   color: #ffc600;
