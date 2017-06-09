@@ -22,6 +22,7 @@ body,html {
   flex-direction: column;
   width: 11%;
   height: 0px;
+  padding-left: 1px;
 }
 .arpegioBox {
     width: 88.5%;
@@ -37,19 +38,11 @@ body,html {
     border-width: 2px;
     background: #fff;
 }
-}
 .selection{text-align: center;}
 .selectionArpegio{
   width: 20%;
-
 }
-/* .parameters {
-  display: flex;
-  flex: 1;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-}*/
+
 .notesInfo{display: flex;
 flex-direction: column; 
 width: 11%;}
@@ -76,28 +69,17 @@ width: 11%;}
   padding-top: 2px;
 }
 .arpegioRepeatsBox {
-  border-radius: 3px;
-  margin: 2.5px;
-  font-size: 1.5rem;
-  padding: 1.18rem .5rem;
-  width: 33px;
-  height: 23px;
-  text-align: center;
-  color: white;
-  background: rgba(0,0,0,0.4);
-  text-shadow: 0 0 .5rem black;
-  padding-top: 2px;
-}
-
-/*.playing {
-  transform: scale(1.1);
-  border-color: #ffc600;
-  box-shadow: 0 0 1rem #ffc600;
-}*/
-
-p {
-  display: block;
-  font-size: 4rem;
+    border-radius: 3px;
+    margin: 1.5px;
+    font-size: 1.5rem;
+    padding: 1.18rem .5rem;
+    width: 33px;
+    height: 22px;
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    text-shadow: 0 0 0.5rem black;
+    padding-top: 2px;
 }
 
 .sound {
