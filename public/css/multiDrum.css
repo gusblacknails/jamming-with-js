@@ -110,7 +110,6 @@ margin-bottom: 0;
     margin-right: 0px;
 }
  .logo img{
-   /* padding-top: 20px;*/
   display: block;
   max-width:150px;
   max-height:45px;
@@ -135,20 +134,23 @@ margin-bottom: 0;
     padding: 20px 10px 20px 15px;
     background: #f7f7f7;
     border-bottom: 1px solid #7f7f7f;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
 }
 
 .drumMachineDiv{
     display: flex;
     flex-direction: row;
+    margin-right: 67px;
 }
 .melodyCreator{
     display: flex;
     flex-direction: row;
+    margin-right: 64px;
 }
 .controlPanel{
     display: flex;
-    flex-direction: row
+    flex-direction: row;
+    width: 336px;
 }
 .quarterNote{
     background: url(../images/quarter_Note.png) no-repeat;
@@ -188,7 +190,7 @@ margin-bottom: 0;
     transform-origin: right bottom;
     position: absolute;
     bottom: 110px;
-    right: -61px;;
+    right: -5px;;
     font-size: 40px;
     margin-bottom: 88px;
 }
@@ -355,6 +357,16 @@ margin-bottom: 0;
     text-decoration: none;
     width: 32%;
     min-height: 20px;
+}
+.presetOption{
+    display: flex;
+    flex-direction: column;
+}
+.synthselect{
+
+}
+.fxSelect{
+
 }
 
 button:focus {
