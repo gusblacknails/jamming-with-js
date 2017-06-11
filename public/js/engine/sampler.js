@@ -1,3 +1,5 @@
+
+
 //-----------the sampler for each drum sound---------------//
 var kickSampler = new Tone.MultiPlayer({
     urls: {
@@ -9,15 +11,18 @@ var kickSampler = new Tone.MultiPlayer({
     // volume: -3,
     fadeOut: 0.1,
 }).toMaster();
+
+kickSampler.chain(drumVol, Tone.Master);
 var snareSampler = new Tone.MultiPlayer({
     urls: {
         "sS": "./samples/snareSeismic.mp3",
         "sR": "./samples/snareRadiant.mp3",
         "sP": "./samples/snarePunch.mp3",
     },
-    // volume: -3,
+
     fadeOut: 0.1,
 }).toMaster();
+snareSampler.chain(drumVol, Tone.Master);
 var hihatSampler = new Tone.MultiPlayer({
     urls: {
        
@@ -25,18 +30,20 @@ var hihatSampler = new Tone.MultiPlayer({
         "hR": "./samples/hihatRadiant.mp3",
         "hS": "./samples/hihatSeismic.mp3",
     },
-    volume: -3,
+   
     fadeOut: 0.1,
 }).toMaster();
+hihatSampler.chain(drumVol, Tone.Master);
 var fxSampler = new Tone.MultiPlayer({
     urls: {
         "fC": "./samples/fxClap.mp3",
         "f2": "./samples/fxSound2.mp3",
         "f3": "./samples/fxSound3.mp3",
     },
-    // volume: -3,
+ 
     fadeOut: 0.1,
 }).toMaster();
+fxSampler.chain(drumVol, Tone.Master);
 
 //the notes will play each sampler
 

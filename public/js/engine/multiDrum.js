@@ -204,7 +204,7 @@ $("#play").on("click", () => {
     arpegioMatrix4.init()
 
     })
-    //stoping the drumMatrix and the Transport
+    //stop drumMatrix and Transport
 
 $("#stop").on("click", () => {
     Tone.Transport.stop()
@@ -283,9 +283,10 @@ $("#set").on("click", () => {
     $("#7note").text(`${twoScales[6]}`)
 
     return twoScales
-
+     
 })
 
+//-----------crossfade mixing--------------//
 
 
 
