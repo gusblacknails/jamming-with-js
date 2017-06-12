@@ -1,5 +1,4 @@
 function oneNoteSequence(SelectSynth,arpegioMatrix, threeScales, time, col) {
-    console.error(SelectSynth)
     arpegioMatrix.place = col;
     var column = arpegioMatrix.matrix[col];
     for (var i = 0; i < column.length; i++) {

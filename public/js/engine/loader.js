@@ -74,20 +74,6 @@ nx.onload = function() {
 
 }
 
-// $("#masterMix").on("click",
-// ()=>{
-
-// drumOldValue= masterMix.val.L 
-// melodyOldValue= masterMix.val.R 
-// console.log(drumOldValue)
-// console.log(melodyOldValue)
-// drumVol.volume.input.value= crossfaderParser(drumOldValue)
-// melodyVol.volume.input.value= crossfaderParser(melodyOldValue)
-// console.log(drumVol.volume.input.value)
-// console.log(melodyVol.volume.input.value)
-// })
-
-
 //--------------crossfader buttons-------------//
 masterMix.onmousedown= function() {
 
@@ -96,7 +82,8 @@ var melodyOldValue= masterMix.val.R
 console.log(drumOldValue)
 console.log(melodyOldValue)
 drumVol.volume.input.value= crossfaderParser(drumOldValue)
-melodyVol.volume.input.value= crossfaderParser(melodyOldValue)
+if ($('#melodyGroup').hasClass("melodyMute")) {
+melodyVol.volume.input.value= crossfaderParser(melodyOldValue)}
 console.log(drumVol.volume.input.value)
 console.log(melodyVol.volume.input.value)
 
@@ -108,7 +95,8 @@ var melodyOldValue= masterMix.val.R
 console.log(drumOldValue)
 console.log(melodyOldValue)
 drumVol.volume.input.value= crossfaderParser(drumOldValue)
-melodyVol.volume.input.value= crossfaderParser(melodyOldValue)
+if ($('#melodyGroup').hasClass("melodyMute")) {
+melodyVol.volume.input.value= crossfaderParser(melodyOldValue)}
 console.log(drumVol.volume.input.value)
 console.log(melodyVol.volume.input.value)
 
@@ -120,7 +108,8 @@ var melodyOldValue= masterMix.val.R
 console.log(drumOldValue)
 console.log(melodyOldValue)
 drumVol.volume.input.value= crossfaderParser(drumOldValue)
-melodyVol.volume.input.value= crossfaderParser(melodyOldValue)
+if ($('#melodyGroup').hasClass("melodyMute")) {
+melodyVol.volume.input.value= crossfaderParser(melodyOldValue)}
 console.log(drumVol.volume.input.value)
 console.log(melodyVol.volume.input.value)
 
