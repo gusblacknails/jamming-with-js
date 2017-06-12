@@ -157,6 +157,25 @@ $('#drumGroup').on("click", function() {
 
 });
 
+$('#melodyGroup').on("click", function() {
+
+    if ($(this).hasClass("melodyMute")) {
+
+        $(this)
+        console.log("melodyMute pressed")
+      melodyVol.volume.input.value= -1
+        
+        $('#melodyGroup').toggleClass("melodyMute melodyMuteOff");
+    } else {
+        let melodyOldValue= masterMix.val.R
+        $(this)
+        console.log("drumMuteOff pressed")
+       melodyVol.volume.input.value= crossfaderParser(melodyOldValue)
+        $('#melodyGroup').toggleClass("melodyMuteOff melodyMute");
+    }
+
+});
+
 //-----------------------------------------------------------------------//
 
 $("#play").on("click", () => {
