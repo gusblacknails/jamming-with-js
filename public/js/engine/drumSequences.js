@@ -7,6 +7,17 @@ var negras = new Tone.Sequence(function(time, col) {
             kickSampler.start(kickSelect, time, 0, "32n", 0, vel);
         }
     }
+    Tone.Draw.schedule(function() {
+          //do drawing or DOM manipulation here
+  
+        if($("#muteKick").parent().parent().hasClass("InstrumentBox")) {
+
+            $("#muteKick").parent().parent().toggleClass("InstrumentBox Accent");
+        } else {
+            $('#muteKick').parent().parent().toggleClass("Accent InstrumentBox");
+        }
+      
+}, time)
 
 }, [0, 1, 2, 3], "4n");
 

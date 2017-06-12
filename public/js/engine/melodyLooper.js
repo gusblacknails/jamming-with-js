@@ -17,8 +17,25 @@ loop.humanize = true;
 Tone.Transport.bpm.value = 120
 
 
+//--------------Beat Draw------------------------//
 
+// function beatDraw(arpegioMatrix,time,col){
+//     Tone.Transport.schedule(function(arpegioMatrix,time,col) {
+//     //use the time argument to schedule a callback with Tone.Draw
+//     Tone.Draw.schedule(function() {
+//           //do drawing or DOM manipulation here
+  
+//      $("#muteKick").parent().parent().hasClass("InstrumentBox")) {
 
+//             $("#muteKick").parent().parent().toggleClass("InstrumentBox Accent");
+//         } else {
+//             $('#muteKick').parent().parent().toggleClass("Accent InstrumentBox");
+//         }
+      
+// , time)
+// }, "4n")
+
+// }
 
 
 

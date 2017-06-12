@@ -1,5 +1,3 @@
-
-
 //-----------------Sample selection for each drum matrix--------------------//
 $('#kick1').click(function() {
     $(this).toggleClass("SampleSelection SampleSelectionOff ")
@@ -69,13 +67,13 @@ $('#muteKick').on("click", function() {
 
         $(this)
         console.log("Mutebutton pressed")
-        kickSampler.mute= true
+        kickSampler.mute = true
         $('#muteKick').toggleClass("kickMuteButton kickMuteButtonOff");
     } else {
 
         $(this)
         console.log("MutebuttonOff pressed")
-         kickSampler.mute= false
+        kickSampler.mute = false
         $('#muteKick').toggleClass("kickMuteButtonOff kickMuteButton");
     }
 
@@ -86,13 +84,13 @@ $('#muteSnare').on("click", function() {
 
         $(this)
         console.log("snareMutebutton pressed")
-        snareSampler.mute= true
+        snareSampler.mute = true
         $('#muteSnare').toggleClass("snareMuteButton snareMuteButtonOff");
     } else {
 
         $(this)
         console.log("snareMutebuttonOff pressed")
-        snareSampler.mute= false
+        snareSampler.mute = false
         $('#muteSnare').toggleClass("snareMuteButtonOff snareMuteButton");
     }
 
@@ -103,14 +101,14 @@ $('#muteHihat').on("click", function() {
 
         $(this)
         console.log("hihatMutebutton pressed")
-        hihatSampler.mute= true
+        hihatSampler.mute = true
 
         $('#muteHihat').toggleClass("hihatMuteButton hihatMuteButtonOff");
     } else {
 
         $(this)
         console.log("hihatMutebuttonOff pressed")
-        hihatSampler.mute= false
+        hihatSampler.mute = false
 
         $('#muteHihat').toggleClass("hihatMuteButtonOff hihatMuteButton");
     }
@@ -122,13 +120,13 @@ $('#muteFX').on("click", function() {
 
         $(this)
         console.log("FXMutebutton pressed")
-        fxSampler.mute= true
+        fxSampler.mute = true
         $('#muteFX').toggleClass("FXMuteButton FXMuteButtonOff");
     } else {
 
         $(this)
         console.log("FXMutebuttonOff pressed")
-        fxSampler.mute= false
+        fxSampler.mute = false
         $('#muteFX').toggleClass("FXMuteButtonOff FXMuteButton");
     }
 
@@ -139,19 +137,19 @@ $('#drumGroup').on("click", function() {
 
         $(this)
         console.log("drumMute pressed")
-        kickSampler.mute= true
-        snareSampler.mute= true
-        hihatSampler.mute= true
-        fxSampler.mute= true
+        kickSampler.mute = true
+        snareSampler.mute = true
+        hihatSampler.mute = true
+        fxSampler.mute = true
         $('#drumGroup').toggleClass("drumMute drumMuteOff");
     } else {
 
         $(this)
         console.log("drumMuteOff pressed")
-        kickSampler.mute= false
-        snareSampler.mute= false
-        hihatSampler.mute= false
-        fxSampler.mute= false
+        kickSampler.mute = false
+        snareSampler.mute = false
+        hihatSampler.mute = false
+        fxSampler.mute = false
         $('#drumGroup').toggleClass("drumMuteOff drumMute");
     }
 
@@ -163,18 +161,46 @@ $('#melodyGroup').on("click", function() {
 
         $(this)
         console.log("melodyMute pressed")
-      melodyVol.volume.input.value= -1
-        
+        melodyVol.volume.input.value = -1
+
         $('#melodyGroup').toggleClass("melodyMute melodyMuteOff");
     } else {
-        let melodyOldValue= masterMix.val.R
+        let melodyOldValue = masterMix.val.R
         $(this)
         console.log("drumMuteOff pressed")
-       melodyVol.volume.input.value= crossfaderParser(melodyOldValue)
+        melodyVol.volume.input.value = crossfaderParser(melodyOldValue)
         $('#melodyGroup').toggleClass("melodyMuteOff melodyMute");
     }
 
 });
+
+//--------------Beat Draw------------------------//
+
+
+
+
+Tone.Transport.schedule(function(time) {
+    //use the time argument to schedule a callback with Tone.Draw
+    Tone.Draw.schedule(function() {
+        
+        for(var i = 0; i < 4; i++){
+        if ($("#muteKick").parent().parent().hasClass("InstrumentBox")) {
+
+            $("#muteKick").parent().parent().toggleClass("InstrumentBox Accent");
+        } else {
+            $('#muteKick').parent().parent().toggleClass("Accent InstrumentBox");
+        }
+        //do drawing or DOM manipulation here
+  }  }, time)
+}, "1t")
+
+
+
+
+
+
+
+
 
 //-----------------------------------------------------------------------//
 
@@ -233,18 +259,18 @@ $("#play").on("click", () => {
         fxMatrix3.init()
         fxMatrix4.init()
 
-        
 
-    notesMatrix.sequence(Tone.Transport.bpm.value)
-    arpegioMatrix.sequence(Tone.Transport.bpm.value)
-    arpegioMatrix2.sequence(Tone.Transport.bpm.value)
-    arpegioMatrix3.sequence(Tone.Transport.bpm.value)
-    arpegioMatrix4.sequence(Tone.Transport.bpm.value)
-    notesMatrix.init()
-    arpegioMatrix.init()
-    arpegioMatrix2.init()
-    arpegioMatrix3.init()
-    arpegioMatrix4.init()
+
+        notesMatrix.sequence(Tone.Transport.bpm.value)
+        arpegioMatrix.sequence(Tone.Transport.bpm.value)
+        arpegioMatrix2.sequence(Tone.Transport.bpm.value)
+        arpegioMatrix3.sequence(Tone.Transport.bpm.value)
+        arpegioMatrix4.sequence(Tone.Transport.bpm.value)
+        notesMatrix.init()
+        arpegioMatrix.init()
+        arpegioMatrix2.init()
+        arpegioMatrix3.init()
+        arpegioMatrix4.init()
 
     })
     //stop drumMatrix and Transport
@@ -278,7 +304,7 @@ $("#stop").on("click", () => {
     arpegioMatrix3.stop()
     arpegioMatrix4.stop()
 
-    
+
 })
 
 //---------BPM---------------------//
@@ -286,11 +312,11 @@ $("#stop").on("click", () => {
 var tempoRange = document.getElementById('tempo__range');
 var bpm = document.getElementById('bpm');
 tempoRange.addEventListener('input', function(event) {
-  var value = event.target.value; // 70 - 140
+    var value = event.target.value; // 70 - 140
 
-  Tone.Transport.bpm.value = value;
+    Tone.Transport.bpm.value = value;
 
-  bpm.textContent = value;
+    bpm.textContent = value;
 });
 
 //------------set scale------------------//
@@ -310,8 +336,8 @@ $("#set").on("click", () => {
     octave = $("#octave").val();
     //here we decide wich mode use
     escala = Tonal.scale.get(chosenScale, chosenNote + octave);
-    escala2= Tonal.scale.get(chosenScale, chosenNote + (parseInt(octave) +1))
-    escala3= Tonal.scale.get(chosenScale, chosenNote + (parseInt(octave) +2))
+    escala2 = Tonal.scale.get(chosenScale, chosenNote + (parseInt(octave) + 1))
+    escala3 = Tonal.scale.get(chosenScale, chosenNote + (parseInt(octave) + 2))
     twoScales = escala.concat(escala2)
     threeScales = twoScales.concat(escala3)
     console.log(threeScales)
@@ -326,12 +352,7 @@ $("#set").on("click", () => {
     $("#7note").text(`${twoScales[6]}`)
 
     return twoScales
-     
+
 })
 
 //-----------crossfade mixing--------------//
-
-
-
-
-

@@ -255,6 +255,17 @@ padding: 7px 0 7px 0;}
     border-width: 2px;
     background: #fff;
 }
+.Accent {
+    display: flex;
+    border-style: solid;
+    border-radius: 6px;
+    color: #ffc600;
+    flex-direction: column;
+    width: 100px;
+    border-width: 2px;
+    background: #fff;
+}
+
 
 .drumMachineBox {
     width: 99%;
