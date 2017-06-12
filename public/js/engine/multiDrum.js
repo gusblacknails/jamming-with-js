@@ -69,13 +69,13 @@ $('#muteKick').on("click", function() {
 
         $(this)
         console.log("Mutebutton pressed")
-        kickSampler.volume.value= -60
+        kickSampler.mute= true
         $('#muteKick').toggleClass("kickMuteButton kickMuteButtonOff");
     } else {
 
         $(this)
         console.log("MutebuttonOff pressed")
-         kickSampler.volume.value= -6
+         kickSampler.mute= false
         $('#muteKick').toggleClass("kickMuteButtonOff kickMuteButton");
     }
 
@@ -86,13 +86,13 @@ $('#muteSnare').on("click", function() {
 
         $(this)
         console.log("snareMutebutton pressed")
-        snareSampler.volume.value= -60
+        snareSampler.mute= true
         $('#muteSnare').toggleClass("snareMuteButton snareMuteButtonOff");
     } else {
 
         $(this)
         console.log("snareMutebuttonOff pressed")
-        snareSampler.volume.value= -6
+        snareSampler.mute= false
         $('#muteSnare').toggleClass("snareMuteButtonOff snareMuteButton");
     }
 
@@ -103,14 +103,14 @@ $('#muteHihat').on("click", function() {
 
         $(this)
         console.log("hihatMutebutton pressed")
-        hihatSampler.volume.value= -60
+        hihatSampler.mute= true
 
         $('#muteHihat').toggleClass("hihatMuteButton hihatMuteButtonOff");
     } else {
 
         $(this)
         console.log("hihatMutebuttonOff pressed")
-        hihatSampler.volume.value= -6
+        hihatSampler.mute= false
 
         $('#muteHihat').toggleClass("hihatMuteButtonOff hihatMuteButton");
     }
@@ -122,17 +122,41 @@ $('#muteFX').on("click", function() {
 
         $(this)
         console.log("FXMutebutton pressed")
-        fxSampler.volume.value= -60
+        fxSampler.mute= true
         $('#muteFX').toggleClass("FXMuteButton FXMuteButtonOff");
     } else {
 
         $(this)
         console.log("FXMutebuttonOff pressed")
-        fxSampler.volume.value= -6
+        fxSampler.mute= false
         $('#muteFX').toggleClass("FXMuteButtonOff FXMuteButton");
     }
 
 });
+$('#drumGroup').on("click", function() {
+
+    if ($(this).hasClass("drumMute")) {
+
+        $(this)
+        console.log("drumMute pressed")
+        kickSampler.mute= true
+        snareSampler.mute= true
+        hihatSampler.mute= true
+        fxSampler.mute= true
+        $('#drumGroup').toggleClass("drumMute drumMuteOff");
+    } else {
+
+        $(this)
+        console.log("drumMuteOff pressed")
+        kickSampler.mute= false
+        snareSampler.mute= false
+        hihatSampler.mute= false
+        fxSampler.mute= false
+        $('#drumGroup').toggleClass("drumMuteOff drumMute");
+    }
+
+});
+
 //-----------------------------------------------------------------------//
 
 $("#play").on("click", () => {

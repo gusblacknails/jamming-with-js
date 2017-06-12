@@ -1,5 +1,5 @@
 var NoteSelector =(notesMatrix, threeScales, time, i) => {
-    var noteSelected= twoScales[0];
+    var noteSelected= threeScales[0];
 
     var selected = notesMatrix.matrix;
 

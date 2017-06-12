@@ -2,7 +2,7 @@ nav {padding-right: 50px;
 padding-left: 50px;}
 .navbar{border-radius: 0;
 margin-bottom: 0;
-    padding: 7px 0 7px 0;}
+padding: 7px 0 7px 0;}
 .controlPanel {
     display: flex;
     border-style: solid;
@@ -116,14 +116,14 @@ margin-bottom: 0;
   width: auto;
   height: auto;
 }
- .mute img{
+/* .mute img{
 
   display: block;
   max-width:99px;
   max-height:69px;
   width: auto;
   height: auto;
-}
+}*/
 .bpmResult{
     display: flex;
     flex-direction: row;
@@ -149,12 +149,10 @@ margin-bottom: 0;
 }
 .controlPanel{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 336px;
 }
-.quarterNote{
-    background: url(../images/quarter_Note.png) no-repeat;
-}
+
 .titleRythm {
     color: black;
     width: 12%;
@@ -367,6 +365,47 @@ margin-bottom: 0;
 }
 .fxSelect{
 
+}
+.crossfadeDiv{
+  display: flex;
+  flex-direction: row;
+
+}
+.drumMute {
+    border: none;
+    width: 33px;
+    height: 40px;
+    background: url(../images/drumLogoYellow.png) no-repeat;
+}
+
+.drumMuteOff {
+    border: none;
+    width: 33px;
+    height: 40px;
+    background: url(../images/drumLogoBlack.png) no-repeat;
+    background-size: 10% 10% background-color: transparent;
+}
+.melodyMute {
+    border: none;
+    width: 40px;
+    height: 40px;
+    background: url(../images/synthLogoYellow.png) no-repeat;
+}
+
+.melodyMuteOff {
+    border: none;
+    width: 40px;
+    height: 40px;
+    background: url(../images/synthLogoBlack.png) no-repeat;
+    background-size: 10% 10% background-color: transparent;
+}
+ .drumMute img{
+
+  display: block;
+  max-width:30px;
+  max-height:30px;
+  width: auto;
+  height: auto;
 }
 
 button:focus {

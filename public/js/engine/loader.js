@@ -86,22 +86,49 @@ nx.onload = function() {
 // console.log(drumVol.volume.input.value)
 // console.log(melodyVol.volume.input.value)
 // })
-$("#masterMix").on("click",
-()=>{
 
-drumOldValue= masterMix.val.L 
-melodyOldValue= masterMix.val.R 
+
+//--------------crossfader buttons-------------//
+masterMix.onmousedown= function() {
+
+var drumOldValue= masterMix.val.L 
+var melodyOldValue= masterMix.val.R
 console.log(drumOldValue)
 console.log(melodyOldValue)
 drumVol.volume.input.value= crossfaderParser(drumOldValue)
 melodyVol.volume.input.value= crossfaderParser(melodyOldValue)
 console.log(drumVol.volume.input.value)
 console.log(melodyVol.volume.input.value)
-})
+
+}
+masterMix.onmouseup= function() {
+
+var drumOldValue= masterMix.val.L 
+var melodyOldValue= masterMix.val.R
+console.log(drumOldValue)
+console.log(melodyOldValue)
+drumVol.volume.input.value= crossfaderParser(drumOldValue)
+melodyVol.volume.input.value= crossfaderParser(melodyOldValue)
+console.log(drumVol.volume.input.value)
+console.log(melodyVol.volume.input.value)
+
+}
+masterMix.onmouseout= function() {
+
+var drumOldValue= masterMix.val.L 
+var melodyOldValue= masterMix.val.R
+console.log(drumOldValue)
+console.log(melodyOldValue)
+drumVol.volume.input.value= crossfaderParser(drumOldValue)
+melodyVol.volume.input.value= crossfaderParser(melodyOldValue)
+console.log(drumVol.volume.input.value)
+console.log(melodyVol.volume.input.value)
+
+}
 
 
-var drumVol = new Tone.Volume(0);
-var melodyVol = new Tone.Volume(0);
+var drumVol = new Tone.Volume();
+var melodyVol = new Tone.Volume();
 
 
 //---------------crossfader parser---------------//
@@ -112,7 +139,7 @@ const OldMax= 1
 const OldMin= 0
 const OldRange = (OldMax - OldMin) 
 
-const NewMin= -3.5
+const NewMin= - 1.5
 const NewMax= 3.5
 const NewRange = (NewMax - NewMin)
 const NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin
