@@ -1,4 +1,7 @@
 nx.onload = function() {
+    checkBrowser();
+    console.log(loop.length)
+ 
     nx.colorize("#ffc600")
     notesMatrix.row = 7
     notesMatrix.col = 8
@@ -74,6 +77,13 @@ nx.onload = function() {
 
 }
 
+//check the browser
+function checkBrowser(){
+  let isChrome = !!window.chrome && !!window.chrome.webstore;
+  if(!isChrome){
+    alert("Beat It works best with Google Chrome, some features may not work in other browsers.")
+  }
+}
 
 
 

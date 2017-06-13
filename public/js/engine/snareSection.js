@@ -7,7 +7,7 @@ var negrasSnare = new Tone.Sequence(function(time, col) {
             snareSampler.start(snareSelect, time, 0, "32n", 0, vel);
         }
     }
-
+        
 }, [0, 1, 2, 3], "4n");
 
 var corcheasSnare = new Tone.Sequence(function(time, col) {

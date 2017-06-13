@@ -1,5 +1,6 @@
 //----------sequence for kick section----------------//
 var negras = new Tone.Sequence(function(time, col) {
+
     var column = kickMatrix.matrix[col];
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
@@ -75,7 +76,7 @@ var negras = new Tone.Sequence(function(time, col) {
 }, time)
         }
 //------------------------------------------------------------------------//
-
+        
 }, [0, 1, 2, 3], "4n");
 
 var corcheas = new Tone.Sequence(function(time, col) {

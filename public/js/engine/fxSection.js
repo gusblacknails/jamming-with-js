@@ -8,6 +8,7 @@ var negrasFX = new Tone.Sequence(function(time, col) {
             fxSampler.start(fxSelect, time, 0, "32n", 0, vel);
         }
     }
+        
 
 }, [0, 1, 2, 3], "4n");
 
