@@ -20,7 +20,7 @@ var loop = new Tone.Sequence(function(time, col) {
 }, [0, 1, 2, 3, 4, 5, 6, 7], "4n");
 
 loop.humanize = true;
-loop.loopEnd = 8
+// loop.loopEnd = 8
 
 // function AccentFirstBeat(matrix) {
 //   matrix.sequence(Tone.Transport.bpm.value)
