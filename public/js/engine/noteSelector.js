@@ -1,5 +1,10 @@
 var NoteSelector =(notesMatrix, threeScales, time, i) => {
-    var noteSelected= threeScales[0];
+    var noteSelected= {
+            oneNote:threeScales[0],
+            twoNote:[threeScales[0],threeScales[2]],
+            threeNote:[threeScales[0],threeScales[2],threeScales[4]],
+            fourNote:[threeScales[0],threeScales[2],threeScales[4],threeScales[6]]
+        };
 
     var selected = notesMatrix.matrix;
 
