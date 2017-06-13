@@ -254,6 +254,7 @@ padding: 7px 0 7px 0;}
     width: 100px;
     border-width: 2px;
     background: #fff;
+    margin-right: 2px;
 }
 .Accent {
     display: flex;
@@ -264,6 +265,7 @@ padding: 7px 0 7px 0;}
     width: 100px;
     border-width: 2px;
     background: #fff;
+    margin-right: 2px;
 }
 
 

@@ -174,37 +174,10 @@ $('#melodyGroup').on("click", function() {
 
 });
 
-//--------------Beat Draw------------------------//
-
-
-
-
-Tone.Transport.schedule(function(time) {
-    //use the time argument to schedule a callback with Tone.Draw
-    Tone.Draw.schedule(function() {
-        
-        for(var i = 0; i < 4; i++){
-        if ($("#muteKick").parent().parent().hasClass("InstrumentBox")) {
-
-            $("#muteKick").parent().parent().toggleClass("InstrumentBox Accent");
-        } else {
-            $('#muteKick').parent().parent().toggleClass("Accent InstrumentBox");
-        }
-        //do drawing or DOM manipulation here
-  }  }, time)
-}, "1t")
-
-
-
-
-
-
-
-
-
 //-----------------------------------------------------------------------//
 
 $("#play").on("click", () => {
+        // $("#muteKick").parent().parent().toggleClass("InstrumentBox Accent");
         Tone.Transport.start("+0.1")
         loop.start()
         negras.start()

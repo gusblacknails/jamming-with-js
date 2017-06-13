@@ -7,17 +7,74 @@ var negras = new Tone.Sequence(function(time, col) {
             kickSampler.start(kickSelect, time, 0, "32n", 0, vel);
         }
     }
-    Tone.Draw.schedule(function() {
-          //do drawing or DOM manipulation here
-  
-        if($("#muteKick").parent().parent().hasClass("InstrumentBox")) {
+//------------------------BeatDraw----------------------------//    
+        if(col===0){ Tone.Draw.schedule(function() {
+            if( $("#muteFX").parent().parent().hasClass("Accent")){
+               $("#muteFX").parent().parent().toggleClass("InstrumentBox Accent"); 
+            }
+            $("#muteKick").parent().parent().toggleClass("InstrumentBox Accent"); 
 
-            $("#muteKick").parent().parent().toggleClass("InstrumentBox Accent");
-        } else {
-            $('#muteKick').parent().parent().toggleClass("Accent InstrumentBox");
-        }
+            $("#muteSnare").parent().parent().removeClass("Accent");
+            $("#muteHihat").parent().parent().removeClass("Accent");
+            $("#muteFx").parent().parent().removeClass("Accent");
+           
+            $("#muteSnare").parent().parent().addClass("InstrumentBox");
+            $("#muteHihat").parent().parent().addClass("InstrumentBox");
+            $("#muteFx").parent().parent().addClass("InstrumentBox");
+         
+        
+        
+}, time)}
+
+        if(col===1){
+                  Tone.Draw.schedule(function() {
+            $("#muteSnare").parent().parent().toggleClass("InstrumentBox Accent");
+
+            $("#muteKick").parent().parent().removeClass("Accent");
+            $("#muteHihat").parent().parent().removeClass("Accent");
+            $("#muteFx").parent().parent().removeClass("Accent"); 
+
+            $("#muteKick").parent().parent().addClass("InstrumentBox");
+            $("#muteHihat").parent().parent().addClass("InstrumentBox");
+            $("#muteFx").parent().parent().addClass("InstrumentBox");
+         
+          
+        
       
 }, time)
+        }
+           if(col===2){
+                  Tone.Draw.schedule(function() {
+            $("#muteHihat").parent().parent().toggleClass("InstrumentBox Accent"); 
+
+            $("#muteKick").parent().parent().removeClass("Accent");
+            $("#muteSnare").parent().parent().removeClass("Accent");
+            $("#muteFx").parent().parent().removeClass("Accent");
+
+            $("#muteKick").parent().parent().addClass("InstrumentBox");
+            $("#muteSnare").parent().parent().addClass("InstrumentBox");
+            $("#muteFx").parent().parent().addClass("InstrumentBox");
+          
+        
+}, time)
+        }
+           if(col===3){
+                  Tone.Draw.schedule(function() {
+            $("#muteFX").parent().parent().toggleClass("InstrumentBox Accent");
+
+            $("#muteKick").parent().parent().removeClass("Accent");
+            $("#muteSnare").parent().parent().removeClass("Accent");
+            $("#muteHihat").parent().parent().removeClass("Accent");
+
+            $("#muteKick").parent().parent().addClass("InstrumentBox");
+            $("#muteSnare").parent().parent().addClass("InstrumentBox");
+            $("#muteHihat").parent().parent().addClass("InstrumentBox");
+
+          
+       
+}, time)
+        }
+//------------------------------------------------------------------------//
 
 }, [0, 1, 2, 3], "4n");
 
