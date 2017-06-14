@@ -420,77 +420,113 @@ padding: 7px 0 7px 0;}
   width: auto;
   height: auto;
 }
-.fxSelect{
+.beatAccentDiv{
+  	position:absolute;
+    border-style: solid;
+    border-radius: 6px;
+    color: #ffc600;
+    
+    width: 100px;
+    border-width: 2px;
+    background: #fff;
+    margin-right: 2px;
+    z-index: -1;
+}
+
+body,html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 10px;
+}
+.arpegioSelector{
+   display: flex;
+   flex-direction: column;
+   width: 90%;
+}
+.melodyBox {
+    width: 88.5%;
+    height: 200px;
+}
+.arpegioInfo{
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border-style: solid;
-  border-radius: 6px;
-  border-color: blue;
-  height: 100px;
+  flex-direction: column;
+  width: 11%;
+  height: 0px;
+  padding-left: 1px;
 }
-.fx1{
-  border-style: solid;
-  border-radius: 6px;
-  border-color: red;
-  width: 30%;
+.arpegioBox {
+	position: absolute;
+    width: 88.5%;
+    height: 20%;
+}
+.melodyDiv{
+    display: flex;
+    border-style: solid;
+    border-radius: 6px;
+    color: #999999;
+    flex-direction: row;
+    width: 400px;
+    border-width: 2px;
+    background: #fff;
+}
+.selection{text-align: center;}
+.selectionArpegio{
+  width: 20%;
+}
+
+.notesInfo{display: flex;
+flex-direction: column; 
+width: 11%;}
+.keys {
+  display: flex;
+  /*flex: 1;*/
+  /*min-height: 100vh;*/
+  align-items: center;
+  justify-content: center;
 
 }
-.fx2{
-  border-style: solid;
-  border-radius: 6px;
-  border-color: yellow;
-  width: 30%;
 
+.key {
+  border-radius: 3px;
+  margin: 2.5px;
+  font-size: 1.5rem;
+  padding: 1.18rem .5rem;
+  width: 33px;
+  height: 23px;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  text-shadow: 0 0 .5rem black;
+  padding-top: 2px;
 }
-.fx3{
-  border-style: solid;
-  border-radius: 6px;
-  border-color: green;
-  width: 30%;
+.arpegioRepeatsBox {
+    border-radius: 3px;
+    margin: 1.5px;
+    font-size: 1.5rem;
+    padding: 1.18rem .5rem;
+    width: 33px;
+    height: 22px;
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    text-shadow: 0 0 0.5rem black;
+    padding-top: 2px;
+}
 
+.sound {
+ font-size: 12.2px;
+  /*text-transform: uppercase;*/
+  letter-spacing: .1rem;
+  color: #ffc600;
 }
-.fxButton1_off{
-   border: none;
-    width: 70px;
-    height: 70px;
-    background: url(../images/fx1_little.png) no-repeat;
-    
-}
-.fxButton2_off{
-   border: none;
-    width: 70px;
-    height: 70px;
-    background: url(../images/fx2_little.png) no-repeat;
-    
-}
-.fxButton3_off{
-   border: none;
-    width: 70px;
-    height: 70px;
-    background: url(../images/fx3_little.png) no-repeat;
-    
-}
-.fxButton1_on{
-   border: none;
-    width: 70px;
-    height: 70px;
-    background: url(../images/fx1_on_little.png) no-repeat;
-    
-}
-.fxButton2_on{
-   border: none;
-    width: 70px;
-    height: 70px;
-    background: url(../images/fx2_on_little.png) no-repeat;
-    
-}
-.fxButton3_on{
-   border: none;
-    width: 70px;
-    height: 70px;
-    background: url(../images/fx3_on_little.png) no-repeat;
-    
+.fxSelect{
+	display: flex;
+	flex-direction: row;
+	border-style: solid;
+    border-radius: 6px;
+    border-color: blue;
+
 }
 button:focus {
     outline: 0;

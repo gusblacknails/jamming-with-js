@@ -112,3 +112,59 @@ $('#melodyGroup').on("click", function() {
     }
 
 });
+
+$('#fx1').on("click", function() {
+
+    if ($(this).hasClass("fxButton1_off")) {
+        autofilter.wet.value = 0.8;
+        $(this).toggleClass("fxButton1_off fxButton1_on");
+    } else {
+        autofilter.wet.value = 0;
+        $(this).toggleClass("fxButton1_off fxButton1_on");
+    }
+
+});
+$('#fx2').on("click", function() {
+
+    if ($(this).hasClass("fxButton2_off")) {
+        // console.log("drumMute pressed")
+        // kickSampler.mute = true
+        // snareSampler.mute = true
+        // hihatSampler.mute = true
+        // fxSampler.mute = true
+        reverb.wet.value = 0.8;
+        $(this).toggleClass("fxButton2_off fxButton2_on");
+    } else {
+        // console.log("drumMuteOff pressed")
+        // kickSampler.mute = false
+        // snareSampler.mute = false
+        // hihatSampler.mute = false
+        // fxSampler.mute = false
+        reverb.wet.value = 0;
+        $(this).toggleClass("fxButton2_off fxButton2_on");
+    }
+
+});
+$('#fx3').on("click", function() {
+
+    if ($(this).hasClass("fxButton3_off")) {
+        // console.log("drumMute pressed")
+        // kickSampler.mute = true
+        // snareSampler.mute = true
+        // hihatSampler.mute = true
+        // fxSampler.mute = true
+        delay.wet.value = 0.8;
+        $(this).toggleClass("fxButton3_off fxButton3_on");
+    } else {
+        // console.log("drumMuteOff pressed")
+        // kickSampler.mute = false
+        // snareSampler.mute = false
+        // hihatSampler.mute = false
+        // fxSampler.mute = false
+        delay.wet.value = 0;
+        $(this).toggleClass("fxButton3_off fxButton3_on");
+    }
+
+});
+
+
