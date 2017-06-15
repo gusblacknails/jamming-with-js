@@ -85,6 +85,10 @@ function checkBrowser(){
   }
 }
 
+//audio context for web and mobile
+
+const context = new (window.AudioContext || window.webkitAudioContext)();
+
 
 
 

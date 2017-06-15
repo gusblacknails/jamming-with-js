@@ -1,8 +1,10 @@
 Tone.context.latencyHint= "balanced"
+Tone.Transport.bpm.value = 120
+
 var loop = new Tone.Sequence(function(time, col) {
-    console.log(col)
+    // console.log(col)
    
-    var currentNote = NoteSelector(notesMatrix, threeScales, time, col)
+    let currentNote = NoteSelector(notesMatrix, threeScales, time, col)
     oneNoteSequence(selected_1x_Synth,arpegioMatrix, currentNote["oneNote"], time, col)
     twoNoteSequence(selected_2x_Synth,arpegioMatrix2, currentNote["twoNote"], time, col)
     threeNoteSequence(selected_3x_Synth,arpegioMatrix3, currentNote["threeNote"], time, col)
@@ -26,7 +28,7 @@ function AccentFirstBeat(matrix) {
   matrix.sequence(Tone.Transport.bpm.value)
 }
 
-Tone.Transport.bpm.value = 120
+
 
 
 

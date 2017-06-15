@@ -26,7 +26,6 @@ function twoNoteSequence(SelectSynth,arpegioMatrix2, threeScales, time, col) {
     twoNoteSeq.humanize = true;
     twoNoteSeq.start()
     
-   
    }
 
 function threeNoteSequence(SelectSynth,arpegioMatrix3, threeScales, time, col) {

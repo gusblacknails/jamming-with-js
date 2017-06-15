@@ -4,13 +4,13 @@ $('#muteKick').on("click", function() {
 
     if ($(this).hasClass("kickMuteButton")) {
 
-        
+
         console.log("Mutebutton pressed")
         kickSampler.mute = true
         $('#muteKick').toggleClass("kickMuteButton kickMuteButtonOff");
     } else {
 
-        
+
         console.log("MutebuttonOff pressed")
         kickSampler.mute = false
         $('#muteKick').toggleClass("kickMuteButtonOff kickMuteButton");
@@ -21,13 +21,13 @@ $('#muteSnare').on("click", function() {
 
     if ($(this).hasClass("snareMuteButton")) {
 
-      
+
         console.log("snareMutebutton pressed")
         snareSampler.mute = true
         $('#muteSnare').toggleClass("snareMuteButton snareMuteButtonOff");
     } else {
 
-    
+
         console.log("snareMutebuttonOff pressed")
         snareSampler.mute = false
         $('#muteSnare').toggleClass("snareMuteButtonOff snareMuteButton");
@@ -38,14 +38,14 @@ $('#muteHihat').on("click", function() {
 
     if ($(this).hasClass("hihatMuteButton")) {
 
-       
+
         console.log("hihatMutebutton pressed")
         hihatSampler.mute = true
 
         $('#muteHihat').toggleClass("hihatMuteButton hihatMuteButtonOff");
     } else {
 
-       
+
         console.log("hihatMutebuttonOff pressed")
         hihatSampler.mute = false
 
@@ -57,13 +57,13 @@ $('#muteFX').on("click", function() {
 
     if ($(this).hasClass("FXMuteButton")) {
 
-       
+
         console.log("FXMutebutton pressed")
         fxSampler.mute = true
         $('#muteFX').toggleClass("FXMuteButton FXMuteButtonOff");
     } else {
 
-     
+
         console.log("FXMutebuttonOff pressed")
         fxSampler.mute = false
         $('#muteFX').toggleClass("FXMuteButtonOff FXMuteButton");
@@ -74,7 +74,7 @@ $('#drumGroup').on("click", function() {
 
     if ($(this).hasClass("drumMute")) {
 
-       
+
         console.log("drumMute pressed")
         kickSampler.mute = true
         snareSampler.mute = true
@@ -83,7 +83,7 @@ $('#drumGroup').on("click", function() {
         $('#drumGroup').toggleClass("drumMute drumMuteOff");
     } else {
 
-       
+
         console.log("drumMuteOff pressed")
         kickSampler.mute = false
         snareSampler.mute = false
@@ -98,16 +98,19 @@ $('#melodyGroup').on("click", function() {
 
     if ($(this).hasClass("melodyMute")) {
 
-        $(this)
-        console.log("melodyMute pressed")
-        melodyVol.volume.input.value = -1
 
+        console.log("melodyMute pressed")
+            // melodyVol.volume.input.value = -1
+        loop.volume= -60    
+        loop.mute = true
         $('#melodyGroup').toggleClass("melodyMute melodyMuteOff");
     } else {
         let melodyOldValue = masterMix.val.R
-        $(this)
+
         console.log("drumMuteOff pressed")
-        melodyVol.volume.input.value = crossfaderParser(melodyOldValue)
+        loop.mute = false 
+        loop.volume= 0      
+     // melodyVol.volume.input.value = crossfaderParser(melodyOldValue)
         $('#melodyGroup').toggleClass("melodyMuteOff melodyMute");
     }
 
@@ -116,10 +119,10 @@ $('#melodyGroup').on("click", function() {
 $('#fx1').on("click", function() {
 
     if ($(this).hasClass("fxButton1_off")) {
-        autofilter.wet.value = 0.8;
+        disto.wet.value = 0.6;
         $(this).toggleClass("fxButton1_off fxButton1_on");
     } else {
-        autofilter.wet.value = 0;
+        disto.wet.value = 0;
         $(this).toggleClass("fxButton1_off fxButton1_on");
     }
 
@@ -127,10 +130,10 @@ $('#fx1').on("click", function() {
 $('#fx2').on("click", function() {
 
     if ($(this).hasClass("fxButton2_off")) {
-        reverb.wet.value = 0.8;
+        phaser.wet.value = 0.8;
         $(this).toggleClass("fxButton2_off fxButton2_on");
     } else {
-        reverb.wet.value = 0;
+        phaser.wet.value = 0;
         $(this).toggleClass("fxButton2_off fxButton2_on");
     }
 
@@ -138,13 +141,11 @@ $('#fx2').on("click", function() {
 $('#fx3').on("click", function() {
 
     if ($(this).hasClass("fxButton3_off")) {
-        delay.wet.value = 0.8;
+        reverb.wet.value = 0.8;
         $(this).toggleClass("fxButton3_off fxButton3_on");
     } else {
-        delay.wet.value = 0;
+        reverb.wet.value = 0;
         $(this).toggleClass("fxButton3_off fxButton3_on");
     }
 
 });
-
-

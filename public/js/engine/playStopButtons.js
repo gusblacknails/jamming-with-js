@@ -58,8 +58,6 @@ $("#play").on("click", () => {
         fxMatrix3.init()
         fxMatrix4.init()
 
-
-
         notesMatrix.sequence(Tone.Transport.bpm.value)
         arpegioMatrix.sequence(Tone.Transport.bpm.value)
         arpegioMatrix2.sequence(Tone.Transport.bpm.value)
@@ -107,32 +105,31 @@ $("#stop").on("click", () => {
     arpegioMatrix3.stop()
     arpegioMatrix4.stop()
     
-    kickMatrix.jumpToCol(0)
-    kickMatrix2.jumpToCol(0)
-    kickMatrix3.jumpToCol(0)
-    kickMatrix4.jumpToCol(0)
+    // kickMatrix.jumpToCol(0)
+    // kickMatrix2.jumpToCol(0)
+    // kickMatrix3.jumpToCol(0)
+    // kickMatrix4.jumpToCol(0)
 
-    snareMatrix.jumpToCol(0)
-    snareMatrix2.jumpToCol(0)
-    snareMatrix3.jumpToCol(0)
-    snareMatrix4.jumpToCol(0)
+    // snareMatrix.jumpToCol(0)
+    // snareMatrix2.jumpToCol(0)
+    // snareMatrix3.jumpToCol(0)
+    // snareMatrix4.jumpToCol(0)
 
-    hihatMatrix.jumpToCol(0)
-    hihatMatrix2.jumpToCol(0)
-    hihatMatrix3.jumpToCol(0)
-    hihatMatrix4.jumpToCol(0)
+    // hihatMatrix.jumpToCol(0)
+    // hihatMatrix2.jumpToCol(0)
+    // hihatMatrix3.jumpToCol(0)
+    // hihatMatrix4.jumpToCol(0)
 
-    fxMatrix.jumpToCol(0)
-    fxMatrix2.jumpToCol(0)
-    fxMatrix3.jumpToCol(0)
-    fxMatrix4.jumpToCol(0)
+    // fxMatrix.jumpToCol(0)
+    // fxMatrix2.jumpToCol(0)
+    // fxMatrix3.jumpToCol(0)
+    // fxMatrix4.jumpToCol(0)
 
-    notesMatrix.jumpToCol(0)
-    arpegioMatrix.jumpToCol(0)
-    arpegioMatrix2.jumpToCol(0)
-    arpegioMatrix3.jumpToCol(0)
-    arpegioMatrix4.jumpToCol(0)
-  
+    // notesMatrix.jumpToCol(0)
+    // arpegioMatrix.jumpToCol(0)
+    // arpegioMatrix2.jumpToCol(0)
+    // arpegioMatrix3.jumpToCol(0)
+    // arpegioMatrix4.jumpToCol(0)
+  })
 
-
-})
+ 

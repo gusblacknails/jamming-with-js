@@ -16,18 +16,8 @@
 <body>
     <div class="Appcontainer">
         <nav class="navbar  navbar-inverse ">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only"> Toggle navigation</span>
-                <span class="icon-bar"> </span>
-                <span class="icon-bar"> </span>
-                <span class="icon-bar"> </span>
-            </button>
-            <div class="navbar-collapse collapse">
+            <div>
                 <div class="logo"> <img src="../images/logo-beat-it.png"></div>
-                <ul class="nav navbar-nav navbar-right"><!-- 
-                    <li class=""><a href="login.html">Sign In</a> </li>
-                    <li> <a href="login.html">Log In</a> </li> -->
-                </ul>
             </div>
         </nav>
         <div class="transport">
@@ -82,7 +72,7 @@
                     <option value="hungarian minor">hungarian minor</option>
                 </select>
                 <select id="octave" class="selection">
-                    <option value="4" selected>Octave</option>
+                    <option value="2" selected>Octave</option>
                     <option value="1">C1 to C2</option>
                     <option value="2">C2 to C3</option>
                     <option value="3">C3 to C4</option>
@@ -94,8 +84,8 @@
             </div>
         </div>
         <div class="controls">
-            <button id="play" class="">PLAY</button>
-            <button id="stop" class="">STOP</button>
+            <button id="play" class="play"></button>
+            <button id="stop" class="pause"></button>
             <div class="bpm">
                 <div class="bpmResult">
                     <span id="titleBPM">BPM:</span><span id="bpm">120</span></div>
@@ -104,9 +94,11 @@
         </div>
         <div class="musicSection">
             <div class="drumMachineDiv">
+                <div class="RythmBoxes" ></div>
                 <div class="titleRythm">
                     <p>Rythm</p>
                 </div>
+                <div></div>
                 <div class="InstrumentBox">
                     <canvas nx="matrix" class="drumMachineBox" id="kickMatrix"></canvas>
                     <canvas nx="matrix" class="drumMachineBox" id="kickMatrix2"></canvas>
@@ -308,7 +300,7 @@
                 <div class="crossfadeDiv">
                 <div class="muteDiv"><button id="drumGroup" class="drumMute"></button></div>
                 
-                <canvas nx="crossfade" id="masterMix"></canvas>
+                <canvas nx="crossfade" id="masterMix" style="width: 181px; height: 30px;"></canvas>
                 <button id="melodyGroup" class="melodyMute" ></button>
                 </div>
                 <div class="fxSelect">

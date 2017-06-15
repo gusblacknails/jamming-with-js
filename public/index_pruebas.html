@@ -3,29 +3,22 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Beat It</title>
     <script src="/js/libs/tonal.min.js"></script>
     <script src="/js/libs/Tone.min.js"></script>
     <script src="/js/libs/jquery.min.js"></script>
     <script src="/js/libs/nexusUI.min.js"></script>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/kk.css">
-  <!--   <link rel="stylesheet" href="/css/melodicreator.css"> -->
+    <link rel="stylesheet" href="/css/multiDrum.css">
+    <link rel="stylesheet" href="/css/melodicreator.css">
 </head>
 
 <body>
     <div class="Appcontainer">
         <nav class="navbar  navbar-inverse ">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only"> Toggle navigation</span>
-                <span class="icon-bar"> </span>
-                <span class="icon-bar"> </span>
-                <span class="icon-bar"> </span>
-            </button>
-            <div class="navbar-collapse collapse">
+            <div>
                 <div class="logo"> <img src="../images/logo-beat-it.png"></div>
-                <ul class="nav navbar-nav navbar-right">
-                </ul>
             </div>
         </nav>
         <div class="transport">
@@ -36,7 +29,6 @@
                     <option value="Bb">A#-Bb</option>
                     <option value="B">B</option>
                     <option value="C">C</option>
-
                     <option value="Db">C#-Db</option>
                     <option value="D">D</option>
                     <option value="Eb">D#-Eb</option>
@@ -81,7 +73,7 @@
                     <option value="hungarian minor">hungarian minor</option>
                 </select>
                 <select id="octave" class="selection">
-                    <option value="4" selected>Octave</option>
+                    <option value="2" selected>Octave</option>
                     <option value="1">C1 to C2</option>
                     <option value="2">C2 to C3</option>
                     <option value="3">C3 to C4</option>
@@ -93,8 +85,8 @@
             </div>
         </div>
         <div class="controls">
-            <button id="play" class="">PLAY</button>
-            <button id="stop" class="">STOP</button>
+            <button id="play" class="play"></button>
+            <button id="stop" class="pause"></button>
             <div class="bpm">
                 <div class="bpmResult">
                     <span id="titleBPM">BPM:</span><span id="bpm">120</span></div>
@@ -103,10 +95,12 @@
         </div>
         <div class="musicSection">
             <div class="drumMachineDiv">
-                <div class="titleRythm">
+                
+                <div class=drumBoxes>
+                    <div class="titleRythm">
                     <p>Rythm</p>
                 </div>
-                <div class="InstrumentBox">
+                    <div class="InstrumentBox">
                     <canvas nx="matrix" class="drumMachineBox" id="kickMatrix"></canvas>
                     <canvas nx="matrix" class="drumMachineBox" id="kickMatrix2"></canvas>
                     <canvas nx="matrix" class="drumMachineBox" id="kickMatrix3"></canvas>
@@ -162,6 +156,8 @@
                         <button class="FXMuteButton" id="muteFX"></button>
                     </div>
                 </div>
+                </div>
+       
             </div>
             <div class="melodyCreator">
                 <div class="titleRythm">
@@ -169,7 +165,6 @@
                 </div>
                 <div class="melodyDivCont">
                     <div class="melodyDiv">
-
                         <div class="notesInfo">
                             <div data-key="65" class="key">
                                 <span id="1note" class="sound"></span>
@@ -194,21 +189,8 @@
                             </div>
                         </div>
                         <canvas nx="matrix" id="notesMatrix" class="melodyBox"></canvas>
-                         <div class="beatAccentDiv">
-
-                    	<div class="beat1"></div>
-                    	<div class="beat2"></div>
-                    	<div class="beat3"></div>
-                    	<div class="beat4"></div>
-                    	<div class="beat5"></div>
-                    	<div class="beat6"></div>
-                    	<div class="beat7"></div>
-                    	<div class="beat8"></div>
-                    </div>
-                        
                     </div>
                     <div class="melodyDiv">
-                    
                         <div class="arpegioInfo">
                             <div class="arpegioRepeatsBox">
                                 <span id="x1" class="sound">x1</span>
@@ -325,11 +307,20 @@
                 <button id="melodyGroup" class="melodyMute" ></button>
                 </div>
                 <div class="fxSelect">
+                <div class="fx1">
+                    <button id="fx1" class="fxButton1_off"></button>
+                </div>
+                <div class="fx2">
+                    <button id="fx2" class="fxButton2_off"></button>
+                </div>
+                <div class="fx3">
+                    <button id="fx3" class="fxButton3_off"></button>
+                </div>
                 </div>
             </div>
         </div>
         <script src="/js/engine/loader.js"></script>
-
+        <script src="/js/engine/fxController.js"></script>
         <script src="/js/engine/melodySequences.js"></script>
         <script src="/js/engine/melodyLooper.js"></script>
         <script src="/js/engine/noteSelector.js"></script>
