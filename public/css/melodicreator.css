@@ -28,7 +28,7 @@ body,html {
     width: 88.5%;
     height: 20%;
 }
-.melodyDiv{
+.melodyDiv {
     display: flex;
     border-style: solid;
     border-radius: 6px;
@@ -37,6 +37,8 @@ body,html {
     width: 400px;
     border-width: 2px;
     background: #fff;
+    padding-bottom: 2px;
+    margin-bottom: 2px;
 }
 .selection{text-align: center;}
 .selectionArpegio{
@@ -45,7 +47,8 @@ body,html {
 
 .notesInfo{display: flex;
 flex-direction: column; 
-width: 11%;}
+width: 11%;
+padding-top: 4px;}
 .keys {
   display: flex;
   /*flex: 1;*/

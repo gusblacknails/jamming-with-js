@@ -1,11 +1,13 @@
 nx.onload = function() {
     checkBrowser();
  
-    nx.colorize("#ffc600")
+    nx.colorize("#A6A6A6")
     notesMatrix.row = 7
     notesMatrix.col = 8
+    notesMatrix.colors.accent = "#ffc600"
 
     masterMix.init()
+    masterMix.colors.accent = "#A6A6A6"
 
     arpegioMatrix.row = 1
     arpegioMatrix.col = 8
@@ -17,9 +19,13 @@ nx.onload = function() {
     arpegioMatrix4.col = 8
     notesMatrix.init()
     arpegioMatrix.init()
+    arpegioMatrix.colors.accent = "#ffc600"
     arpegioMatrix2.init()
+    arpegioMatrix2.colors.accent = "#ffc600"
     arpegioMatrix3.init()
+    arpegioMatrix3.colors.accent = "#ffc600"
     arpegioMatrix4.init()
+    arpegioMatrix4.colors.accent = "#ffc600"
 
 
     kickMatrix.row = 1
@@ -31,9 +37,13 @@ nx.onload = function() {
     kickMatrix4.row = 1
     kickMatrix4.col = 4
     kickMatrix.init()
+    kickMatrix.colors.accent = "#ffc600"
     kickMatrix2.init()
+    kickMatrix2.colors.accent = "#ffc600"
     kickMatrix3.init()
+    kickMatrix3.colors.accent = "#ffc600"
     kickMatrix4.init()
+    kickMatrix4.colors.accent = "#ffc600"
 
     snareMatrix.row = 1
     snareMatrix.col = 4
@@ -44,9 +54,13 @@ nx.onload = function() {
     snareMatrix4.row = 1
     snareMatrix4.col = 4
     snareMatrix.init()
+    snareMatrix.colors.accent = "#ffc600"
     snareMatrix2.init()
+    snareMatrix2.colors.accent = "#ffc600"
     snareMatrix3.init()
+    snareMatrix3.colors.accent = "#ffc600"
     snareMatrix4.init()
+    snareMatrix4.colors.accent = "#ffc600"
 
     hihatMatrix.row = 1
     hihatMatrix.col = 4
@@ -57,9 +71,13 @@ nx.onload = function() {
     hihatMatrix4.row = 1
     hihatMatrix4.col = 4
     hihatMatrix.init()
+    hihatMatrix.colors.accent = "#ffc600"
     hihatMatrix2.init()
+    hihatMatrix2.colors.accent = "#ffc600"
     hihatMatrix3.init()
+    hihatMatrix3.colors.accent = "#ffc600"
     hihatMatrix4.init()
+    hihatMatrix4.colors.accent = "#ffc600"
 
     fxMatrix.row = 1
     fxMatrix.col = 4
@@ -70,9 +88,13 @@ nx.onload = function() {
     fxMatrix4.row = 1
     fxMatrix4.col = 4
     fxMatrix.init()
+    fxMatrix.colors.accent = "#ffc600"
     fxMatrix2.init()
+    fxMatrix2.colors.accent = "#ffc600"
     fxMatrix3.init()
+    fxMatrix3.colors.accent = "#ffc600"
     fxMatrix4.init()
+    fxMatrix4.colors.accent = "#ffc600"
 
 }
 
