@@ -1,10 +1,12 @@
 var selectSynth = []
 selectSynth[0] = new Tone.AMSynth().toMaster();
-selectSynth[0].chain(disto,phaser,reverb,melodyVol, Tone.Master);
+selectSynth[0].chain(melodyVol,disto,phaser,reverb, Tone.Master);
+// selectSynth[0].fan(disto,phaser,reverb);
 selectSynth[1] = new Tone.DuoSynth().toMaster();
-selectSynth[1].chain(disto,phaser,reverb,melodyVol, Tone.Master);
+selectSynth[1].chain(melodyVol,disto,phaser,reverb, Tone.Master);
+// selectSynth[1].fan(disto,phaser,reverb);
 selectSynth[2] = new Tone.FMSynth().toMaster();
-selectSynth[2].chain(disto,phaser,reverb,melodyVol, Tone.Master);
+selectSynth[2].chain(melodyVol,disto,phaser,reverb, Tone.Master);
 selectSynth[3] = new Tone.Synth(
 {
     "oscillator" : {
@@ -21,7 +23,7 @@ selectSynth[3] = new Tone.Synth(
     }
 }
 	).toMaster();
-selectSynth[3].chain(disto,phaser,reverb,melodyVol, Tone.Master);
+selectSynth[3].chain(melodyVol,disto,phaser,reverb, Tone.Master);
 selectSynth[4] = new Tone.AMSynth({
         "harmonicity": 2,
         "oscillator": {
@@ -51,7 +53,7 @@ selectSynth[4] = new Tone.AMSynth({
     }
 
 ).toMaster();
-selectSynth[4].chain(disto,phaser,reverb,melodyVol, Tone.Master);
+selectSynth[4].chain(melodyVol,disto,phaser,reverb, Tone.Master);
 selectSynth[5] = new Tone.FMSynth({
     "harmonicity": 8,
     "modulationIndex": 2,
@@ -75,7 +77,7 @@ selectSynth[5] = new Tone.FMSynth({
     }
 
 }).toMaster();
-selectSynth[5].chain(disto,phaser,reverb,melodyVol, Tone.Master);
+selectSynth[5].chain(melodyVol,disto,phaser,reverb, Tone.Master);
 selectSynth[6] = new Tone.MonoSynth({
     "oscillator": {
         "type": "fmsquare5",
@@ -103,9 +105,9 @@ selectSynth[6] = new Tone.MonoSynth({
         "octaves": 4.4
     }
 }).toMaster();
-selectSynth[6].chain(disto,phaser,reverb,melodyVol, Tone.Master);
+selectSynth[6].chain(melodyVol,disto,phaser,reverb, Tone.Master);
 selectSynth[7] = new Tone.PluckSynth().toMaster();
-selectSynth[7].chain(disto,phaser,reverb,melodyVol, Tone.Master);
+selectSynth[7].chain(melodyVol,disto,phaser,reverb, Tone.Master);
 selectSynth[8] = new Tone.FMSynth({
     "harmonicity": 3.01,
     "modulationIndex": 14,
@@ -128,7 +130,7 @@ selectSynth[8] = new Tone.FMSynth({
         "release": 0.1
     }
 }).toMaster();
-selectSynth[8].chain(disto,phaser,reverb,melodyVol, Tone.Master);
+selectSynth[8].chain(melodyVol,disto,phaser,reverb, Tone.Master);
 selectSynth[9] = new Tone.MonoSynth({
         "portamento": 0.01,
         "oscillator": {
@@ -156,7 +158,7 @@ selectSynth[9] = new Tone.MonoSynth({
     }
 
 ).toMaster();
-selectSynth[9].chain(disto,phaser,reverb,melodyVol, Tone.Master);
+selectSynth[9].chain(melodyVol,disto,phaser,reverb, Tone.Master);
 
 selectSynth[10] = new Tone.MonoSynth({
         "oscillator": {
@@ -185,7 +187,7 @@ selectSynth[10] = new Tone.MonoSynth({
     }
 
 ).toMaster();
-selectSynth[10].chain(disto,phaser,reverb,melodyVol, Tone.Master);
+selectSynth[10].chain(melodyVol,disto,phaser,reverb, Tone.Master);
 selectSynth[11] = new Tone.Synth({
     "oscillator": {
         "type": "fatsine4",
@@ -201,7 +203,7 @@ selectSynth[11] = new Tone.Synth({
         "release": 0.4
     }
 }).toMaster();
-selectSynth[11].chain(disto,phaser,reverb,melodyVol, Tone.Master);
+selectSynth[11].chain(melodyVol,disto,phaser,reverb, Tone.Master);
 selectSynth[12] = new Tone.Synth({
     "portamento": 0.0,
     "oscillator": {
@@ -214,7 +216,7 @@ selectSynth[12] = new Tone.Synth({
         "release": 2
     }
 }).toMaster();
-selectSynth[12].chain(disto,phaser,reverb,melodyVol, Tone.Master);
+selectSynth[12].chain(melodyVol,disto,phaser,reverb, Tone.Master);
 selectSynth[13] = new Tone.Synth({
     "portamento": 0.2,
     "oscillator": {
@@ -227,7 +229,7 @@ selectSynth[13] = new Tone.Synth({
         "release": 0.02
     }
 }).toMaster();
-selectSynth[13].chain(disto,phaser,reverb,melodyVol, Tone.Master);
+selectSynth[13].chain(melodyVol,disto,phaser,reverb, Tone.Master);
 selectSynth[14] = new Tone.Synth(
 {
     "oscillator": {
@@ -242,7 +244,7 @@ selectSynth[14] = new Tone.Synth(
 }
 
 	).toMaster();
-selectSynth[14].chain(disto,phaser,reverb,melodyVol, Tone.Master);
+selectSynth[14].chain(melodyVol,disto,phaser,reverb, Tone.Master);
 
 var selected_1x_Synth = selectSynth[0]
 var selected_2x_Synth = selectSynth[0]

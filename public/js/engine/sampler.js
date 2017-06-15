@@ -12,7 +12,7 @@ var kickSampler = new Tone.MultiPlayer({
     fadeOut: 0.1,
 }).toMaster();
 
-kickSampler.chain(reverb,drumVol, Tone.Master);
+kickSampler.chain(compressor,reverb,drumVol, Tone.Master);
 var snareSampler = new Tone.MultiPlayer({
     urls: {
         "sS": "./samples/snareSeismic.mp3",
@@ -22,7 +22,7 @@ var snareSampler = new Tone.MultiPlayer({
 
     fadeOut: 0.1,
 }).toMaster();
-snareSampler.chain(reverb,drumVol, Tone.Master);
+snareSampler.chain(compressor,reverb,drumVol, Tone.Master);
 var hihatSampler = new Tone.MultiPlayer({
     urls: {
        
@@ -33,7 +33,7 @@ var hihatSampler = new Tone.MultiPlayer({
    
     fadeOut: 0.1,
 }).toMaster();
-hihatSampler.chain(reverb,drumVol, Tone.Master);
+hihatSampler.chain(compressor,reverb,drumVol, Tone.Master);
 var fxSampler = new Tone.MultiPlayer({
     urls: {
         "fC": "./samples/fxClap.mp3",
@@ -43,7 +43,7 @@ var fxSampler = new Tone.MultiPlayer({
  
     fadeOut: 0.1,
 }).toMaster();
-fxSampler.chain(reverb,drumVol, Tone.Master);
+fxSampler.chain(compressor,reverb,drumVol, Tone.Master);
 
 //the notes will play each sampler
 

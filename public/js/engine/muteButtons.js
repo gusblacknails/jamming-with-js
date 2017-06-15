@@ -103,6 +103,7 @@ $('#melodyGroup').on("click", function() {
             // melodyVol.volume.input.value = -1
         loop.volume= -60    
         loop.mute = true
+        melodyVol.volume.input.value = -3.5
         $('#melodyGroup').toggleClass("melodyMute melodyMuteOff");
     } else {
         let melodyOldValue = masterMix.val.R
@@ -110,7 +111,7 @@ $('#melodyGroup').on("click", function() {
         console.log("drumMuteOff pressed")
         loop.mute = false 
         loop.volume= 0      
-     // melodyVol.volume.input.value = crossfaderParser(melodyOldValue)
+        melodyVol.volume.input.value = crossfaderParser(melodyOldValue)
         $('#melodyGroup').toggleClass("melodyMuteOff melodyMute");
     }
 
