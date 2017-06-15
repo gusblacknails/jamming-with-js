@@ -1,6 +1,5 @@
 nx.onload = function() {
     checkBrowser();
-    console.log(loop.length)
  
     nx.colorize("#ffc600")
     notesMatrix.row = 7

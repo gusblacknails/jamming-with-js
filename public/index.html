@@ -94,7 +94,7 @@
         </div>
         <div class="musicSection">
             <div class="drumMachineDiv">
-                <div class="RythmBoxes" ></div>
+                <div class="RythmBoxes"></div>
                 <div class="titleRythm">
                     <p>Rythm</p>
                 </div>
@@ -217,104 +217,111 @@
                 </div>
             </div>
             <div class="controlPanel">
-                <div class="synthselect">
-                <div class="infoPreset">
-                    
-                </div>
-                <div class="presetOption">
-                    <select id="OneNoteSynth" class="">
-                        <option value="8" selected>x1 Preset</option>
-                        <option value="0">AMSynth</option>
-                        <option value="1">DuoSynth</option>
-                        <option value="2">FMSynth</option>
-                        <option value="3">SuperSaw</option>
-                        <option value="4">TinySynth</option>
-                        <option value="5">Kalimba</option>
-                        <option value="6">BassGuitar</option>
-                        <option value="7">PluckSynth</option>
-                        <option value="8">ElectricCello</option>
-                        <option value="9">BrassCircuit</option>
-                        <option value="10">CoolGuy</option>
-                        <option value="11">AlienChorus</option>
-                        <option value="12">DelicateWindPart</option>
-                        <option value="13">Lectric</option>
-                        <option value="14">TreeTrunk</option>
-                    </select>
-                    <select id="TwoNoteSynth" class="">
-                        <option value="13" selected>x2 Synth</option>
-                        <option value="0">AMSynth</option>
-                        <option value="1">DuoSynth</option>
-                        <option value="2">FMSynth</option>
-                        <option value="3">SuperSaw</option>
-                        <option value="4">TinySynth</option>
-                        <option value="5">Kalimba</option>
-                        <option value="6">BassGuitar</option>
-                        <option value="7">PluckSynth</option>
-                        <option value="8">ElectricCello</option>
-                        <option value="9">BrassCircuit</option>
-                        <option value="10">CoolGuy</option>
-                        <option value="11">AlienChorus</option>
-                        <option value="12">DelicateWindPart</option>
-                        <option value="13">Lectric</option>
-                        <option value="14">TreeTrunk</option>
-                    </select>
-                    <select id="ThreeNoteSynth" class="">
-                        <option value="5" selected>x3 Synth</option>
-                        <option value="0">AMSynth</option>
-                        <option value="1">DuoSynth</option>
-                        <option value="2">FMSynth</option>
-                        <option value="3">SuperSaw</option>
-                        <option value="4">TinySynth</option>
-                        <option value="5">Kalimba</option>
-                        <option value="6">BassGuitar</option>
-                        <option value="7">PluckSynth</option>
-                        <option value="8">ElectricCello</option>
-                        <option value="9">BrassCircuit</option>
-                        <option value="10">CoolGuy</option>
-                        <option value="11">AlienChorus</option>
-                        <option value="12">DelicateWindPart</option>
-                        <option value="13">Lectric</option>
-                        <option value="14">TreeTrunk</option>
-                    </select>
-                    <select id="FourNoteSynth" class="">
-                        <option value="14" selected>x4 Synth</option>
-                        <option value="0">AMSynth</option>
-                        <option value="1">DuoSynth</option>
-                        <option value="2">FMSynth</option>
-                        <option value="3">SuperSaw</option>
-                        <option value="4">TinySynth</option>
-                        <option value="5">Kalimba</option>
-                        <option value="6">BassGuitar</option>
-                        <option value="7">PluckSynth</option>
-                        <option value="8">ElectricCello</option>
-                        <option value="9">BrassCircuit</option>
-                        <option value="10">CoolGuy</option>
-                        <option value="11">AlienChorus</option>
-                        <option value="12">DelicateWindPart</option>
-                        <option value="13">Lectric</option>
-                        <option value="14">TreeTrunk</option>
-                    </select>
-                </div>
-                    
-                </div>
-                <div class="crossfadeDiv">
-                <div class="muteDiv"><button id="drumGroup" class="drumMute"></button></div>
+            <p>Preset Select</p>
                 
-                <canvas nx="crossfade" id="masterMix" style="width: 181px; height: 30px;"></canvas>
-                <button id="melodyGroup" class="melodyMute" ></button>
+                
+                    <div class="presetOption">
+                        <div class="presetLeft">
+                            <select id="OneNoteSynth" class="">
+                            <option value="8" selected>x1 Preset</option>
+                            <option value="0">AMSynth</option>
+                            <option value="1">DuoSynth</option>
+                            <option value="2">FMSynth</option>
+                            <option value="3">SuperSaw</option>
+                            <option value="4">TinySynth</option>
+                            <option value="5">Kalimba</option>
+                            <option value="6">BassGuitar</option>
+                            <option value="7">PluckSynth</option>
+                            <option value="8">ElectricCello</option>
+                            <option value="9">BrassCircuit</option>
+                            <option value="10">CoolGuy</option>
+                            <option value="11">AlienChorus</option>
+                            <option value="12">DelicateWindPart</option>
+                            <option value="13">Lectric</option>
+                            <option value="14">TreeTrunk</option>
+                        </select>
+                        <select id="TwoNoteSynth" class="">
+                            <option value="13" selected>x2 Synth</option>
+                            <option value="0">AMSynth</option>
+                            <option value="1">DuoSynth</option>
+                            <option value="2">FMSynth</option>
+                            <option value="3">SuperSaw</option>
+                            <option value="4">TinySynth</option>
+                            <option value="5">Kalimba</option>
+                            <option value="6">BassGuitar</option>
+                            <option value="7">PluckSynth</option>
+                            <option value="8">ElectricCello</option>
+                            <option value="9">BrassCircuit</option>
+                            <option value="10">CoolGuy</option>
+                            <option value="11">AlienChorus</option>
+                            <option value="12">DelicateWindPart</option>
+                            <option value="13">Lectric</option>
+                            <option value="14">TreeTrunk</option>
+                        </select>
+                        </div>
+                        <div class="presetRight">
+                            <select id="ThreeNoteSynth" class="">
+                            <option value="5" selected>x3 Synth</option>
+                            <option value="0">AMSynth</option>
+                            <option value="1">DuoSynth</option>
+                            <option value="2">FMSynth</option>
+                            <option value="3">SuperSaw</option>
+                            <option value="4">TinySynth</option>
+                            <option value="5">Kalimba</option>
+                            <option value="6">BassGuitar</option>
+                            <option value="7">PluckSynth</option>
+                            <option value="8">ElectricCello</option>
+                            <option value="9">BrassCircuit</option>
+                            <option value="10">CoolGuy</option>
+                            <option value="11">AlienChorus</option>
+                            <option value="12">DelicateWindPart</option>
+                            <option value="13">Lectric</option>
+                            <option value="14">TreeTrunk</option>
+                        </select>
+                        <select id="FourNoteSynth" class="">
+                            <option value="14" selected>x4 Synth</option>
+                            <option value="0">AMSynth</option>
+                            <option value="1">DuoSynth</option>
+                            <option value="2">FMSynth</option>
+                            <option value="3">SuperSaw</option>
+                            <option value="4">TinySynth</option>
+                            <option value="5">Kalimba</option>
+                            <option value="6">BassGuitar</option>
+                            <option value="7">PluckSynth</option>
+                            <option value="8">ElectricCello</option>
+                            <option value="9">BrassCircuit</option>
+                            <option value="10">CoolGuy</option>
+                            <option value="11">AlienChorus</option>
+                            <option value="12">DelicateWindPart</option>
+                            <option value="13">Lectric</option>
+                            <option value="14">TreeTrunk</option>
+                        </select>
+                        </div>
+                        
+                    </div>
+                <p>Crossfader</p>
+                <div class="crossfadeDiv">
+                    <div class="muteDiv">
+                        <button id="drumGroup" class="drumMute"></button>
+                    </div>
+                    <canvas nx="crossfade" id="masterMix" style="width: 181px; height: 30px;"></canvas>
+                    <button id="melodyGroup" class="melodyMute"></button>
                 </div>
+                <p>FX</p>
                 <div class="fxSelect">
-                <div class="fx1">
-                    <button id="fx1" class="fxButton1_off"></button>
+                    <div class="fx1">
+                        <button id="fx1" class="fxButton1_off"></button>
+                        <p class="fxName">Distorsion</p>
+                    </div>
+                    <div class="fx2">
+                        <button id="fx2" class="fxButton2_off"></button>
+                        <p class="fxName">Phaser</p>
+                    </div>
+                    <div class="fx3">
+                        <button id="fx3" class="fxButton3_off"></button>
+                        <p class="fxName">Reverb</p>
+                    </div>
                 </div>
-                <div class="fx2">
-                    <button id="fx2" class="fxButton2_off"></button>
-                </div>
-                <div class="fx3">
-                    <button id="fx3" class="fxButton3_off"></button>
-                </div>
-                </div>
-            </div>
         </div>
         <script src="/js/engine/loader.js"></script>
         <script src="/js/engine/fxController.js"></script>

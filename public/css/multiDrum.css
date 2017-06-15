@@ -9,16 +9,7 @@ nav {
     padding: 7px 0 7px 0;
 }
 
-.controlPanel {
-    display: flex;
-    border-style: solid;
-    border-radius: 6px;
-    color: #999999;
-    flex-direction: row;
-    width: 300px;
-    border-width: 2px;
-    background: #fff;
-}
+
 
 .divControl {
     display: flex;
@@ -194,12 +185,6 @@ nav {
     display: flex;
     flex-direction: row;
     margin-right: 64px;
-}
-
-.controlPanel {
-    display: flex;
-    flex-direction: column;
-    width: 336px;
 }
 
 .titleRythm {
@@ -430,9 +415,17 @@ nav {
     min-height: 20px;
 }
 
-.presetOption {
+
+.controlPanel {
     display: flex;
-    flex-direction: column;
+    border-style: solid;
+    border-radius: 6px;
+    color: #999999;
+    width: 300px;
+    border-width: 2px;
+    background: #fff;
+    flex-direction:column;
+    align-content:space-around;
 }
 
 .synthselect {}
@@ -443,6 +436,7 @@ nav {
     display: flex;
     justify-content: center;
     flex-direction: row;
+    padding-top: 3px;
 }
 .play {
    /* margin-left: 5px;
@@ -503,31 +497,32 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-style: solid;
-    border-radius: 6px;
-    border-color: blue;
+   padding-top: 7px;
     height: 100px;
 }
 
 .fx1 {
-    border-style: solid;
-    border-radius: 6px;
-    border-color: red;
+    
     width: 30%;
+    text-align: center;
 }
 
 .fx2 {
-    border-style: solid;
-    border-radius: 6px;
-    border-color: yellow;
+   
     width: 30%;
+    text-align: center;
 }
 
 .fx3 {
-    border-style: solid;
-    border-radius: 6px;
-    border-color: green;
+   
     width: 30%;
+    text-align: center;
+}
+.controlPanel p.fxName{
+    background: none;
+    color: #a6a6a6;
+    padding: 0;
+
 }
 
 .fxButton1_off {
@@ -570,6 +565,23 @@ nav {
     width: 70px;
     height: 70px;
     background: url(../images/fx3_on_little.png) no-repeat;
+}
+.presetOption{
+    display: flex;
+    flex-direction: row;
+    
+}
+.presetLeft{}
+.presetRight{}
+
+.controlPanel p {
+    margin: 0;
+    background: #a6a6a6;
+    padding: 6px 10px;
+    color: #f7f7f7;
+}
+.controlPanel select{
+    width: 147px;
 }
 
 button:focus {

@@ -20,8 +20,7 @@ var melodyOldValue= masterMix.val.R
 console.log(drumOldValue)
 console.log(melodyOldValue)
 drumVol.volume.input.value=crossfaderParser(drumOldValue) 
-if ($('#melodyGroup').hasClass("melodyMute")) {
-melodyVol.volume.input.value=crossfaderParser(melodyOldValue)}
+melodyVol.volume.input.value=crossfaderParser(melodyOldValue)
 console.log(drumVol.volume.input.value)
 console.log(melodyVol.volume.input.value)
 
