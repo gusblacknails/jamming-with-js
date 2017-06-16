@@ -18,6 +18,6 @@ The FX&Sound control panel is made by four selectors for change synth presets,a 
 For this repo I have used the **Tone.js** framework for interact with the Web Audio API, **Tonal.js** for the music theory and **NexusUI** for the different matrix of the drum machine and the melody step sequencer.
 **Beat It** is entirely written in **JavaScript** with **jQuery** and **NodeJS** with **Express.js**for the server side, and **Bower** for the client side.
 The music icons are from **The Noun Project**
-
+![sample image]
 [sample image]: https://github.com/gusblacknails/Jamming-with-JS/blob/master/public/images/beatIt.png
 
