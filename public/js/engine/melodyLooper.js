@@ -3,7 +3,11 @@ Tone.Transport.bpm.value = 120
 
 var loop = new Tone.Sequence(function(time, col) {
     // console.log(col)
-   
+    notesMatrix.sequence(Tone.Transport.bpm.value)
+    arpegioMatrix.sequence(Tone.Transport.bpm.value)
+    arpegioMatrix2.sequence(Tone.Transport.bpm.value)
+    arpegioMatrix3.sequence(Tone.Transport.bpm.value)
+    arpegioMatrix4.sequence(Tone.Transport.bpm.value)
     let currentNote = NoteSelector(notesMatrix, threeScales, time, col)
     oneNoteSequence(selected_1x_Synth,arpegioMatrix, currentNote["oneNote"], time, col)
     twoNoteSequence(selected_2x_Synth,arpegioMatrix2, currentNote["twoNote"], time, col)

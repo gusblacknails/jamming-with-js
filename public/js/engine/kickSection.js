@@ -8,45 +8,47 @@ var negras = new Tone.Sequence(function(time, col) {
             kickSampler.start(kickSelect, time, 0, "32n", 0, vel);
         }
     }
-//---------------BeatDraw inside kick qurter note secction----------------------------//    
-        if(col===0){ Tone.Draw.schedule(function() {
-            if( $("#muteFX").parent().parent().hasClass("Accent")){
-               $("#muteFX").parent().parent().toggleClass("InstrumentBox Accent"); 
+    //---------------BeatDraw inside kick qurter note secction----------------------------//    
+    if (col === 0) {
+        Tone.Draw.schedule(function() {
+            if ($("#muteFX").parent().parent().hasClass("Accent")) {
+                $("#muteFX").parent().parent().toggleClass("InstrumentBox Accent");
             }
-            $("#muteKick").parent().parent().toggleClass("InstrumentBox Accent"); 
+            $("#muteKick").parent().parent().toggleClass("InstrumentBox Accent");
 
             $("#muteSnare").parent().parent().removeClass("Accent");
             $("#muteHihat").parent().parent().removeClass("Accent");
             $("#muteFx").parent().parent().removeClass("Accent");
-           
+
             $("#muteSnare").parent().parent().addClass("InstrumentBox");
             $("#muteHihat").parent().parent().addClass("InstrumentBox");
             $("#muteFx").parent().parent().addClass("InstrumentBox");
-         
-        
-        
-}, time)}
 
-        if(col===1){
-                  Tone.Draw.schedule(function() {
+
+
+        }, time)
+    }
+
+    if (col === 1) {
+        Tone.Draw.schedule(function() {
             $("#muteSnare").parent().parent().toggleClass("InstrumentBox Accent");
 
             $("#muteKick").parent().parent().removeClass("Accent");
             $("#muteHihat").parent().parent().removeClass("Accent");
-            $("#muteFx").parent().parent().removeClass("Accent"); 
+            $("#muteFx").parent().parent().removeClass("Accent");
 
             $("#muteKick").parent().parent().addClass("InstrumentBox");
             $("#muteHihat").parent().parent().addClass("InstrumentBox");
             $("#muteFx").parent().parent().addClass("InstrumentBox");
-         
-          
-        
-      
-}, time)
-        }
-           if(col===2){
-                  Tone.Draw.schedule(function() {
-            $("#muteHihat").parent().parent().toggleClass("InstrumentBox Accent"); 
+
+
+
+
+        }, time)
+    }
+    if (col === 2) {
+        Tone.Draw.schedule(function() {
+            $("#muteHihat").parent().parent().toggleClass("InstrumentBox Accent");
 
             $("#muteKick").parent().parent().removeClass("Accent");
             $("#muteSnare").parent().parent().removeClass("Accent");
@@ -55,12 +57,12 @@ var negras = new Tone.Sequence(function(time, col) {
             $("#muteKick").parent().parent().addClass("InstrumentBox");
             $("#muteSnare").parent().parent().addClass("InstrumentBox");
             $("#muteFx").parent().parent().addClass("InstrumentBox");
-          
-        
-}, time)
-        }
-           if(col===3){
-                  Tone.Draw.schedule(function() {
+
+
+        }, time)
+    }
+    if (col === 3) {
+        Tone.Draw.schedule(function() {
             $("#muteFX").parent().parent().toggleClass("InstrumentBox Accent");
 
             $("#muteKick").parent().parent().removeClass("Accent");
@@ -71,19 +73,19 @@ var negras = new Tone.Sequence(function(time, col) {
             $("#muteSnare").parent().parent().addClass("InstrumentBox");
             $("#muteHihat").parent().parent().addClass("InstrumentBox");
 
-          
-       
-}, time)
-        }
-//------------------------------------------------------------------------//
-        
+
+
+        }, time)
+    }
+    //------------------------------------------------------------------------//
+
 }, [0, 1, 2, 3], "4n");
 
 var corcheas = new Tone.Sequence(function(time, col) {
     var column = kickMatrix2.matrix[col];
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
-           
+
             var vel = 1;
             kickSampler.start(kickSelect, time, 0, "32n", 0, vel);
         }
@@ -99,7 +101,7 @@ var tresillos = new Tone.Sequence(function(time, col) {
     var column = kickMatrix3.matrix[col];
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
-            
+
             var vel = 1;
             kickSampler.start(kickSelect, time, 0, "32n", 0, vel);
         }
