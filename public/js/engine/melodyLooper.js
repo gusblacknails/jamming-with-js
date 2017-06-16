@@ -21,8 +21,6 @@ var loop = new Tone.Sequence(function(time, col) {
       AccentFirstBeat(arpegioMatrix3);
       AccentFirstBeat(arpegioMatrix4);
   }
-
-
 }, [0, 1, 2, 3, 4, 5, 6, 7], "4n");
 
 loop.humanize = true;
