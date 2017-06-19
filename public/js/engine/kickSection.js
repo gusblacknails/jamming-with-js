@@ -1,6 +1,6 @@
 //----------sequence for kick section----------------//
 var negras = new Tone.Sequence(function(time, col) {
-
+    var drum = [kickMatrix,kickMatrix2,kickMatrix3,kickMatrix4,snareMatrix,snareMatrix2,snareMatrix3,snareMatrix4,hihatMatrix,hihatMatrix2,hihatMatrix3,hihatMatrix4,fxMatrix,fxMatrix2,fxMatrix3,fxMatrix4]
     var column = kickMatrix.matrix[col];
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
@@ -24,7 +24,10 @@ var negras = new Tone.Sequence(function(time, col) {
             $("#muteHihat").parent().parent().addClass("InstrumentBox");
             $("#muteFx").parent().parent().addClass("InstrumentBox");
 
-
+            
+            drum.forEach(function(mat) {
+            mat.jumpToCol(0)
+    })
 
         }, time)
     }
@@ -41,6 +44,9 @@ var negras = new Tone.Sequence(function(time, col) {
             $("#muteHihat").parent().parent().addClass("InstrumentBox");
             $("#muteFx").parent().parent().addClass("InstrumentBox");
 
+            drum.forEach(function(mat) {
+            mat.jumpToCol(1)
+    })
 
 
 
@@ -58,6 +64,9 @@ var negras = new Tone.Sequence(function(time, col) {
             $("#muteSnare").parent().parent().addClass("InstrumentBox");
             $("#muteFx").parent().parent().addClass("InstrumentBox");
 
+            drum.forEach(function(mat) {
+            mat.jumpToCol(2)
+    })
 
         }, time)
     }
@@ -73,6 +82,9 @@ var negras = new Tone.Sequence(function(time, col) {
             $("#muteSnare").parent().parent().addClass("InstrumentBox");
             $("#muteHihat").parent().parent().addClass("InstrumentBox");
 
+            drum.forEach(function(mat) {
+            mat.jumpToCol(3)
+    })
 
 
         }, time)
