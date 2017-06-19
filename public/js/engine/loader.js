@@ -6,12 +6,12 @@ const context = new (window.AudioContext || window.webkitAudioContext)();
 function checkBrowser(){
   let isChrome = !!window.chrome && !!window.chrome.webstore;
   if(!isChrome){
-    alert("Beat It works best with Google Chrome, some features may not work in other browsers.")
+    alert("This app works best with Google Chrome, some features may not work in other browsers.")
   }
 }
-
+checkBrowser();
 nx.onload = function() {
-    checkBrowser();
+    
  
     nx.colorize("#A6A6A6")
     notesMatrix.row = 7

@@ -2,42 +2,33 @@
 //--------------crossfader buttons-------------//
 // masterMix.onmousedown= function() {
 
+// }
+// masterMix.change= function() {
+
 // var drumOldValue= masterMix.val.L 
 // var melodyOldValue= masterMix.val.R
 // console.log(drumOldValue)
 // console.log(melodyOldValue)
-// drumVol.volume.input.value= crossfaderParser(drumOldValue)
-// if ($('#melodyGroup').hasClass("melodyMute")) {
-// melodyVol.volume.input.value= crossfaderParser(melodyOldValue)}
-// console.log(drumVol.volume.input.value)
-// console.log(melodyVol.volume.input.value)
+// drumVol.output.output.gain.value=crossfaderParser(drumOldValue) 
+// drumVol.output.output.gain.value=crossfaderParser(melodyOldValue)
+// // melodyVol.input.output.toMaster=crossfaderParser(melodyOldValue)
+// console.log(drumVol.input.input.gain.value)
+// console.log(melodyVol.input.input.gain.value)
 
 // }
-masterMix.onmouseup= function() {
 
+$('#masterMix').change(function(){
 var drumOldValue= masterMix.val.L 
 var melodyOldValue= masterMix.val.R
 console.log(drumOldValue)
 console.log(melodyOldValue)
-drumVol.volume.input.value=crossfaderParser(drumOldValue) 
-melodyVol.volume.input.value=crossfaderParser(melodyOldValue)
-console.log(drumVol.volume.input.value)
-console.log(melodyVol.volume.input.value)
+drumVol.output.output.gain.value=crossfaderParser(drumOldValue) 
+drumVol.output.output.gain.value=crossfaderParser(melodyOldValue)
+// melodyVol.input.output.toMaster=crossfaderParser(melodyOldValue)
+console.log(drumVol.input.input.gain.value)
+console.log(melodyVol.input.input.gain.value)
+})
 
-}
-// masterMix.onmouseout= function() {
-
-// var drumOldValue= masterMix.val.L 
-// var melodyOldValue= masterMix.val.R
-// console.log(drumOldValue)
-// console.log(melodyOldValue)
-// drumVol.volume.input.value= crossfaderParser(drumOldValue)
-// if ($('#melodyGroup').hasClass("melodyMute")) {
-// melodyVol.volume.input.value= crossfaderParser(melodyOldValue)}
-// console.log(drumVol.volume.input.value)
-// console.log(melodyVol.volume.input.value)
-
-// }
 
 
 var drumVol = new Tone.Volume();
@@ -52,12 +43,10 @@ const OldMax= 1
 const OldMin= 0
 const OldRange = (OldMax - OldMin) 
 
-const NewMin= -1
-const NewMax= 3.5
+const NewMin= -3.40
+const NewMax= 3.40
 const NewRange = (NewMax - NewMin)
-const NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin
-
-
+var NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin
 
 return NewValue
 
