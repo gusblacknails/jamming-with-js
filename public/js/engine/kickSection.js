@@ -8,7 +8,7 @@ var negras = new Tone.Sequence(function(time, col) {
             kickSampler.start(kickSelect, time, 0, "32n", 0, vel);
         }
     }
-    //---------------BeatDraw inside kick qurter note secction----------------------------//    
+    //---------------BeatDraw inside kick qurter note section----------------------------//    
     if (col === 0) {
         Tone.Draw.schedule(function() {
             if ($("#muteFX").parent().parent().hasClass("Accent")) {

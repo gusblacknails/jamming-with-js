@@ -9,6 +9,7 @@
     <script src="/js/libs/jquery.min.js"></script>
     <script src="/js/libs/nexusUI.min.js"></script>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/crossfader.css">
     <link rel="stylesheet" href="/css/multiDrum.css">
     <link rel="stylesheet" href="/css/melodicreator.css">
 </head>
@@ -304,7 +305,11 @@
                     <div class="muteDiv">
                         <button id="drumGroup" class="drumMute"></button>
                     </div>
-                    <canvas nx="crossfade" id="masterMix" style="width: 181px; height: 37px;"></canvas>
+                     <div class="range">
+            <input id="newCrossfader" type="range"  min="0" max="100" value="50" oninput="crossfade(this)">
+            
+          </div>
+                    <!-- <canvas nx="crossfade" id="masterMix" style="width: 181px; height: 37px;"></canvas> -->
                     <button id="melodyGroup" class="melodyMute"></button>
                 </div>
                 <p>FX</p>

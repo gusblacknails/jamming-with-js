@@ -18,8 +18,8 @@ nx.onload = function() {
     notesMatrix.col = 8
     notesMatrix.colors.accent = "#ffc600"
     notesMatrix.init()
-    masterMix.init()
-    masterMix.colors.accent = "#A6A6A6"
+    // masterMix.init()
+    // masterMix.colors.accent = "#A6A6A6"
 
     var arpegio = [arpegioMatrix, arpegioMatrix2 ,arpegioMatrix3,arpegioMatrix4]
     arpegio.forEach(function(mat) {

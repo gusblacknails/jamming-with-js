@@ -97,21 +97,22 @@ $('#drumGroup').on("click", function() {
 $('#melodyGroup').on("click", function() {
 
     if ($(this).hasClass("melodyMute")) {
-
-
-        console.log("melodyMute pressed")
-            // melodyVol.volume.input.value = -1
-        loop.volume= -60    
         loop.mute = true
-        melodyVol.volume.input.value = -3.5
+        melodyVol.mute=true
+        selectSynth.forEach(function(item) {
+            item.mute = true
+        })
+        console.log("melodyMute pressed")
+   
+       
         $('#melodyGroup').toggleClass("melodyMute melodyMuteOff");
     } else {
-        let melodyOldValue = masterMix.val.R
-
-        console.log("drumMuteOff pressed")
-        loop.mute = false 
-        loop.volume= 0      
-        melodyVol.volume.input.value = crossfaderParser(melodyOldValue)
+        loop.mute = false
+        melodyVol.mute=false
+        selectSynth.forEach(function(item) {
+                item.mute = false
+            })
+           
         $('#melodyGroup').toggleClass("melodyMuteOff melodyMute");
     }
 
