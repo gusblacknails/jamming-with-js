@@ -8,13 +8,14 @@
     <script src="/js/libs/Tone.min.js"></script>
     <script src="/js/libs/jquery.min.js"></script>
     <script src="/js/libs/nexusUI.min.js"></script>
+    
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/css/crossfader.css">
     <link rel="stylesheet" href="/css/multiDrum.css">
     <link rel="stylesheet" href="/css/melodicreator.css">
 </head>
 
-<body>
+<body >
     <div class="Appcontainer">
         <nav class="navbar  navbar-inverse ">
             <div>
@@ -82,6 +83,7 @@
                     <option value="6">C6 to C7</option>
                 </select>
                 <button id="set" class="">Set Scale</button>
+                 <button id="save" class="">Save</button>
             </div>
         </div>
         <div class="controls">
@@ -328,6 +330,7 @@
                     </div>
                 </div>
         </div>
+        <script src="/js/engine/localStorage.js"></script>
         <script src="/js/engine/loader.js"></script>
         <script src="/js/engine/fxController.js"></script>
         <script src="/js/engine/melodySequences.js"></script>
