@@ -8,14 +8,13 @@
     <script src="/js/libs/Tone.min.js"></script>
     <script src="/js/libs/jquery.min.js"></script>
     <script src="/js/libs/nexusUI.min.js"></script>
-    
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/css/crossfader.css">
     <link rel="stylesheet" href="/css/multiDrum.css">
     <link rel="stylesheet" href="/css/melodicreator.css">
 </head>
 
-<body >
+<body>
     <div class="Appcontainer">
         <nav class="navbar  navbar-inverse ">
             <div>
@@ -83,7 +82,7 @@
                     <option value="6">C6 to C7</option>
                 </select>
                 <button id="set" class="">Set Scale</button>
-                 <button id="save" class="">Save</button>
+                <button id="save" class="">Save</button>
             </div>
         </div>
         <div class="controls">
@@ -220,12 +219,10 @@
                 </div>
             </div>
             <div class="controlPanel">
-            <p>Preset Select</p>
-                
-                
-                    <div class="presetOption">
-                        <div class="presetLeft">
-                            <select id="OneNoteSynth" class="">
+                <p>Preset Select</p>
+                <div class="presetOption">
+                    <div class="presetLeft">
+                        <select id="OneNoteSynth" class="">
                             <option value="8" selected>x1 Preset</option>
                             <option value="0">AMSynth</option>
                             <option value="1">DuoSynth</option>
@@ -261,9 +258,9 @@
                             <option value="13">Lectric</option>
                             <option value="14">TreeTrunk</option>
                         </select>
-                        </div>
-                        <div class="presetRight">
-                            <select id="ThreeNoteSynth" class="">
+                    </div>
+                    <div class="presetRight">
+                        <select id="ThreeNoteSynth" class="">
                             <option value="5" selected>x3 Synth</option>
                             <option value="0">AMSynth</option>
                             <option value="1">DuoSynth</option>
@@ -299,18 +296,16 @@
                             <option value="13">Lectric</option>
                             <option value="14">TreeTrunk</option>
                         </select>
-                        </div>
-                        
                     </div>
+                </div>
                 <p>Crossfader</p>
                 <div class="crossfadeDiv">
                     <div class="muteDiv">
                         <button id="drumGroup" class="drumMute"></button>
                     </div>
-                     <div class="range">
-            <input id="newCrossfader" type="range"  min="0" max="100" value="50" oninput="crossfade(this)">
-            
-          </div>
+                    <div class="range">
+                        <input id="newCrossfader" type="range" min="0" max="100" value="50" oninput="crossfade(this)">
+                    </div>
                     <!-- <canvas nx="crossfade" id="masterMix" style="width: 181px; height: 37px;"></canvas> -->
                     <button id="melodyGroup" class="melodyMute"></button>
                 </div>
@@ -329,28 +324,27 @@
                         <p class="fxName">Reverb</p>
                     </div>
                 </div>
-        </div>
-        
-        <script src="/js/engine/loader.js"></script>
-        <script src="/js/engine/localStorage.js"></script>
-        <script src="/js/engine/fxController.js"></script>
-        <script src="/js/engine/melodySequences.js"></script>
-        <script src="/js/engine/melodyLooper.js"></script>
-        <script src="/js/engine/noteSelector.js"></script>
-        <script src="/js/engine/synthSelector.js"></script>
-        <script src="/js/engine/crossfader.js"></script>
-        <script src="/js/engine/kickSection.js"></script>
-        <script src="/js/engine/snareSection.js"></script>
-        <script src="/js/engine/hihatSection.js"></script>
-        <script src="/js/engine/synths.js"></script>
-        <script src="/js/engine/sampler.js"></script>
-        <script src="/js/engine/fxSection.js"></script>
-        <script src="/js/engine/sampleSelector.js"></script>
-        <script src="/js/engine/muteButtons.js"></script>
-        <script src="/js/engine/playStopButtons.js"></script>
-        <script src="/js/engine/bpm.js"></script>
-        <script src="/js/engine/setScale.js"></script>
-        <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+            </div>
+            <script src="/js/engine/loader.js"></script>
+            <script src="/js/engine/localStorage.js"></script>
+            <script src="/js/engine/fxController.js"></script>
+            <script src="/js/engine/melodySequences.js"></script>
+            <script src="/js/engine/melodyLooper.js"></script>
+            <script src="/js/engine/noteSelector.js"></script>
+            <script src="/js/engine/synthSelector.js"></script>
+            <script src="/js/engine/crossfader.js"></script>
+            <script src="/js/engine/kickSection.js"></script>
+            <script src="/js/engine/snareSection.js"></script>
+            <script src="/js/engine/hihatSection.js"></script>
+            <script src="/js/engine/synths.js"></script>
+            <script src="/js/engine/sampler.js"></script>
+            <script src="/js/engine/fxSection.js"></script>
+            <script src="/js/engine/sampleSelector.js"></script>
+            <script src="/js/engine/muteButtons.js"></script>
+            <script src="/js/engine/playStopButtons.js"></script>
+            <script src="/js/engine/bpm.js"></script>
+            <script src="/js/engine/setScale.js"></script>
+            <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 </body>
 
 </html>

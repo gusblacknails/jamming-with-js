@@ -1,6 +1,13 @@
 
 
 $('#save').on("click", function(){
+let melody_arp = notesMatrix.matrix
+console.log(melody_arp)
+let four_arp = arpegioMatrix.matrix
+console.log(four_arp)
+let eight_arp = arpegioMatrix2.matrix
+let triplet_arp = arpegioMatrix3.matrix
+let sixteen_arp = arpegioMatrix4.matrix
 
 let four_kick = kickMatrix.matrix
 let eight_kick = kickMatrix2.matrix
@@ -24,6 +31,17 @@ let sixteen_fx = fxMatrix4.matrix
 
 // localStorage.clear()
 
+
+
+
+
+
+
+localStorage.setItem("melody_arp", JSON.stringify(melody_arp));
+localStorage.setItem("four_arp", four_arp);
+localStorage.setItem("eight_arp", eight_arp);
+localStorage.setItem("triplet_arp", triplet_arp);
+localStorage.setItem("sixteen_arp", sixteen_arp);
 localStorage.setItem("four_kick", four_kick);
 localStorage.setItem("eight_kick", eight_kick);
 localStorage.setItem("triplet_kick", triplet_kick);
