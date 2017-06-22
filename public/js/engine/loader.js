@@ -153,25 +153,25 @@ nx.onload = function() {
         }
     }
     if (parsed_four_snare !== undefined || parsed_four_snare !== null || parsed_four_snare != undefined || parsed_four_snare != null) {
-        for (var i = 0; i <= parsed_four_kick.length - 1; i++) {
+        for (var i = 0; i <= parsed_four_snare.length - 1; i++) {
             snareMatrix.matrix[i][0] = parseInt(parsed_four_snare[i])
             snareMatrix.draw()
         }
     }
     if (parsed_eight_snare !== undefined || parsed_eight_snare !== null || parsed_eight_snare != undefined || parsed_eight_snare != null) {
-        for (var i = 0; i <= parsed_four_kick.length - 1; i++) {
+        for (var i = 0; i <= parsed_eight_snare.length - 1; i++) {
             snareMatrix2.matrix[i][0] = parseInt(parsed_eight_snare[i])
             snareMatrix2.draw()
         }
     }
     if (parsed_triplet_snare !== undefined || parsed_triplet_snare !== null || parsed_triplet_snare != undefined || parsed_triplet_snare != null) {
-        for (var i = 0; i <= parsed_four_kick.length - 1; i++) {
+        for (var i = 0; i <= parsed_triplet_snare.length - 1; i++) {
             snareMatrix3.matrix[i][0] = parseInt(parsed_triplet_snare[i])
             snareMatrix3.draw()
         }
     }
     if (parsed_sixteen_snare !== undefined || parsed_sixteen_snare !== null || parsed_sixteen_snare != undefined || parsed_sixteen_snare != null) {
-        for (var i = 0; i <= parsed_four_kick.length - 1; i++) {
+        for (var i = 0; i <= parsed_sixteen_snare.length - 1; i++) {
             snareMatrix4.matrix[i][0] = parseInt(parsed_sixteen_snare[i])
             snareMatrix4.draw()
         }
