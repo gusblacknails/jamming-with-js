@@ -1,5 +1,4 @@
 //audio context for web and mobile
-
 const context = new(window.AudioContext || window.webkitAudioContext)();
 
 //check the browser
@@ -34,7 +33,7 @@ nx.onload = function() {
         mat.colors.accent = "#ffc600"
     })
 
-
+    
     let melody_arp =JSON.parse(localStorage.getItem("melody_arp"));
     let four_arp =localStorage.getItem("four_arp");
     let eight_arp =localStorage.getItem("eight_arp");
@@ -57,15 +56,12 @@ nx.onload = function() {
     let triplet_fx = localStorage.getItem("triplet_fx");
     let sixteen_fx = localStorage.getItem("sixteen_fx");
 
-
-    console.log(melody_arp)
     let maped_melody_arp = melody_arp.map(function(x){
         parseInt(x)
 
         x=x || 0
         return x
     })
-    console.log(maped_melody_arp)
     let parsed_four_arp = four_arp.split(",")
     let parsed_eight_arp = eight_arp.split(",")
     let parsed_triplet_arp = triplet_arp.split(",")
@@ -92,13 +88,10 @@ nx.onload = function() {
         
             
             for (var i = 0; i <= maped_melody_arp.length - 1; i++) {
-                
                 maped_melody_arp.forEach((parsed_melody_arp,index)=>{
-                // console.error( parseInt( parsed_melody_arp[i][index]))
                 if(maped_melody_arp[i][index]){
                     notesMatrix.matrix[i][index] = parseInt( maped_melody_arp[i][index])
                     notesMatrix.draw()}
-                
                 })
         }
         

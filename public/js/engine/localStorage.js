@@ -1,10 +1,14 @@
 
 
 $('#save').on("click", function(){
+
+let chosenNote = $("#root_note").val();
+let chosenScale = $("#scale").val();
+let octave = $("#octave").val();
+
 let melody_arp = notesMatrix.matrix
-console.log(melody_arp)
+
 let four_arp = arpegioMatrix.matrix
-console.log(four_arp)
 let eight_arp = arpegioMatrix2.matrix
 let triplet_arp = arpegioMatrix3.matrix
 let sixteen_arp = arpegioMatrix4.matrix
@@ -30,12 +34,9 @@ let triplet_fx = fxMatrix3.matrix
 let sixteen_fx = fxMatrix4.matrix
 
 // localStorage.clear()
-
-
-
-
-
-
+localStorage.setItem("chosenNote", chosenNote);
+localStorage.setItem("chosenScale", chosenScale);
+localStorage.setItem("octave", octave);
 
 localStorage.setItem("melody_arp", JSON.stringify(melody_arp));
 localStorage.setItem("four_arp", four_arp);
