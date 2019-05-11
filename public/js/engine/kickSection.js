@@ -5,10 +5,10 @@ var negras = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            kickSampler.start(kickSelect, time, 0, "32n", 0, vel);
+            kickSelect.start();
         }
     }
-    //---------------BeatDraw inside kick qurter note section----------------------------//    
+    //---------------BeatDraw inside kick qurter note section----------------------------//
     if (col === 0) {
         Tone.Draw.schedule(function() {
             if ($("#muteFX").parent().parent().hasClass("Accent")) {
@@ -24,7 +24,7 @@ var negras = new Tone.Sequence(function(time, col) {
             $("#muteHihat").parent().parent().addClass("InstrumentBox");
             $("#muteFx").parent().parent().addClass("InstrumentBox");
 
-            
+
             drum.forEach(function(mat) {
             mat.jumpToCol(0)
     })
@@ -99,7 +99,7 @@ var corcheas = new Tone.Sequence(function(time, col) {
         if (column[i]) {
 
             var vel = 1;
-            kickSampler.start(kickSelect, time, 0, "32n", 0, vel);
+            kickSelect.start();
         }
     }
 
@@ -115,7 +115,7 @@ var tresillos = new Tone.Sequence(function(time, col) {
         if (column[i]) {
 
             var vel = 1;
-            kickSampler.start(kickSelect, time, 0, "32n", 0, vel);
+            kickSelect.start();
         }
     }
 
@@ -132,7 +132,7 @@ var semicorcheas = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            kickSampler.start(kickSelect, time, 0, "32n", 0, vel);
+            kickSelect.start();
         }
     }
 

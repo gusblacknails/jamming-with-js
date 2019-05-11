@@ -1,5 +1,5 @@
-//audio context for web and mobile
-const context = new(window.AudioContext || window.webkitAudioContext)();
+
+
 
 //check the browser
 function checkBrowser() {
@@ -10,7 +10,8 @@ function checkBrowser() {
 }
 checkBrowser();
 nx.onload = function() {
-
+    //audio context for web and mobile
+    const context = new(window.AudioContext || window.webkitAudioContext)();
 
     nx.colorize("#A6A6A6")
     notesMatrix.row = 7
@@ -33,7 +34,7 @@ nx.onload = function() {
         mat.colors.accent = "#ffc600"
     })
 
-    
+
     let melody_arp =JSON.parse(localStorage.getItem("melody_arp"));
     let four_arp =localStorage.getItem("four_arp");
     let eight_arp =localStorage.getItem("eight_arp");
@@ -85,8 +86,8 @@ nx.onload = function() {
 
 
     if ( maped_melody_arp !== NaN ||maped_melody_arp !== undefined || maped_melody_arp !== null || maped_melody_arp != undefined || parsed_melody_arp != null) {
-        
-            
+
+
             for (var i = 0; i <= maped_melody_arp.length - 1; i++) {
                 maped_melody_arp.forEach((parsed_melody_arp,index)=>{
                 if(maped_melody_arp[i][index]){
@@ -94,7 +95,7 @@ nx.onload = function() {
                     notesMatrix.draw()}
                 })
         }
-        
+
     }
     if (parsed_four_arp !== undefined || parsed_four_arp !== null || parsed_four_arp != undefined || parsed_four_arp != null) {
         for (var i = 0; i <= parsed_four_arp.length - 1; i++) {

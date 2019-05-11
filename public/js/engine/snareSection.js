@@ -4,10 +4,10 @@ var negrasSnare = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            snareSampler.start(snareSelect, time, 0, "32n", 0, vel);
+            snareSelect.start();
         }
     }
-        
+
 }, [0, 1, 2, 3], "4n");
 
 var corcheasSnare = new Tone.Sequence(function(time, col) {
@@ -15,7 +15,7 @@ var corcheasSnare = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            snareSampler.start(snareSelect, time, 0, "32n", 0, vel);
+            snareSelect.start();
         }
     }
 
@@ -30,7 +30,7 @@ var tresillosSnare = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            snareSampler.start(snareSelect, time, 0, "32n", 0, vel);
+            snareSelect.start();
         }
     }
 
@@ -47,7 +47,7 @@ var semicorcheasSnare = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            snareSampler.start(snareSelect, time, 0, "32n", 0, vel);
+            snareSelect.start();
         }
     }
 

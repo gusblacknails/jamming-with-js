@@ -25,7 +25,7 @@ var compressor = new Tone.Compressor({
   "ratio" : 6,
   "attack" : 0.3,
   "release" : 0.1
-}).toMaster(); 
+}).toMaster();
 
 // var distoVolume = new Tone.Volume();
 // distoVolume.volume= -6

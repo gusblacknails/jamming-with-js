@@ -4,10 +4,10 @@ var negrasHihat = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            hihatSampler.start(hihatSelect, time, 0, "32n", 0, vel);
+            hihatSelect.start();
         }
     }
-        
+
 
 }, [0, 1, 2, 3], "4n");
 
@@ -16,7 +16,7 @@ var corcheasHihat = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            hihatSampler.start(hihatSelect, time, 0, "32n", 0, vel);
+            hihatSelect.start();
         }
     }
 
@@ -31,7 +31,7 @@ var tresillosHihat = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            hihatSampler.start(hihatSelect, time, 0, "32n", 0, vel);
+            hihatSelect.start();
         }
     }
 
@@ -48,7 +48,7 @@ var semicorcheasHihat = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            hihatSampler.start(hihatSelect, time, 0, "32n", 0, vel);
+            hihatSelect.start();
         }
     }
 
