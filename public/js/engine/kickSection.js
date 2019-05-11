@@ -5,7 +5,7 @@ var negras = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            kickSelect.start();
+            kickSelect.triggerAttack("C3",time)
         }
     }
     //---------------BeatDraw inside kick qurter note section----------------------------//
@@ -99,7 +99,7 @@ var corcheas = new Tone.Sequence(function(time, col) {
         if (column[i]) {
 
             var vel = 1;
-            kickSelect.start();
+            kickSelect.triggerAttack("C3",time)
         }
     }
 
@@ -115,7 +115,7 @@ var tresillos = new Tone.Sequence(function(time, col) {
         if (column[i]) {
 
             var vel = 1
-            kickSelect.start()
+            kickSelect.triggerAttack("C3",time)
 
         }
     }
@@ -132,11 +132,27 @@ var semicorcheas = new Tone.Sequence(function(time, col) {
     var column = kickMatrix4.matrix[col];
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
-            var vel = 1;
-            
-            kickSelect.start();
+          	//sampler will repitch the closest sample
+            kickSelect.triggerAttack("C3",time)
+            }
         }
-    }
+
+
+}, [
+    [0, 0, 0, 0],
+    [1, 1, 1, 1],
+    [2, 2, 2, 2],
+    [3, 3, 3, 3]
+], "4n");
+var semicorcheas = new Tone.Sequence(function(time, col) {
+    var column = kickMatrix4.matrix[col];
+    for (var i = 0; i < 4; i++) {
+        if (column[i]) {
+          	//sampler will repitch the closest sample
+            	kickSelect.triggerAttack("C3",time);
+            }
+        }
+
 
 }, [
     [0, 0, 0, 0],

@@ -4,7 +4,7 @@ var negrasHihat = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            hihatSelect.start();
+            hihatSelect.start(time);
         }
     }
 
@@ -16,7 +16,7 @@ var corcheasHihat = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            hihatSelect.start();
+            hihatSelect.start(time);
         }
     }
 
@@ -31,7 +31,7 @@ var tresillosHihat = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            hihatSelect.start();
+            hihatSelect.start(time);
         }
     }
 
@@ -48,7 +48,7 @@ var semicorcheasHihat = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            hihatSelect.start();
+            hihatSelect.start(time);
         }
     }
 

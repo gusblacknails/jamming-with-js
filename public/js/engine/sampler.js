@@ -1,7 +1,10 @@
 
 
 //-----------One Player for each drum sound---------------//
-var k1 = new Tone.Player("./samples/kickPunch.mp3", {fadeOut: 0.1}).toMaster()
+var k1 = new Tone.Sampler({
+	"C3" : "./samples/kickPunch.mp3"
+}).toMaster()
+// var k1 = new Tone.Player("./samples/kickPunch.mp3", {fadeOut: 0.1}).toMaster()
 var k2 = new Tone.Player("./samples/kickRadiant.mp3", {fadeOut: 0.1}).toMaster()
 var k3 = new Tone.Player("./samples/kickFutura.mp3", {fadeOut: 0.1}).toMaster()
 var sS = new Tone.Player("./samples/snareSeismic.mp3", {fadeOut: 0.1}).toMaster()

@@ -5,7 +5,7 @@ var negrasFX = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            fxSelect.start();
+            fxSelect.start(time);
         }
     }
 
@@ -17,7 +17,7 @@ var corcheasFX = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            fxSelect.start();
+            fxSelect.start(time);
         }
     }
 
@@ -32,7 +32,7 @@ var tresillosFX = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            fxSelect.start();
+            fxSelect.start(time);
         }
     }
 
@@ -49,7 +49,7 @@ var semicorcheasFX = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
-            fxSelect.start();
+            fxSelect.start(time);
         }
     }
 
