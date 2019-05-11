@@ -114,8 +114,9 @@ var tresillos = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
 
-            var vel = 1;
-            kickSelect.start();
+            var vel = 1
+            kickSelect.start()
+
         }
     }
 
@@ -132,6 +133,7 @@ var semicorcheas = new Tone.Sequence(function(time, col) {
     for (var i = 0; i < 4; i++) {
         if (column[i]) {
             var vel = 1;
+            
             kickSelect.start();
         }
     }

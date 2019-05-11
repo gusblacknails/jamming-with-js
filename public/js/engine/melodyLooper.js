@@ -8,7 +8,7 @@ var loop = new Tone.Sequence(function(time, col) {
             var arpegio = [notesMatrix,arpegioMatrix, arpegioMatrix2 ,arpegioMatrix3,arpegioMatrix4]
             arpegio.forEach(function(mat) {
             mat.jumpToCol(0)
-  
+
     })
 
         }, time)
@@ -18,7 +18,7 @@ var loop = new Tone.Sequence(function(time, col) {
             var arpegio = [notesMatrix,arpegioMatrix, arpegioMatrix2 ,arpegioMatrix3,arpegioMatrix4]
             arpegio.forEach(function(mat) {
             mat.jumpToCol(1)
-  
+
     })
 
         }, time)
@@ -28,7 +28,7 @@ var loop = new Tone.Sequence(function(time, col) {
             var arpegio = [notesMatrix,arpegioMatrix, arpegioMatrix2 ,arpegioMatrix3,arpegioMatrix4]
             arpegio.forEach(function(mat) {
             mat.jumpToCol(2)
-  
+
     })
 
         }, time)
@@ -38,7 +38,7 @@ var loop = new Tone.Sequence(function(time, col) {
             var arpegio = [notesMatrix,arpegioMatrix, arpegioMatrix2 ,arpegioMatrix3,arpegioMatrix4]
             arpegio.forEach(function(mat) {
             mat.jumpToCol(3)
-  
+
     })
 
         }, time)
@@ -48,7 +48,7 @@ var loop = new Tone.Sequence(function(time, col) {
             var arpegio = [notesMatrix,arpegioMatrix, arpegioMatrix2 ,arpegioMatrix3,arpegioMatrix4]
             arpegio.forEach(function(mat) {
             mat.jumpToCol(4)
-  
+
     })
 
         }, time)
@@ -58,7 +58,7 @@ var loop = new Tone.Sequence(function(time, col) {
             var arpegio = [notesMatrix,arpegioMatrix, arpegioMatrix2 ,arpegioMatrix3,arpegioMatrix4]
             arpegio.forEach(function(mat) {
             mat.jumpToCol(5)
-  
+
     })
 
         }, time)
@@ -68,7 +68,7 @@ var loop = new Tone.Sequence(function(time, col) {
             var arpegio = [notesMatrix,arpegioMatrix, arpegioMatrix2 ,arpegioMatrix3,arpegioMatrix4]
             arpegio.forEach(function(mat) {
             mat.jumpToCol(6)
-  
+
     })
 
         }, time)
@@ -78,7 +78,7 @@ var loop = new Tone.Sequence(function(time, col) {
             var arpegio = [notesMatrix,arpegioMatrix, arpegioMatrix2 ,arpegioMatrix3,arpegioMatrix4]
             arpegio.forEach(function(mat) {
             mat.jumpToCol(7)
-  
+
     })
 
         }, time)
@@ -91,12 +91,4 @@ var loop = new Tone.Sequence(function(time, col) {
 
 }, [0, 1, 2, 3, 4, 5, 6, 7], "4n");
 
-loop.humanize = true;
-
-    
-
-
-
-
-
-
+// loop.humanize = true;
