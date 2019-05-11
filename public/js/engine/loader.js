@@ -2,13 +2,13 @@
 
 
 //check the browser
-function checkBrowser() {
-    let isChrome = !!window.chrome && !!window.chrome.webstore;
-    if (!isChrome) {
-        alert("This app works best with Google Chrome, some features may not work in other browsers.")
-    }
-}
-checkBrowser();
+// function checkBrowser() {
+//     let isChrome = !!window.chrome && !!window.chrome.webstore;
+//     if (!isChrome) {
+//         alert("This app works best with Google Chrome, some features may not work in other browsers.")
+//     }
+// }
+// checkBrowser();
 nx.onload = function() {
     //audio context for web and mobile
     const context = new(window.AudioContext || window.webkitAudioContext)();

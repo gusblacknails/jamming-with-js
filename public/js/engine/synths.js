@@ -250,4 +250,3 @@ var selected_1x_Synth = selectSynth[0]
 var selected_2x_Synth = selectSynth[0]
 var selected_3x_Synth = selectSynth[0]
 var selected_4x_Synth = selectSynth[0]
-

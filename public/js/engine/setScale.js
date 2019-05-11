@@ -4,9 +4,9 @@
 var escala = []
 var twoScales = []
 var threeScales = []
-$( window ).on( "load", function() { 
+$( window ).on( "load", function() {
 
-    
+
     var chosenNote = localStorage.getItem("chosenNote") || $("#root_note").val();
     var chosenScale = localStorage.getItem("chosenScale") || $("#scale").val();
     var octave =localStorage.getItem("octave") || $("#octave").val();
@@ -16,7 +16,7 @@ $( window ).on( "load", function() {
     escala3 = Tonal.scale.get(chosenScale, chosenNote + (parseInt(octave) + 2))
     twoScales = escala.concat(escala2)
     threeScales = twoScales.concat(escala3)
-    console.log(threeScales)
+
 
     //setting the notes on the boxes
     $("#1note").text(`${twoScales[0]}`)
@@ -27,7 +27,7 @@ $( window ).on( "load", function() {
     $("#6note").text(`${twoScales[5]}`)
     $("#7note").text(`${twoScales[6]}`)
 })
-    
+
 //------------set scale on click "set scale" button------------------//
 
 $("#set").on("click", () => {
@@ -42,7 +42,6 @@ $("#set").on("click", () => {
     escala3 = Tonal.scale.get(chosenScale, chosenNote + (parseInt(octave) + 2))
     twoScales = escala.concat(escala2)
     threeScales = twoScales.concat(escala3)
-    console.log(threeScales)
 
     //setting the notes on the boxes
     $("#1note").text(`${twoScales[0]}`)
