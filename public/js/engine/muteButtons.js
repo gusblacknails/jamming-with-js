@@ -151,3 +151,9 @@ $('#fx3').on("click", function() {
     }
 
 });
+
+//Apeggio groups toggle mute
+document.getElementById("x4_parent").addEventListener("click", function() {
+
+
+});

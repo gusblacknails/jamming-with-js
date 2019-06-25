@@ -3,7 +3,7 @@ function oneNoteSequence(SelectSynth,arpegioMatrix, threeScales, time, col) {
     var column = arpegioMatrix.matrix[col];
     for (var i = 0; i < column.length; i++) {
         if (column[i]) {
-         SelectSynth.triggerAttackRelease(threeScales, '8n',time)   
+         SelectSynth.triggerAttackRelease(threeScales, '8n',time)
         }
     }
    }
@@ -15,17 +15,17 @@ function twoNoteSequence(SelectSynth,arpegioMatrix2, threeScales, time, col) {
     var column = arpegioMatrix2.matrix[col];
     for (var i = 0; i < column.length; i++) {
         if (column[i]) {
-         SelectSynth.triggerAttackRelease(note, '8n',time) 
+         SelectSynth.triggerAttackRelease(note, '8n',time)
         }
-    }     
+    }
 
 }, [threeScales],"8n")
-    
+
     twoNoteSeq.loop = 2;
     twoNoteSeq.loopEnd = "2m";
     twoNoteSeq.humanize = true;
     twoNoteSeq.start()
-    
+
    }
 
 function threeNoteSequence(SelectSynth,arpegioMatrix3, threeScales, time, col) {
@@ -35,18 +35,18 @@ function threeNoteSequence(SelectSynth,arpegioMatrix3, threeScales, time, col) {
     var column = arpegioMatrix3.matrix[col];
     for (var i = 0; i < column.length; i++) {
         if (column[i]) {
-         SelectSynth.triggerAttackRelease(note, '8n',time) 
+         SelectSynth.triggerAttackRelease(note, '8n',time)
         }
-    } 
-   
+    }
+
 }, [threeScales],"8t")
-    
+
     threeNoteSeq.loop = 2;
     threeNoteSeq.loopEnd = "2m";
     threeNoteSeq.humanize = true;
     threeNoteSeq.start()
-    
-    
+
+
    }
 
 
@@ -57,10 +57,10 @@ function fourNoteSequence(SelectSynth,arpegioMatrix4, threeScales, time, col) {
     var column = arpegioMatrix4.matrix[col];
     for (var i = 0; i < column.length; i++) {
         if (column[i]) {
-         SelectSynth.triggerAttackRelease(note, '8n',time) 
+         SelectSynth.triggerAttackRelease(note, '8n',time)
         }
-    } 
-   
+    }
+
 }, [threeScales],"8n")
     
     fourNoteSeq.loop = 2;
@@ -68,4 +68,3 @@ function fourNoteSequence(SelectSynth,arpegioMatrix4, threeScales, time, col) {
     fourNoteSeq.humanize = true;
     fourNoteSeq.start()
 }
-
