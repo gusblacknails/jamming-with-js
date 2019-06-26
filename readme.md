@@ -22,5 +22,7 @@ The music icons are from **The Noun Project**
 
 You can play with **Beat It** at https://beat-it-music-machine.herokuapp.com/
 ![sample web image](https://github.com/gusblacknails/Jamming-with-JS/blob/master/public/images/beatIt.png)
+
+Check out some demos at https://www.youtube.com/channel/UCkJFK78qUJwzDx78wMyBBTQ
  
 
