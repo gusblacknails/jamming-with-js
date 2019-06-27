@@ -8,7 +8,15 @@ nav {
     margin-bottom: 0;
     padding: 7px 0 7px 0;
 }
-
+.loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url('http://www.downgraf.com/wp-content/uploads/2014/09/01-progress.gif?e44397') 50% 50% no-repeat rgb(249,249,249);
+}
 
 
 .divControl {
