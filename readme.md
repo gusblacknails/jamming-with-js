@@ -8,7 +8,7 @@ The drum machine is made for being able to do complex rhythms quickly.
 It has four rows. The first one is quarter notes, the second one is for the eight notes, the third one are triplets and the last one is sixteen notes.
 Also has three different samples and a mute button for each drum element.
 
-The melody step sequencer has two parts. A note selector which is connected to Tonal.js and let you play some different scales, including exotic ones and an arpeggio selector which is made of four different rows.
+The melody step sequencer has two parts. A note selector which is connected to Tonal.js and let you play some different scales, including exotic ones and an arpeggio selector which is made of four rows.
 The x1 row plays only one note(the one that is selected in the note selector), the x2 row plays the first and the third note of the arpeggio (having as root the note pressed in the note selector) in eight notes pattern.
 The x3 plays the first, the third and the fifth in triplet pattern and the x4 row plays the whole arpeggio including the seventh note in sixteen notes.
 
