@@ -1,17 +1,1 @@
-{
-  "name": "beat-it-music-machine",
-  "version": "1.0.0",
-  "description": "Aplicación Node.js para Heroku",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "engines": {
-    "node": "20.x",
-    "npm": "9.x"
-  },
-  "dependencies": {
-    "express": "^4.18.2"
-  }
-}
 
